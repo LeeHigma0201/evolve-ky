@@ -13,7 +13,7 @@ Open `index.html` in any browser — single self-contained file, no build. (For 
 
 **Controls:** `→` / `Space` next · `←` back · `N` speaker notes · on-screen `‹ ›` buttons always work (even while typing in the calculator).
 
-## The deck (11 slides)
+## The deck (12 slides)
 
 1. Title
 2. Who I am
@@ -25,7 +25,11 @@ Open `index.html` in any browser — single self-contained file, no build. (For 
 8. **This is ChargeRight.** The app does that exact calc from a photo of your panel.
 9. In plain terms (like adding an electric range)
 10. How to know yours (free check today · evchargeright.com)
-11. Before you go (tell a friend)
+11. **Tell somebody** — the one repeatable share line, big and quotable.
+12. **Pass it on** — hero close ("keep your buddy's $4,000") + **QR code** to evchargeright.com and a prompt to text it to someone in the room.
+
+### Business objective: word-of-mouth
+The close is built to turn the room into advocates (Jason's chosen goal). The three mechanics of shareability are baked in: a **wow** (live "you'd save $4k"), a **repeatable line** (slide 11), and a **friction-free way to share now** (QR on slide 12). `qr.svg` encodes https://evchargeright.com (generated with segno, self-contained, offline-safe).
 
 ## The live calculator — accuracy
 

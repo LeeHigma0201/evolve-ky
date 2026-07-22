@@ -77,6 +77,16 @@
     .fld input,.fld select,.tog,.out{background:#14120f}
   }
   @media (max-width:820px){ .calc{grid-template-columns:1fr} }
+  /* share-line quote */
+  .quote{margin:clamp(16px,2.6vw,26px) 0 0;font-weight:800;line-height:1.24;letter-spacing:-.01em;
+    font-size:clamp(21px,3.2vw,36px);max-width:24ch;color:var(--ink);border-left:5px solid var(--accent);padding-left:clamp(14px,2vw,22px)}
+  /* closing slide with QR */
+  .close{display:grid;grid-template-columns:1fr auto;gap:clamp(20px,4vw,52px);align-items:center;width:100%}
+  .close h2{margin-bottom:14px}
+  .qr{display:flex;flex-direction:column;align-items:center;gap:10px}
+  .qr img{width:clamp(120px,20vw,180px);height:auto;display:block}
+  .qr span{font-family:var(--mono);font-size:12px;color:var(--muted);text-align:center;max-width:20ch}
+  @media (max-width:820px){ .close{grid-template-columns:1fr} }
 </style>
 </head>
 <body>
@@ -120,9 +130,13 @@ const slides = [
   { label:"How to know yours", head:"Don&rsquo;t guess. And don&rsquo;t just trust the quote.",
     body:"See me here today and I&rsquo;ll check yours for free. Or go to evchargeright.com and it does the math for you.",
     note:"CTA. (Fixed: 'tonight' → 'here today' — it's a 2:30–4:30 PM Sunday meeting.) Offer the free live check to anyone in the room." },
-  { label:"Before you go", head:"Don&rsquo;t pay thousands for something you don&rsquo;t need.",
-    body:"And tell the friend who&rsquo;s about to.", url:"evchargeright.com",
-    note:"Close on the referral — word of mouth in this room is the growth engine." },
+  { label:"Tell somebody", head:"Here&rsquo;s all you have to say:",
+    quote:"Before you pay thousands to upgrade your panel for an EV charger, check evchargeright.com &mdash; a master electrician built it, and 4 out of 5 people don&rsquo;t even need the upgrade.",
+    note:"Hand them the line. People share what they can easily re-say. Say it slow, maybe twice — this is the sentence you want walking out the door." },
+  { type:"close", label:"Pass it on", head:"Be the reason your buddy keeps his $4,000.",
+    body:"Somebody you know is about to get quoted thousands for an upgrade they don&rsquo;t need. Send them here first. That&rsquo;s the whole favor.",
+    url:"evchargeright.com",
+    note:"The ask. Scan the code, or text it to someone about to buy an EV — do it right now, in the room. Being the friend who saved somebody four grand is the whole reason people share this." },
 ];
 
 const stage=document.getElementById('stage'), bar=document.getElementById('bar');
@@ -201,6 +215,13 @@ function render(){
   const s=slides[i]; let inner='';
   if(s.type==='calc'){
     inner += `<p class="label">${s.label}</p>` + calcMarkup();
+  } else if(s.type==='close'){
+    inner += `<p class="label">${s.label}</p><div class="close"><div><h2>${s.head}</h2>`+
+             `<p class="body"><span class="lead">${s.body}</span></p>`+
+             `<p class="byline"><span class="url">${s.url}</span></p></div>`+
+             `<div class="qr"><img src="qr.svg" alt="QR code to evchargeright.com"><span>Scan it &mdash; or text it to someone about to buy an EV</span></div></div>`;
+  } else if(s.quote){
+    inner += `<p class="label">${s.label}</p><h2>${s.head}</h2><p class="quote">&ldquo;${s.quote}&rdquo;</p>`;
   } else if(s.title){
     inner += `<p class="kicker">${s.kicker}</p><h1>${s.head}</h1><p class="body lead">${s.body}</p>`;
     if(s.byline) inner += `<p class="byline">${s.byline}</p>`;
