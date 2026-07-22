@@ -9,7 +9,11 @@ Jason Walls' talk deck for the **Evolve KY** monthly meeting.
 
 ## Design
 
-ChargeRight-branded, built from the production design system: **DM Sans + Space Mono**, electric blue `#2563EB` + deep navy `#050D1A` + success green, the signature blue→green gradient, the house-and-bolt logo (inline SVG), a circuit-trace background motif, and the live calculator rendered as a **capacity gauge** (blue home-load + green EV segments over green/amber/red zones with a service-limit marker). Dark theme, high-contrast for projection.
+Light, editorial, human — not a dark SaaS deck. Built from the ChargeRight design system (**DM Sans + Space Mono**, ChargeRight blue + success green, the house-and-bolt logo), on a clean warm-white card with a subtle dotted "worksheet" ground. Emphasis via **highlighter** marks, not gradients. The live calculator is a plain-language capacity gauge ("how full is your panel — really?").
+
+### Ordered around comprehension + persuasion psychology
+- **Authority** (master electrician) → **Anchoring + loss aversion** ($3–5k about to leave your pocket) → **Social proof** (4 of 5 houses) → **Reciprocity/honesty** (who *does* need it) → **Contrast** (the lazy upsell) → **The "aha" mental model** (your panel is barely working; the EV charges at night) → **Proof** (the live gauge) → **Effort reduction** (a photo does the math) → **CTA** → **Share line** → **Social-currency close**.
+- The gauge verdict restates the payoff in **dollars kept**, tying abstract amps to money.
 
 ## Run it
 
