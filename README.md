@@ -7,6 +7,10 @@ Jason Walls' talk deck for the **Evolve KY** monthly meeting.
 - **Audience:** EV owners & the EV-curious (not electricians)
 - **Angle:** You probably *don't* need a $3–5k panel upgrade to charge at home — and ChargeRight proves it with the real NEC math.
 
+## Design
+
+ChargeRight-branded, built from the production design system: **DM Sans + Space Mono**, electric blue `#2563EB` + deep navy `#050D1A` + success green, the signature blue→green gradient, the house-and-bolt logo (inline SVG), a circuit-trace background motif, and the live calculator rendered as a **capacity gauge** (blue home-load + green EV segments over green/amber/red zones with a service-limit marker). Dark theme, high-contrast for projection.
+
 ## Run it
 
 Open `index.html` in any browser — single self-contained file, no build. (For the **live calculator** to run, open it over http, not as a `file://` snapshot: `python3 -m http.server` in this folder, or just use the deployed Vercel URL.)
