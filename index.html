@@ -112,6 +112,23 @@
   .tog{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:700;color:var(--ink);background:var(--paper);border:1px solid var(--line2);border-radius:20px;padding:6px 12px;cursor:pointer}
   .tog input{accent-color:var(--blue);width:15px;height:15px}
   .tog:has(input:checked){border-color:var(--blue);background:var(--blue-wash)}
+  /* ===== "this panel is full / it's barely working" ===== */
+  .pnl{display:grid;grid-template-columns:auto 1fr;gap:clamp(18px,3vw,38px);align-items:center;margin-top:clamp(10px,1.6vw,18px)}
+  .pbox{background:#EFEDE6;border:2px solid var(--line2);border-radius:10px;padding:10px 9px 8px;width:clamp(150px,19vw,208px)}
+  .pbox-h{font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--soft);text-align:center;margin-bottom:7px}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:3px 5px}
+  .brk{display:block;background:var(--card);border:1px solid var(--line2);border-radius:2px;
+    font-family:var(--mono);font-size:8.5px;font-weight:700;color:var(--soft);text-align:center;padding:2.5px 0}
+  .pbox-f{font-family:var(--mono);font-size:9px;color:var(--red);text-align:center;margin-top:7px;font-weight:700}
+  .pbars{display:flex;flex-direction:column;gap:clamp(7px,1.1vw,11px)}
+  .pb{display:grid;grid-template-columns:clamp(96px,13vw,150px) 1fr auto;gap:10px;align-items:center}
+  .pb-l{font-family:var(--mono);font-size:clamp(9.5px,1.15vw,12px);color:var(--soft);line-height:1.25}
+  .pb-t{position:relative;height:clamp(17px,2.3vw,25px);background:#EEEBE2;border:1px solid var(--line2);border-radius:5px;overflow:hidden}
+  .pb-f{position:absolute;left:0;top:0;bottom:0;border-radius:4px}
+  .pb-v{font-family:var(--mono);font-size:clamp(11px,1.4vw,15px);font-weight:700;min-width:52px;text-align:right}
+  .pb-lim{position:absolute;top:-5px;bottom:-5px;width:2px;background:var(--ink);z-index:2}
+  .pb-limcap{font-family:var(--mono);font-size:9px;color:var(--soft);position:absolute;top:-15px;transform:translateX(-50%);white-space:nowrap}
+  .limrow{position:relative;height:14px}
   .miles{font-family:var(--mono);font-size:15px;font-weight:700;color:var(--green);padding-top:9px}
   .cite{grid-column:1/3;font-family:var(--mono);font-size:10.5px;color:var(--faint);line-height:1.5}
   .out{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:clamp(16px,2.2vw,24px);display:flex;flex-direction:column;gap:12px}
@@ -174,6 +191,9 @@ const slides=[
   { label:"The part they skip", head:"Your panel is <span class='u'>barely working.</span>",
     body:"Your house almost never runs everything at once. And your EV charges <b>overnight</b> &mdash; while the oven, dryer, and AC are all off. That&rsquo;s the room most people already have. (A charger&rsquo;s about like adding an electric range.)",
     note:"THE AHA / MENTAL MODEL. The comprehension unlock. Slow down here — this is the most important 30 seconds in the talk.<br><br>OPEN BY KILLING THE MYTH: &ldquo;Everybody opens their panel, sees no empty slots, and figures it's full. Slots aren't capacity. Counting breakers isn't the math &mdash; that panel could be half asleep.&rdquo;<br><br>THEN: your house never runs everything at once, and the car charges at 2 AM when all of it is off.<br><br>BUTTON IT: &ldquo;Your panel is barely working, and your car charges while you're asleep. That's the whole thing.&rdquo; Say that slower than feels natural &mdash; it's the sentence you want them repeating." },
+  { type:"panelmyth", label:"The myth that sells the upgrade",
+    head:"This panel is <span class='hl'>full.</span> It isn&rsquo;t close to loaded.",
+    note:"THE MYTH, KILLED WITH ONE PICTURE. Point at the panel: &ldquo;No open slots. Every installer who opens this says the same thing &mdash; you're full, you need an upgrade.&rdquo;<br><br>Then the red bar: &ldquo;Add up every number printed on those breakers and you get <b>410 amps</b> on a 200 amp service. And nothing trips. Nothing's ever tripped.&rdquo;<br><br>Then the green bars: &ldquo;Here's the same house run three different legal ways in the code book. A hundred and thirteen. A hundred and twenty-seven. A hundred and forty-one. <b>All three fit.</b>&rdquo;<br><br>THE LINE: &ldquo;<b>Adding up breakers was never the load calculation. It just looks like one &mdash; and it's how upgrades get sold.</b>&rdquo;<br><br>If an electrician asks: all three include the 48 A charger at 100%, no demand factor, per the 2023 EVSE rule. Same house, same charger, three legal methods." },
   { type:"calc", label:"See it for a real house",
     head:"How full is your panel &mdash; really?",
     note:"Now they GET it, so show it. Ask for a real house in the room and fill it in. The bar shows how full they already are, the green is the EV on top, the line is their limit. Watch the money land in the verdict." },
@@ -196,6 +216,36 @@ const stage=document.getElementById('stage'),bar=document.getElementById('bar');
 const notesEl=document.getElementById('notes'),ntext=document.getElementById('ntext');
 let i=0,notesOpen=false;
 
+/* ---- "the panel is full but barely loaded" ----
+   Breakers sum to 410 A on a 200 A service. The three method results all include
+   the same 48 A charger at 100% (no demand factor, per the 2023 EVSE rule), on a
+   2000 ft² house: range 8000, dryer 5000, 3-ton AC, gas heat. See rehearsal/RUN-CARD.md. */
+const BRK=[50,20,30,20,40,15,20,15,20,15,20,15,20,15,15,15,15,15,15,20];
+const METHODS=[
+  {k:'Add up the breakers<br><i>(not a load calculation)</i>',v:410,c:'var(--red)'},
+  {k:'Standard method<br><i>Article 220, Part III</i>',v:141,c:'var(--green)'},
+  {k:'Optional<br><i>NEC 220.82</i>',v:127,c:'var(--green)'},
+  {k:'Existing dwelling<br><i>NEC 220.83(A)</i>',v:113,c:'var(--green)'}
+];
+function panelMythMarkup(){
+  const SCALE=410,LIM=200,lp=LIM/SCALE*100;
+  const sum=BRK.reduce((a,b)=>a+b,0);
+  const bars=METHODS.map(m=>`<div class="pb">
+      <div class="pb-l">${m.k}</div>
+      <div class="pb-t"><div class="pb-f" style="width:${m.v/SCALE*100}%;background:${m.c}"></div>
+        <div class="pb-lim" style="left:${lp}%"></div></div>
+      <div class="pb-v" style="color:${m.c}">${m.v} A</div></div>`).join('');
+  return `<div class="pnl">
+    <div class="pbox"><div class="pbox-h">MAIN &mdash; 200 A</div>
+      <div class="pgrid">${BRK.map(n=>`<span class="brk">${n}</span>`).join('')}</div>
+      <div class="pbox-f">NO OPEN SLOTS</div></div>
+    <div class="pbars">
+      <div class="pb"><div></div><div class="limrow"><span class="pb-limcap" style="left:${lp}%">your 200 A limit</span></div><div></div></div>
+      ${bars}
+      <p class="pb-l" style="margin:6px 0 0;color:var(--ink);font-family:var(--sans);font-size:clamp(12px,1.5vw,16px);line-height:1.4">
+        Same panel. Same house. Same charger. <b>${sum} amps of breakers &mdash; and every real method says it fits.</b></p>
+    </div></div>`;
+}
 function calcMarkup(){
   return `<div class="calc"><div>
     <h2 id="chead"></h2>
@@ -270,7 +320,8 @@ function render(){
       <p class="byline">Jason Walls · Master Electrician · IBEW 369 · <span class="link">evchargeright.com</span></p>`;
     stage.innerHTML=`<section class="slide active">${inner}<div class="foot">← → move · N notes · T timer</div><div class="count"><b>01</b> / ${slides.length}</div></section>`;
   } else {
-    if(s.type==='calc') inner=`<p class="kicker">${s.label}</p>`+calcMarkup();
+    if(s.type==='panelmyth') inner=`<p class="kicker">${s.label}</p><h2 style="font-size:clamp(22px,3.2vw,38px);max-width:24ch">${s.head}</h2>`+panelMythMarkup();
+    else if(s.type==='calc') inner=`<p class="kicker">${s.label}</p>`+calcMarkup();
     else if(s.type==='anchor') inner=`<p class="kicker">${s.label}</p><h2>${s.head}</h2><div class="big">${s.big}</div><p class="caplabel">${s.caplabel}</p><p class="body">${s.body}</p>`;
     else if(s.type==='stat') inner=`<p class="kicker">${s.label}</p><h2>${s.head}</h2><div class="big">${s.big}</div><div class="houses">${HOUSE('h-ok')}${HOUSE('h-ok')}${HOUSE('h-ok')}${HOUSE('h-ok')}${HOUSE('h-no')}<span class="tag">= have room</span></div><p class="body">${s.body}</p>`;
     else if(s.type==='product') inner=`<p class="kicker">${s.label}</p><h2>${s.head}</h2><div class="steps"><div class="step">${IC.camera}<h4>1 · Pick your car</h4><p>And the charger you want.</p></div><div class="arrow">→</div><div class="step">${IC.calc}<h4>2 · Snap your panel</h4><p>It runs the NEC 220.82 calc.</p></div><div class="arrow">→</div><div class="step">${IC.check}<h4>3 · Get the report</h4><p>Plain English. Hand it to any contractor.</p></div></div><p class="body" style="max-width:42ch">${s.body} <span class="link">evchargeright.com</span></p>`;
@@ -284,7 +335,7 @@ function render(){
   ntext.innerHTML=s.note||'';
 }
 /* ---- rehearsal timer (T). Targets match RUN-CARD.md — 18 min total. ---- */
-const TARGETS=[45,60,90,75,75,60,120,240,90,60,75,90];
+const TARGETS=[45,60,90,75,75,60,120,90,240,90,60,75,90];
 const TOTAL=TARGETS.reduce((a,b)=>a+b,0);
 const fmt=s=>Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0');
 let tOn=false,tStart=0,sStart=0,tTick=null;

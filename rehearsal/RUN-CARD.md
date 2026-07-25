@@ -51,13 +51,19 @@ Say **"a hundred and some-odd bucks"** — the fee is re-indexed every year and 
 | 5 | Straight talk | "And I'll tell you who actually does need it." | 1:15 |
 | 6 | Why the quote | "The math takes ten minutes. The upsell takes ten seconds." | 1:00 |
 | 7 | **The aha** | "Your panel is barely working — and your car charges at night." | 2:00 |
-| 8 | **LIVE CALC** | "Give me a real house. Let's do it right now." | 4:00 |
-| 9 | ChargeRight | "You don't do the math. A photo does. **Twelve ninety-nine.**" | 1:30 |
-| 10 | CTA | "Do this **before you call anybody. Including me.**" | 1:00 |
-| 11 | Share line | "Here's all you have to say —" *(read it slow, twice)* | 1:15 |
-| 12 | Close + QR | "Be the reason your buddy keeps his four thousand dollars." | 1:30 |
+| 8 | **THE MYTH** | "410 amps of breakers on a 200 amp service. And nothing trips." | 1:30 |
+| 9 | **LIVE CALC** | "Give me a real house. Let's do it right now." | 4:00 |
+| 10 | ChargeRight | "You don't do the math. A photo does. **Twelve ninety-nine.**" | 1:30 |
+| 11 | CTA | "Do this **before you call anybody. Including me.**" | 1:00 |
+| 12 | Share line | "Here's all you have to say —" *(read it slow, twice)* | 1:15 |
+| 13 | Close + QR | "Be the reason your buddy keeps his four thousand dollars." | 1:30 |
 
-**Total ≈ 18 min.** Running long? Cut **5** and **6** — the spine survives. Never cut **7** or **8**.
+**Total ≈ 19:30.** Running long? Cut **5** and **6** — the spine survives. Never cut **7**, **8**, or **9**.
+
+### Slide 8 — the three-method bars, if an electrician asks
+All three include the same 48 A charger at **100%, no demand factor** (2023 EVSE rule), on the same 2,000 ft² house. **220.83(A)** is the one that actually fits the scenario — the code says it's for determining "if the existing service is of sufficient capacity to serve **additional loads**." That's literally adding an EV charger.
+
+> If pushed on why 220.83(A) and not (B): **"(B) is when you're adding air conditioning or electric heat. I'm adding a charger, so it's (A). The AC that's already there still counts — it's a permanently connected appliance."**
 
 ---
 
