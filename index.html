@@ -160,7 +160,7 @@ const slides=[
   { type:"anchor", label:"The moment", head:"You bought the car. Then came the quote.",
     big:"$3,000&ndash;$5,000", caplabel:"what an installer quotes to &ldquo;upgrade your panel&rdquo; first",
     body:"Most of you won&rsquo;t spend a <span class='hl-g'>dime</span> of that.",
-    note:"ANCHOR + LOSS AVERSION. Let the big number sit — that's money about to leave their pocket. Then take it back." },
+    note:"ANCHOR + LOSS AVERSION. Let the big number sit three full seconds — that's money about to leave their pocket. Then take it back.<br><br>THEN THE BEAT THAT'S BUILT FOR THIS ROOM: &ldquo;And here's the part that ought to bother everybody in here &mdash; some of them get that quote and they just don't buy the car.&rdquo;<br><br>That turns you from a guy saving them money into a guy removing the biggest barrier to the thing this club exists for. It's why they'll pass it on." },
   { type:"stat", label:"The truth", head:"Most of you don&rsquo;t need it.", big:"4 of 5",
     body:"In the homes I check, about <span class='hl'>four out of five</span> already have the room.",
     note:"SOCIAL PROOF. 'People like you, in houses like yours — 80% were fine.' The green houses do the work." },
@@ -172,16 +172,16 @@ const slides=[
     note:"CONTRAST/VILLAIN. Not anti-EV, anti-lazy-upsell. Positions you + ChargeRight as the honest shortcut." },
   { label:"The part they skip", head:"Your panel is <span class='u'>barely working.</span>",
     body:"Your house almost never runs everything at once. And your EV charges <b>overnight</b> &mdash; while the oven, dryer, and AC are all off. That&rsquo;s the room most people already have. (A charger&rsquo;s about like adding an electric range.)",
-    note:"THE AHA / MENTAL MODEL. This is the comprehension unlock — 'diversity.' Once they picture the panel mostly idle + charging at night, the gauge on the next slide just confirms what now makes sense." },
+    note:"THE AHA / MENTAL MODEL. The comprehension unlock. Slow down here — this is the most important 30 seconds in the talk.<br><br>OPEN BY KILLING THE MYTH: &ldquo;Everybody opens their panel, sees no empty slots, and figures it's full. Slots aren't capacity. Counting breakers isn't the math &mdash; that panel could be half asleep.&rdquo;<br><br>THEN: your house never runs everything at once, and the car charges at 2 AM when all of it is off.<br><br>BUTTON IT: &ldquo;Your panel is barely working, and your car charges while you're asleep. That's the whole thing.&rdquo; Say that slower than feels natural &mdash; it's the sentence you want them repeating." },
   { type:"calc", label:"See it for a real house",
     head:"How full is your panel &mdash; really?",
     note:"Now they GET it, so show it. Ask for a real house in the room and fill it in. The bar shows how full they already are, the green is the EV on top, the line is their limit. Watch the money land in the verdict." },
   { type:"product", label:"This is ChargeRight", head:"You don&rsquo;t do the math. A photo does.",
-    body:"Snap your panel, and it runs this exact calculation for you.",
-    note:"EFFORT REDUCTION. They just watched it work — now: 'the app does all of that from one photo.' Low effort = they'll actually use it." },
-  { label:"How to know yours", head:"Don&rsquo;t guess. Don&rsquo;t just trust the quote.",
-    body:"See me <b>here today</b> and I&rsquo;ll check yours for free. Or go to <span class='link'>evchargeright.com</span> and it does the math for you.",
-    note:"CTA. (Meeting is 2:30–4:30 PM Sunday — 'here today'.) Offer the free live check to anyone." },
+    body:"Pick your car, snap your panel, and it runs that exact calculation &mdash; then hands you a report you can put in front of any contractor. <b>$12.99.</b>",
+    note:"EFFORT REDUCTION + the price, said out loud and unapologetically.<br><br>&ldquo;Twelve ninety-nine. A service call to have somebody come out and tell you the same thing is two, three hundred &mdash; and the upgrade you might not need is three to five thousand.&rdquo;<br><br>SAY THE PRICE HERE. The QR on the last slide lands on a page that says $12.99 — if they find out from the website instead of from you, you just spent 18 minutes building trust and gave it back." },
+  { label:"How to know yours", head:"Do this <span class='u'>before</span> you call anybody.",
+    body:"Grab me <b>here today</b> &mdash; I&rsquo;ll check yours free. At home, the calculator at <span class='link'>evchargeright.com</span> is free, and the full read from a photo of your panel is <b>$12.99</b>.",
+    note:"CTA — 'STEP 0.' Before you call an electrician, before you sign anything.<br><br>The line that wins the room: &ldquo;<b>Do this before you call anybody. Including me.</b>&rdquo; Say it and stop.<br><br>(Meeting is 2:30–4:30 PM Sunday — 'here today'.) Free live check for anyone who asks — get a name and a number from each one." },
   { type:"quote", label:"Tell somebody", head:"Here&rsquo;s all you have to say:",
     quote:"Before you pay thousands to upgrade your panel for an EV charger, <span class='hl'>check evchargeright.com</span> &mdash; a master electrician built it, and 4 out of 5 people don&rsquo;t even need the upgrade.",
     note:"Hand them the exact line. People share what they can easily re-say. Say it slow, maybe twice." },
@@ -270,7 +270,7 @@ function render(){
     if(s.type==='calc') inner=`<p class="kicker">${s.label}</p>`+calcMarkup();
     else if(s.type==='anchor') inner=`<p class="kicker">${s.label}</p><h2>${s.head}</h2><div class="big">${s.big}</div><p class="caplabel">${s.caplabel}</p><p class="body">${s.body}</p>`;
     else if(s.type==='stat') inner=`<p class="kicker">${s.label}</p><h2>${s.head}</h2><div class="big">${s.big}</div><div class="houses">${HOUSE('h-ok')}${HOUSE('h-ok')}${HOUSE('h-ok')}${HOUSE('h-ok')}${HOUSE('h-no')}<span class="tag">= have room</span></div><p class="body">${s.body}</p>`;
-    else if(s.type==='product') inner=`<p class="kicker">${s.label}</p><h2>${s.head}</h2><div class="steps"><div class="step">${IC.camera}<h4>1 · Snap a photo</h4><p>One picture of your panel.</p></div><div class="arrow">→</div><div class="step">${IC.calc}<h4>2 · It runs the math</h4><p>The exact NEC 220.82 calc.</p></div><div class="arrow">→</div><div class="step">${IC.check}<h4>3 · Plain answer</h4><p>Room, or not. In English.</p></div></div><p class="body" style="max-width:42ch">${s.body} <span class="link">evchargeright.com</span></p>`;
+    else if(s.type==='product') inner=`<p class="kicker">${s.label}</p><h2>${s.head}</h2><div class="steps"><div class="step">${IC.camera}<h4>1 · Pick your car</h4><p>And the charger you want.</p></div><div class="arrow">→</div><div class="step">${IC.calc}<h4>2 · Snap your panel</h4><p>It runs the NEC 220.82 calc.</p></div><div class="arrow">→</div><div class="step">${IC.check}<h4>3 · Get the report</h4><p>Plain English. Hand it to any contractor.</p></div></div><p class="body" style="max-width:42ch">${s.body} <span class="link">evchargeright.com</span></p>`;
     else if(s.type==='quote') inner=`<p class="kicker">${s.label}</p><h2>${s.head}</h2><p class="quote">&ldquo;${s.quote}&rdquo;</p>`;
     else if(s.type==='close') inner=`<p class="kicker">${s.label}</p><div class="close"><div><h2>${s.head}</h2><p class="body">${s.body}</p><p class="byline"><span class="link">${s.url}</span></p></div><div><div class="qrbox"><img src="qr.svg" alt="QR to evchargeright.com"></div><div class="qrcap">Scan it — or text it to someone about to buy an EV</div></div></div>`;
     else inner=`<p class="kicker">${s.label}</p><h2>${s.head}</h2><p class="body">${s.body}</p>`;

@@ -9,17 +9,26 @@ Simulated Evolve KY audience: EV-club regulars (Leaf/Bolt/Model 3 owners), 2–4
 ## TIER 1 — you will almost certainly get these
 
 ### "So are you selling something?"
-> **"I'm an electrician. The app's free to check. If it turns out you need work, I'd love the job — but four out of five of you won't, and I'd rather you know that than not."**
+> **"Yeah — twelve ninety-nine. That's the whole business. And it exists to talk four out of five of you out of a four-thousand-dollar job. If it turns out you're the fifth one, I'd love the work — but I'd rather you know which one you are."**
 
-That's the whole answer. Don't get defensive, don't over-explain. Owning it is what makes it land.
+Own it immediately and name the number. Hedging on "am I being sold to" is what makes a room suspicious; the fastest way to kill the question is to answer it flatter than they expected.
 
 ### "Can you do my install?"
 > **"Yeah. Grab me after and let's look at your panel."**
 
 Don't quote a price in the room. **"Depends what I find — let me look first"** is the honest answer and it's also the right sales answer.
 
-### "How much does the app cost?"
-> **"Checking your panel is free. Go do it tonight."**
+### "How much does it cost?" ⚠️ SAY THIS RIGHT — the QR lands on a page that shows the price
+Two tiers, and the free one is real:
+
+> **"There's a free calculator on the site — put your own numbers in tonight, costs you nothing. If you want it to actually read your panel off a photo and hand you the full report, that's twelve ninety-nine. A service call to have somebody come tell you in person is two or three hundred."**
+
+**Never let them discover the price from the website instead of from you.** You say it on slide 9, out loud, no apology in your voice. Twelve dollars against a four-thousand-dollar upgrade is the easiest number you'll say all day.
+
+### "Why would I pay $12.99 when the calculator's free?"
+> **"You don't have to. The free one's the same math if you know your numbers. The twelve ninety-nine is when you don't want to guess at your own square footage and appliances — it reads the panel off the photo, and you get a report with the code math on it you can hand to a contractor. That last part's what actually shuts down an upsell."**
+
+The report-as-ammunition angle is the real value. Lead with it.
 
 ### "I already upgraded my panel. Did I waste my money?"
 > **"No. You've got room for everything now — an extra car, a heat pump down the road, and it helps when you sell. I just want the next guy to get the choice you didn't get."**

@@ -50,8 +50,8 @@ Say **"a hundred and some-odd bucks"** — the fee is re-indexed every year and 
 | 6 | Why the quote | "The math takes ten minutes. The upsell takes ten seconds." | 1:00 |
 | 7 | **The aha** | "Your panel is barely working — and your car charges at night." | 2:00 |
 | 8 | **LIVE CALC** | "Give me a real house. Let's do it right now." | 4:00 |
-| 9 | ChargeRight | "You don't do the math. A photo does." | 1:30 |
-| 10 | CTA | "Grab me after and I'll check yours for free." | 1:00 |
+| 9 | ChargeRight | "You don't do the math. A photo does. **Twelve ninety-nine.**" | 1:30 |
+| 10 | CTA | "Do this **before you call anybody. Including me.**" | 1:00 |
 | 11 | Share line | "Here's all you have to say —" *(read it slow, twice)* | 1:15 |
 | 12 | Close + QR | "Be the reason your buddy keeps his four thousand dollars." | 1:30 |
 
@@ -69,6 +69,9 @@ Say **"a hundred and some-odd bucks"** — the fee is re-indexed every year and 
 | **First 10 kVA at 100%, rest at 40%** | The demand factor | NEC **220.82(B)** |
 | **240 V** | Charger circuit | amps × 240 = watts |
 | **80%** | Your comfort band — **not a code pass/fail** | See "the 80% question" below. Get this one right. |
+| **$12.99** | The full photo assessment + PDF report | **Say it on slide 9.** The QR lands on a page showing this price — they must hear it from you first. |
+| **Free** | The calculator on the site (type your own numbers) | Both tiers are real. "Free to check it yourself, $12.99 to have it read your panel." |
+| **~$300** | A service call for someone to come tell you | Your best comparison. $12.99 vs $300 vs $4,000. |
 
 ⚠️ **Never say a code section number you're not sure of.** "That's in the optional dwelling calc" is always safe. You're the electrician — nobody expects article numbers from memory.
 
