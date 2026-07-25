@@ -25,8 +25,20 @@ Highest-stakes 15 seconds of the day. The room decides whether to listen.
 > *(pause)* That's what it costs to upgrade a panel. And most of you are about to be told you need one.
 > You probably don't."
 
-> **Recommendation: A.** Hands in the air in the first 10 seconds means the room is participating instead of watching, and their own hands prove your point for you. **B is the backup** if the room feels small or shy — it gets a laugh and it's pure you.
-> **C only if you're rattled** — it needs zero audience cooperation and works even if you're nervous. Keep it in your back pocket.
+**D · "The Tesla tax" — Jason's, and the winner** ✅ *(picked 2026-07-24)*
+> "Show of hands — who's heard of the Tesla tax?" *(hands)*
+> "Now — not the one on your registration. That one's a hundred and some-odd bucks a year and there's nothing I can do about it." *(laugh)*
+> "I mean the other one. Where you mention you're getting an EV, and the number goes up. Keep your hand up if you've been quoted to upgrade your panel." *(hands)*
+> "Three grand? Four?" *(beat)*
+> "**That's the Tesla tax. And most of you don't owe it.**"
+
+> **Winner: D.** Beats A, B and C because it does two jobs at once — hands up *and* names the villain in the audience's own language, in the first five seconds. A gets participation but the villain doesn't arrive until slide 6. D also sets up its own payoff: *tax → owe.*
+>
+> **The fix that makes it work:** Kentucky charges an annual EV ownership fee ($126 in 2025, re-indexed yearly), so "EV tax" is ambiguous in that room. **Never ask the question and wait** — define which tax you mean in the same breath. The ~$130-vs-$3,000–5,000 contrast disambiguates *and* makes the real number feel enormous.
+>
+> Say **"a hundred and some-odd bucks."** Never quote the exact fee — it changes annually and that room knows it better than you.
+>
+> **C stays in the back pocket** — zero audience cooperation required, for if the nerves hit.
 
 ---
 

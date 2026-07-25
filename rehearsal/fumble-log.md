@@ -8,7 +8,7 @@ Running record across rehearsal passes. Add a row every time something comes out
 
 | Test | Options | Jason's pick | Why |
 |---|---|---|---|
-| 1 · Cold open | A hands-up / B confession / C cold number | — | |
+| 1 · Cold open | A hands-up / B confession / C cold number / **D "Tesla tax"** | **D** ✅ | His own. Hands up *and* names the villain in the room's own words in 5 seconds. Sets up "tax → don't owe it." |
 | 2 · Anchor | A silence / B comparison | — | |
 | 3 · Aha | A appliances / B garage / C one-liner | — | |
 | 4 · Ask | A favor / B one person | — | |

@@ -26,6 +26,13 @@ Don't quote a price in the room. **"Depends what I find — let me look first"**
 
 ⚠️ **Most important answer in this document.** Warm, fast, no hesitation. Then move on — don't dwell, it prolongs their embarrassment.
 
+### "What about the state EV fee? *That's* the real Tesla tax." ⚠️ EXPECTED — you invited it
+You opened with the phrase, so someone will pull on it. Don't fight it — agree and pivot:
+
+> **"Yeah, and I can't help you with that one — write your legislator. The one I can help with is the three to five grand, and that one you've actually got a say in."**
+
+Get in and out in one sentence. **Do not let the room start a policy conversation** — you'll lose fifteen minutes and never get back to the math. If it keeps going: *"Y'all could talk about that all afternoon and I'd probably agree with you. Let me show you the one you can do something about."*
+
 ### "What if I'm in an apartment or condo?"
 > **"Then this isn't your fight — yours is with the HOA or the property manager, and it's a different conversation. But send this to anyone you know with a house."**
 

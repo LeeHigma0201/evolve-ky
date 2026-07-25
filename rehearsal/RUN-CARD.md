@@ -18,6 +18,26 @@
 
 ---
 
+## THE COLD OPEN — locked. Say this, don't read it.
+
+> **"Show of hands — who's heard of the Tesla tax?"** *(hands)*
+>
+> **"Now — not the one on your registration. That one's a hundred and some-odd bucks a year and there's nothing I can do about it."** *(laugh)*
+>
+> **"I mean the other one. Where you mention you're getting an EV, and the number goes up. Keep your hand up if you've been quoted to upgrade your panel."** *(hands)*
+>
+> **"Three grand? Four?"** *(beat)*
+>
+> **"That's the Tesla tax. And most of you don't owe it."**
+
+⚠️ **Do not pause after the first question.** In Kentucky they'll assume you mean the annual EV registration fee. Define which tax you mean in the same breath — the $130-vs-$4,000 contrast is doing the work.
+
+Say **"a hundred and some-odd bucks"** — the fee is re-indexed every year and that room knows the number better than you do.
+
+*(It's also in the deck: slide 1, press **N**.)*
+
+---
+
 ## THE SPINE — if you remember nothing else, say these 12 lines
 
 | # | Slide | The one line you must land | Time |
