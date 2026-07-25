@@ -112,6 +112,15 @@
   .tog{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:700;color:var(--ink);background:var(--paper);border:1px solid var(--line2);border-radius:20px;padding:6px 12px;cursor:pointer}
   .tog input{accent-color:var(--blue);width:15px;height:15px}
   .tog:has(input:checked){border-color:var(--blue);background:var(--blue-wash)}
+  /* ===== video insert slides (NotebookLM clips) ===== */
+  .vidwrap{margin-top:clamp(10px,1.6vw,18px);border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#0B0F18;position:relative}
+  .vid{display:block;width:100%;height:clamp(240px,42vh,400px);object-fit:contain;background:#0B0F18}
+  .vidfall{background:var(--paper);padding:clamp(16px,2.4vw,26px)}
+  .vf-h{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:10px}
+  .vidfall ul{margin:0;padding-left:19px;font-size:clamp(14px,1.75vw,19px);line-height:1.5;color:var(--soft)}
+  .vidfall li{margin-bottom:7px}
+  .vidfall li b{color:var(--ink);font-weight:700}
+  .vidskip{font-family:var(--mono);font-size:10px;color:var(--faint);letter-spacing:.05em;margin-top:8px}
   /* ===== "this panel is full / it's barely working" ===== */
   .pnl{display:grid;grid-template-columns:auto 1fr;gap:clamp(18px,3vw,38px);align-items:center;margin-top:clamp(10px,1.6vw,18px)}
   .pbox{background:#EFEDE6;border:2px solid var(--line2);border-radius:10px;padding:10px 9px 8px;width:clamp(150px,19vw,208px)}
@@ -194,12 +203,24 @@ const slides=[
   { type:"panelmyth", label:"The myth that sells the upgrade",
     head:"This panel is <span class='hl'>full.</span> It isn&rsquo;t close to loaded.",
     note:"THE MYTH, KILLED WITH ONE PICTURE. Point at the panel: &ldquo;No open slots. Every installer who opens this says the same thing &mdash; you're full, you need an upgrade.&rdquo;<br><br>Then the red bar: &ldquo;Add up every number printed on those breakers and you get <b>410 amps</b> on a 200 amp service. And nothing trips. Nothing's ever tripped.&rdquo;<br><br>Then the green bars: &ldquo;Here's the same house run three different legal ways in the code book. A hundred and thirteen. A hundred and twenty-seven. A hundred and forty-one. <b>All three fit.</b>&rdquo;<br><br>THE LINE: &ldquo;<b>Adding up breakers was never the load calculation. It just looks like one &mdash; and it's how upgrades get sold.</b>&rdquo;<br><br>If an electrician asks: all three include the 48 A charger at 100%, no demand factor, per the 2023 EVSE rule. Same house, same charger, three legal methods." },
+  { type:"video", label:"Watch it happen", head:"The same house, three legal ways.",
+    src:"video-methods.mp4",
+    fallback:["<b>410 amps</b> of breakers on a 200 amp service &mdash; and nothing ever trips.",
+      "Standard method: <b>141 A</b>. Optional 220.82: <b>127 A</b>. Existing dwelling 220.83(A): <b>113 A</b>.",
+      "Every real method says it fits. Only the fake one says it doesn&rsquo;t."],
+    note:"YOUR BREATHER. Let it play. Don't talk over it &mdash; step to the side, take a drink of water, and read your next three lines.<br><br>WHEN IT ENDS, one sentence and move: &ldquo;That's three different legal ways to run it, and all three say the same thing.&rdquo; Then straight into the live calculator.<br><br>IF IT DOESN'T PLAY: the bullets on screen ARE your script. Say them and advance. Never debug on stage.<br><br>CUTTABLE &mdash; if you're at 15 minutes, skip this and slide 12." },
   { type:"calc", label:"See it for a real house",
     head:"How full is your panel &mdash; really?",
     note:"Now they GET it, so show it. Ask for a real house in the room and fill it in. The bar shows how full they already are, the green is the EV on top, the line is their limit. Watch the money land in the verdict." },
   { type:"product", label:"This is ChargeRight", head:"You don&rsquo;t do the math. A photo does.",
     body:"Pick your car, snap your panel, and it runs that exact calculation &mdash; then hands you a report you can put in front of any contractor. <b>$12.99.</b>",
     note:"EFFORT REDUCTION + the price, said out loud and unapologetically.<br><br>&ldquo;Twelve ninety-nine. A service call to have somebody come out and tell you the same thing is two, three hundred &mdash; and the upgrade you might not need is three to five thousand.&rdquo;<br><br>SAY THE PRICE HERE. The QR on the last slide lands on a page that says $12.99 — if they find out from the website instead of from you, you just spent 18 minutes building trust and gave it back." },
+  { type:"video", label:"Sixty seconds", head:"What it actually looks like.",
+    src:"video-howitworks.mp4",
+    fallback:["Pick your car and the charger you want.",
+      "Snap a photo of your panel &mdash; it reads the breakers and runs the code math.",
+      "You get a report in plain English you can hand to any contractor. <b>$12.99.</b>"],
+    note:"SECOND BREATHER, right before the ask. Let it run, then go straight to the CTA while they're still watching the screen.<br><br>WHEN IT ENDS: &ldquo;That's it. That's the whole thing.&rdquo; Advance.<br><br>IF IT DOESN'T PLAY: read the three bullets. They're the same three steps as the slide before.<br><br>CUTTABLE &mdash; first thing to drop if you're long." },
   { label:"How to know yours", head:"Do this <span class='u'>before</span> you call anybody.",
     body:"The calculator at <span class='link'>evchargeright.com</span> is <b>free</b> &mdash; do it tonight. The full read from a photo of your panel is <b>$12.99</b>. Want to watch it work? Grab me after and I&rsquo;ll run yours on my phone.",
     note:"CTA — 'STEP 0.' Before you call an electrician, before you sign anything.<br><br>The line that wins the room: &ldquo;<b>Do this before you call anybody. Including me.</b>&rdquo; Say it and stop.<br><br>You don't do installs — so this is not a bid, it's a demo. &ldquo;I'll run yours on my phone&rdquo; is the offer, not a service call.<br><br>WEBSITE ONLY. Don't send anyone to the App Store — iOS is $16.99 (Apple's cut) and the web is $12.99. One destination." },
@@ -227,6 +248,28 @@ const METHODS=[
   {k:'Optional<br><i>NEC 220.82</i>',v:127,c:'var(--green)'},
   {k:'Existing dwelling<br><i>NEC 220.83(A)</i>',v:113,c:'var(--green)'}
 ];
+/* Video insert. Autoplays on advance (the page already has user interaction from
+   the keypress, so audio is allowed). If the mp4 is missing or won't decode, the
+   fallback bullets take over — the deck must never dead-end on stage. */
+function videoMarkup(s){
+  return `<div class="vidwrap">
+      <video id="vid" class="vid" src="${s.src}" tabindex="-1" playsinline controls preload="auto"></video>
+      <div id="vidfall" class="vidfall" style="display:none">
+        <div class="vf-h">Video didn&rsquo;t load &mdash; say this instead</div>
+        <ul>${s.fallback.map(f=>`<li>${f}</li>`).join('')}</ul>
+      </div>
+    </div>
+    <p class="vidskip">plays automatically &middot; &rarr; to move on &middot; cuttable if you&rsquo;re running long</p>`;
+}
+function wireVideo(){
+  const v=document.getElementById('vid'),f=document.getElementById('vidfall');
+  if(!v||!f) return;
+  const fail=()=>{v.style.display='none';f.style.display='block';};
+  v.addEventListener('error',fail);
+  // src that resolves to a 404 HTML page never fires 'error' on some browsers — check readyState too
+  setTimeout(()=>{if(v.networkState===v.NETWORK_NO_SOURCE||(v.readyState===0&&!v.currentSrc))fail();},1800);
+  const p=v.play(); if(p&&p.catch)p.catch(()=>{}); // blocked autoplay is fine — controls are right there
+}
 function panelMythMarkup(){
   const SCALE=410,LIM=200,lp=LIM/SCALE*100;
   const sum=BRK.reduce((a,b)=>a+b,0);
@@ -320,7 +363,8 @@ function render(){
       <p class="byline">Jason Walls · Master Electrician · IBEW 369 · <span class="link">evchargeright.com</span></p>`;
     stage.innerHTML=`<section class="slide active">${inner}<div class="foot">← → move · N notes · T timer</div><div class="count"><b>01</b> / ${slides.length}</div></section>`;
   } else {
-    if(s.type==='panelmyth') inner=`<p class="kicker">${s.label}</p><h2 style="font-size:clamp(22px,3.2vw,38px);max-width:24ch">${s.head}</h2>`+panelMythMarkup();
+    if(s.type==='video') inner=`<p class="kicker">${s.label}</p><h2 style="font-size:clamp(21px,3vw,34px);max-width:26ch">${s.head}</h2>`+videoMarkup(s);
+    else if(s.type==='panelmyth') inner=`<p class="kicker">${s.label}</p><h2 style="font-size:clamp(22px,3.2vw,38px);max-width:24ch">${s.head}</h2>`+panelMythMarkup();
     else if(s.type==='calc') inner=`<p class="kicker">${s.label}</p>`+calcMarkup();
     else if(s.type==='anchor') inner=`<p class="kicker">${s.label}</p><h2>${s.head}</h2><div class="big">${s.big}</div><p class="caplabel">${s.caplabel}</p><p class="body">${s.body}</p>`;
     else if(s.type==='stat') inner=`<p class="kicker">${s.label}</p><h2>${s.head}</h2><div class="big">${s.big}</div><div class="houses">${HOUSE('h-ok')}${HOUSE('h-ok')}${HOUSE('h-ok')}${HOUSE('h-ok')}${HOUSE('h-no')}<span class="tag">= have room</span></div><p class="body">${s.body}</p>`;
@@ -330,12 +374,13 @@ function render(){
     else inner=`<p class="kicker">${s.label}</p><h2>${s.head}</h2><p class="body">${s.body}</p>`;
     stage.innerHTML=`<section class="slide active">${chrome()}${inner}</section>`;
     if(s.type==='calc') wireCalc();
+    else if(s.type==='video') wireVideo();
   }
   bar.style.width=(i/(slides.length-1)*100)+'%';
   ntext.innerHTML=s.note||'';
 }
 /* ---- rehearsal timer (T). Targets match RUN-CARD.md — 18 min total. ---- */
-const TARGETS=[45,60,90,75,75,60,120,90,240,90,60,75,90];
+const TARGETS=[45,60,90,75,75,60,120,90,90,240,90,60,60,75,90];
 const TOTAL=TARGETS.reduce((a,b)=>a+b,0);
 const fmt=s=>Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0');
 let tOn=false,tStart=0,sStart=0,tTick=null;

@@ -52,13 +52,19 @@ Say **"a hundred and some-odd bucks"** — the fee is re-indexed every year and 
 | 6 | Why the quote | "The math takes ten minutes. The upsell takes ten seconds." | 1:00 |
 | 7 | **The aha** | "Your panel is barely working — and your car charges at night." | 2:00 |
 | 8 | **THE MYTH** | "410 amps of breakers on a 200 amp service. And nothing trips." | 1:30 |
-| 9 | **LIVE CALC** | "Give me a real house. Let's do it right now." | 4:00 |
-| 10 | ChargeRight | "You don't do the math. A photo does. **Twelve ninety-nine.**" | 1:30 |
-| 11 | CTA | "Do this **before you call anybody. Including me.**" | 1:00 |
-| 12 | Share line | "Here's all you have to say —" *(read it slow, twice)* | 1:15 |
-| 13 | Close + QR | "Be the reason your buddy keeps his four thousand dollars." | 1:30 |
+| 9 | 🎬 **VIDEO** | *breather — don't talk over it.* Then: "Three legal ways. All three agree." | 1:30 |
+| 10 | **LIVE CALC** | "Give me a real house. Let's do it right now." | 4:00 |
+| 11 | ChargeRight | "You don't do the math. A photo does. **Twelve ninety-nine.**" | 1:30 |
+| 12 | 🎬 **VIDEO** | *breather.* Then: "That's it. That's the whole thing." | 1:00 |
+| 13 | CTA | "Do this **before you call anybody. Including me.**" | 1:00 |
+| 14 | Share line | "Here's all you have to say —" *(read it slow, twice)* | 1:15 |
+| 15 | Close + QR | "Be the reason your buddy keeps his four thousand dollars." | 1:30 |
 
-**Total ≈ 19:30.** Running long? Cut **5** and **6** — the spine survives. Never cut **7**, **8**, or **9**.
+**Total ≈ 22 min with videos, ≈ 19:30 without.**
+
+**If Mike gives you 15 minutes:** cut **9** and **12** (the videos) first — they're marked cuttable on screen. Then **5** and **6**. Never cut **7**, **8**, or **10**.
+
+> 🎬 **The video slides work even with no video file.** If the mp4 isn't there, the slide shows your talking points in an amber card instead. Read them and advance. **Never debug on stage.**
 
 ### Slide 8 — the three-method bars, if an electrician asks
 All three include the same 48 A charger at **100%, no demand factor** (2023 EVSE rule), on the same 2,000 ft² house. **220.83(A)** is the one that actually fits the scenario — the code says it's for determining "if the existing service is of sufficient capacity to serve **additional loads**." That's literally adding an EV charger.
