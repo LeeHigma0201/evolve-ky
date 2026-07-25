@@ -112,6 +112,7 @@
   .tog{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:700;color:var(--ink);background:var(--paper);border:1px solid var(--line2);border-radius:20px;padding:6px 12px;cursor:pointer}
   .tog input{accent-color:var(--blue);width:15px;height:15px}
   .tog:has(input:checked){border-color:var(--blue);background:var(--blue-wash)}
+  .miles{font-family:var(--mono);font-size:15px;font-weight:700;color:var(--green);padding-top:9px}
   .cite{grid-column:1/3;font-family:var(--mono);font-size:10.5px;color:var(--faint);line-height:1.5}
   .out{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:clamp(16px,2.2vw,24px);display:flex;flex-direction:column;gap:12px}
   .rowtop{display:flex;align-items:baseline;gap:10px}
@@ -203,8 +204,8 @@ function calcMarkup(){
       <div class="fld"><label>Service size (A)</label><select id="c_panel"><option>100</option><option>125</option><option>150</option><option selected>200</option></select></div>
       <div class="fld"><label>Central AC (tons)</label><input type="number" id="c_ac" value="3" min="0" step="0.5"></div>
       <div class="fld"><label>Electric heat (kW · 0=gas)</label><input type="number" id="c_heat" value="0" min="0" step="1"></div>
-      <div class="fld"><label>EV charger (amps)</label><select id="c_ev"><option>32</option><option>40</option><option selected>48</option></select></div>
-      <div class="fld"><label>&nbsp;</label><div style="font-family:var(--mono);font-size:11px;color:var(--faint);padding-top:11px">240 V circuit</div></div>
+      <div class="fld"><label>Charge at (amps)</label><select id="c_ev"><option>12</option><option>16</option><option>24</option><option>32</option><option>40</option><option selected>48</option></select></div>
+      <div class="fld"><label>Range added overnight</label><div id="c_miles" class="miles">—</div></div>
       <div class="toggles">
         <label class="tog"><input type="checkbox" id="c_range" checked>Electric range</label>
         <label class="tog"><input type="checkbox" id="c_dryer" checked>Electric dryer</label>
@@ -231,6 +232,8 @@ function computeCalc(){
   const safe=panel*0.8,status=totalA<=safe?'comfortable':(totalA<=panel?'tight':'exceeds');
   const headroom=Math.max(0,panel-totalA),util=panel?totalA/panel*100:0;
   const R=x=>Math.round(x).toLocaleString();
+  /* range added over an 8-hour night, ~3.5 mi/kWh — the "you need less than you think" lever */
+  document.getElementById('c_miles').textContent='≈ '+R(evAmps*240/1000*8*3.5)+' mi';
   document.getElementById('c_amps').textContent=R(totalA)+' A';
   document.getElementById('c_of').textContent='of '+R(panel)+' A service';
   document.getElementById('c_util').textContent=Math.round(util)+'% used';
