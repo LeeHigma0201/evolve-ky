@@ -8,15 +8,26 @@ Simulated Evolve KY audience: EV-club regulars (Leaf/Bolt/Model 3 owners), 2–4
 
 ## TIER 1 — you will almost certainly get these
 
-### "So are you selling something?"
-> **"Yeah — twelve ninety-nine. That's the whole business. And it exists to talk four out of five of you out of a four-thousand-dollar job. If it turns out you're the fifth one, I'd love the work — but I'd rather you know which one you are."**
+### "So are you selling something?" / "What's your angle?"
+> **"Yeah — twelve ninety-nine. That's the whole business. And I don't do installs, so I've got no reason to want you to need one. It exists to talk four out of five of you out of a four-thousand-dollar job."**
 
 Own it immediately and name the number. Hedging on "am I being sold to" is what makes a room suspicious; the fastest way to kill the question is to answer it flatter than they expected.
 
-### "Can you do my install?"
-> **"Yeah. Grab me after and let's look at your panel."**
+**"I don't do installs" is the strongest sentence you own.** Every other trade guy in that room's life is trying to sell them work. You're the one who isn't. Say it on slide 2 and this question mostly never gets asked.
 
-Don't quote a price in the room. **"Depends what I find — let me look first"** is the honest answer and it's also the right sales answer.
+### "Can you do my install?" / "What do you charge to come out and look?"
+> **"I don't do installs. That's kind of the point — I've got no reason to want you to need one."**
+
+Then don't leave them at a dead end. Hand them the useful part:
+
+> **"Run it through the tool. If it turns out you do need work, take that report to whoever you hire — it's got the code math on it. It's hard to get upsold when you're standing there holding the calculation."**
+
+**The report-as-armor angle is your real product.** You're not selling a number, you're selling something they can put in a contractor's hand. Say it that way.
+
+### "Is there an app?"
+> **"There's one on iOS, but Apple takes thirty percent so it's $16.99 in there. The website's $12.99 and there's nothing to download. Just use the site."**
+
+Volunteering that you're steering them to the *cheaper* option — against your own app revenue — buys more credibility than anything else you'll say in Q&A. **Website only from the stage.** Don't send anyone to the App Store; its live status isn't confirmed.
 
 ### "How much does it cost?" ⚠️ SAY THIS RIGHT — the QR lands on a page that shows the price
 Two tiers, and the free one is real:

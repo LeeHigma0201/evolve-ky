@@ -13,6 +13,8 @@
 - [ ] Text Mike: *"How long do you want me — 15 or 30? And is there a screen/HDMI or should I bring a stand?"* ← **you don't know your slot length yet. Ask.**
 - [ ] Phone on Do Not Disturb. Close Slack/Mail so notifications don't pop on the projector.
 - [ ] Know **one real house** cold for the live demo (yours). Sq ft, service size, gas or electric.
+- [ ] **Bring the business cards** (the ones with the QR). Hand them out during the after-talk checks — warmer than a QR on a screen.
+- [ ] **Know your number:** roughly how many houses have you run this on? You say "in the homes I check, about four out of five" — be ready to answer "how many is that?" with a real figure.
 
 **If there's no screen:** the deck reads fine on a laptop turned around, or on a phone. Slide 12's QR is the only thing they *must* see — hold it up.
 
@@ -43,7 +45,7 @@ Say **"a hundred and some-odd bucks"** — the fee is re-indexed every year and 
 | # | Slide | The one line you must land | Time |
 |---|---|---|---|
 | 1 | Title | "Do you really need a panel upgrade to charge at home? Usually not." | 0:45 |
-| 2 | Who I am | "I'm a master electrician. I do this math every day." | 1:00 |
+| 2 | Who I am | "Master electrician. **And I don't do installs** — so I've got no reason to want you to need one." | 1:00 |
 | 3 | **$3–5k** | "That's the number you get quoted. Most of you won't spend a dime of it." | 1:30 |
 | 4 | **4 of 5** | "In the homes I check, about four out of five already have the room." | 1:15 |
 | 5 | Straight talk | "And I'll tell you who actually does need it." | 1:15 |
@@ -64,7 +66,8 @@ Say **"a hundred and some-odd bucks"** — the fee is re-indexed every year and 
 | Number | What it is | If challenged |
 |---|---|---|
 | **$3,000–$5,000** | Typical panel-upgrade quote | "That's the range I see around here. Some are more." |
-| **4 out of 5** | Homes with room | **"In the homes *I've* checked."** Say it that way — it's your data, not a study. |
+| **4 out of 5** | Homes with room | **"In the homes *I've* checked."** Say it that way — it's your field data, not a published study, and there isn't one. Know your house count in case they ask. |
+| **$16.99** | The iOS app price (Apple's 30%) | Only if asked. **"Website's cheaper — just use the site."** Never send them to the App Store. |
 | **3 VA / ft²** | General lighting + receptacles | NEC **220.82(B)(1)** |
 | **First 10 kVA at 100%, rest at 40%** | The demand factor | NEC **220.82(B)** |
 | **240 V** | Charger circuit | amps × 240 = watts |
@@ -114,7 +117,22 @@ Say that and you keep the whole room with you. Skip it and you make an enemy.
 | The scary one | same house, but **100 A service** | **≈127 A of 100** → 🔴 over — "this is the one in five" |
 | The all-electric | 2600 ft², 150 A, 4 ton, 20 kW heat, all boxes checked, 48 A | **187 A of 150** → 🔴 over — "all-electric, older service" |
 
-*(All three verified against the live deck 2026-07-24. Press **T** in the deck for the rehearsal timer — 18:00 target, per-slide pacing.)*
+### ⚡ THE MOVE — "you don't need the big charger either"
+
+Your second argument, and the one nobody else makes. Run it **right after a house comes back red.** Change one field on screen: **Charge at → 16 amps.**
+
+| House | At 48 A | At 16 A |
+|---|---|---|
+| 2000 ft² on **100 A** service | **127 A** · 🔴 over the limit | **95 A** · ⚠️ fits — *no upgrade* |
+| 2600 ft² all-electric on 200 A | **187 A** · ⚠️ tight | **155 A** · ✅ room to spare |
+
+Then say it:
+
+> **"Everybody sells you the biggest charger on the shelf. Sixteen amps overnight puts back about a hundred miles. The average person drives thirty-seven. You don't have a panel problem — you've got a charger you didn't need."**
+
+The deck shows the range added right next to the amps, so they can watch the tradeoff. **This is the moment that saves the one-in-five** — they came in expecting bad news and leave with a way to charge at home tonight.
+
+*(All verified against the live deck 2026-07-24. Press **T** for the rehearsal timer — 18:00 target, per-slide pacing.)*
 
 ---
 
@@ -130,11 +148,14 @@ Pause. Then:
 
 ---
 
-## AFTER — the part that actually pays
+## AFTER — you're not booking work, you're making advocates
 
-- Stand at the back, don't leave. **"Grab me, I'll check yours right now"** — do 3 or 4 live on your phone.
-- Get a **name + phone** from anyone you check. That's your follow-up list.
+You don't do installs, so the win here isn't a lead list. It's people who leave able to *re-say* your line to somebody else.
+
+- Stand at the back, don't leave. **"Grab me, I'll run yours right now"** — do 3 or 4 on your phone. Each one is a person who watched it work.
+- **Hand them a business card** with the QR. Physical beats a screenshot.
 - Ask Mike: *"Would it help if I wrote this up for the newsletter?"* ← free reach to everyone who didn't come.
+- If somebody comes back red: **"So you're the one in five. Here's the thing though —"** and show them the charge-slower move. Nobody leaves with only bad news.
 
 ---
 
