@@ -6,10 +6,15 @@
 <title>Do you really need a panel upgrade? · ChargeRight × Evolve KY</title>
 <meta name="description" content="Jason Walls — Evolve KY, July 26. Do you really need a panel upgrade for your EV charger? Usually not.">
 <meta name="robots" content="noindex">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
+  /* Fonts are SELF-HOSTED (fonts/*.woff2, 174KB total) so the deck renders identically
+     with zero network — venue wifi is never allowed to change the typography. */
+  @font-face{font-family:'DM Sans';font-style:normal;font-weight:100 1000;font-display:swap;src:url(fonts/dmsans-normal-100-1000.woff2) format('woff2')}
+  @font-face{font-family:'DM Sans';font-style:italic;font-weight:100 1000;font-display:swap;src:url(fonts/dmsans-italic-100-1000.woff2) format('woff2')}
+  @font-face{font-family:'Space Mono';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/spacemono-normal-400.woff2) format('woff2')}
+  @font-face{font-family:'Space Mono';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/spacemono-normal-700.woff2) format('woff2')}
+  @font-face{font-family:'Space Mono';font-style:italic;font-weight:400;font-display:swap;src:url(fonts/spacemono-italic-400.woff2) format('woff2')}
+  @font-face{font-family:'Space Mono';font-style:italic;font-weight:700;font-display:swap;src:url(fonts/spacemono-italic-700.woff2) format('woff2')}
   :root{
     --paper:#F7F6F1; --card:#FFFFFF; --ink:#171C2B; --soft:#525A6E; --faint:#8A91A2;
     --line:#E7E4DA; --line2:#DBD8CD;
@@ -1303,7 +1308,7 @@ function toggleReport(){
       <span class="rdelta ${actual>target?'over':'ok'}">${actual>target?'+':''}${Math.round(actual-target)}s</span></div>
     ${worst.length?`<p class="rnote">Longest over budget: <b>${worst.join(' · ')}</b>. If you need time back, that's where it is.</p>`:'<p class="rnote">Nothing badly over budget. Nice.</p>'}
     <table class="rtab"><tr><th>#</th><th>Slide</th><th>You</th><th>Target</th><th>Δ</th></tr>${rows}</table>
-    <p class="rnote">R closes this · T restarts the clock and the recording</p>`;
+    <p class="rnote">any key or tap closes this · T restarts the clock and the recording</p>`;
 }
 window.runMarkdown=()=>{
   const per=runTotals(),out=[];
@@ -1321,7 +1326,9 @@ function go(x,atEnd){
   if(t===i&&!atEnd){paint();return;}
   markLeave();
   i=t;b=atEnd?beatsOf(slides[i]).length:1;
-  notesEl.classList.remove('show');notesOpen=false;sStart=Date.now()/1000;
+  notesEl.classList.remove('show');notesOpen=false;
+  document.getElementById('report').classList.remove('show');reportOpen=false;
+  sStart=Date.now()/1000;
   render();if(tOn)tickTimer();
 }
 /* One tap = one beat. Only when the slide's beats run out does it move on. */
@@ -1342,6 +1349,8 @@ document.addEventListener('keydown',e=>{
   const t=(e.target.tagName||'').toLowerCase(),inF=t==='input'||t==='select'||t==='textarea';
   if(e.key.toLowerCase()==='p'&&!inF){showPre(!preOn());return;}
   if(preOn()){ if(e.key===' '||e.key==='ArrowRight'||e.key==='ArrowLeft'||e.key==='Enter'||e.key==='Escape'){e.preventDefault();showPre(false);} return; }
+  /* the run report never traps him: ANY key while it's open just closes it */
+  if(reportOpen&&!inF){e.preventDefault();toggleReport();return;}
   if(e.key.toLowerCase()==='n'&&!inF){notesOpen=!notesOpen;notesEl.classList.toggle('show',notesOpen);return;}
   if(e.key.toLowerCase()==='t'&&!inF){toggleTimer();return;}
   if(e.key.toLowerCase()==='r'&&!inF){toggleReport();return;}
@@ -1361,6 +1370,7 @@ document.addEventListener('keydown',e=>{
 });
 document.addEventListener('click',e=>{
   if(preOn())return;
+  if(reportOpen){toggleReport();return;}
   if(e.target.closest('input,select,button,label,a,.calc,.szr,.szrnote,.nav,#notes,.out'))return;
   step(e.clientX>window.innerWidth/2?1:-1);
 });

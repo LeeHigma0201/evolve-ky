@@ -7,10 +7,9 @@
 
 ## PRE-FLIGHT
 
-- [ ] Open **evolve-deck.vercel.app** on the presenting machine. Leave the tab open.
-- [ ] **Press `F` for fullscreen once the projector is connected.** Browser chrome steals ~100 px of height; the deck now survives without it, but fullscreen is how it's meant to look.
-- [ ] **Stop the display sleeping.** It's set to 10 minutes — long enough to blank the QR during Q&A. Run `caffeinate -d` in a Terminal window and leave it open (Ctrl-C after).
-- [ ] Local backup (no wifi): `python3 -m http.server 8899` in `~/dev/evolve-ky`, open **localhost:8899**. (Double-clicking index.html can break the live calculators in some browsers — file:// is last resort; test it tonight if you want it as one.)
+- [ ] **Double-click `present.command`** in `~/dev/evolve-ky` (Finder). That's the whole setup: starts the deck **fully offline** at localhost:8899, opens it, and keeps the screen awake for 4 hours. Fonts, video and calculators are all local — venue wifi is irrelevant.
+- [ ] **Press `F` for fullscreen once the projector is connected.** Browser chrome steals ~100 px of height; the deck survives without it, but fullscreen is how it's meant to look.
+- [ ] Backup if the Mac itself dies: **evolve-deck.vercel.app** from any machine — it's the identical deck.
 - [ ] **Video: one clip only, on slide 12** — the real assessment, full-bleed, already installed and live. Slide 9 has no video. If 12 won't play, its three bullets appear automatically and ARE your script.
 - [ ] Laptop charged. Charger. **HDMI + USB-C dongle.**
 - [ ] Ask Mike: **is there a screen?** (Slot is settled: up to an hour available, targeting **20–30 min** of talk, Q&A after.)

@@ -21,7 +21,7 @@ Light, editorial, human — not a dark SaaS deck. ChargeRight design system (**D
 
 ## Run it
 
-Open `index.html` in any browser — one self-contained file, no build. The live calculators want `http` rather than `file://` in some browsers: `python3 -m http.server 8899` in this folder, or just use the deployed URL.
+**Double-click `present.command`** — starts the deck fully offline at localhost:8899, opens it, and keeps the screen awake. Fonts are self-hosted (`fonts/`, 174 KB), so offline is pixel-identical to the deployed URL. (The calculators want `http` rather than `file://`, which is why the launcher runs a local server.)
 
 **It advances in beats, not slides.** One tap of `Space` reveals the next piece of the slide and swaps the cue line at the bottom — the sentence Jason reads and the room reads with him. 17 slides, **70 beats**.
 
