@@ -82,10 +82,12 @@ The close turns the room into advocates: a **wow** (the live demos), a **repeata
 ```
 index.html            the deck (self-contained, 17 slides)
 runcard.html          phone-readable / printable run card
+rehearse.html         🎧 audio rehearsal player — every slide's notes, spoken
+audio/                17 per-slide tracks + 17:26 full run (generated from the deck's notes)
 video-methods.mp4     slot A clip (NotebookLM short, 78 s)
 qr.svg                QR to evchargeright.com
 install-video.sh      probe + transcode a NotebookLM download into a slot
-rehearsal/            RUN-CARD.md · qa-bank.md · ab-tests.md · fumble-log.md
+rehearsal/            RUN-CARD.md · qa-bank.md · ab-tests.md · fumble-log.md · narration/
 notebooklm/           SOURCE-load-math-explained.md · PROMPTS.md · INTEGRATION-MAP.md
 ```
 

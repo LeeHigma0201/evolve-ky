@@ -27,8 +27,10 @@ NotebookLM output quality tracks source *focus*, not source *count*. An 11-sourc
 
 > Explain to a homeowner with no electrical background why they probably do NOT need a $3,000-$5,000 panel upgrade to charge an EV at home. Follow this exact sequence.
 > **ONE:** Open on the myth. Draw a breaker panel where the numbers printed on the breakers add up to about 410 amps on a 200-amp service, and nothing is wrong, nothing trips. Explain diversity: a house never runs everything at once, so counting breakers is not the math and never was.
-> **TWO:** Show the two legal NEC calculation methods side by side on the SAME 2,000 square foot house. Walk the Standard Method step by step to 93 amps, then the Optional Method NEC 220.82 step by step to 79 amps. Show the numbers accumulating visually so the viewer sees where each method discounts the load differently. Emphasize that both are legal and they disagree by 14 amps.
-> **THREE:** Add a 48-amp EV charger to each. 141 amps versus 127 amps on a 200-amp service. Room to spare either way. This house never needed an upgrade.
+> **TWO:** Show the three legal NEC calculation methods side by side on the SAME 2,000 square foot house. Walk the Standard Method step by step to 93 amps, the Optional Method NEC 220.82 to 79 amps, and the Existing Dwelling method NEC 220.83(A) to 65 amps. Show the numbers accumulating visually so the viewer sees where each method discounts the load differently. Emphasize that all three are legal and they disagree.
+> **THREE:** Add a 48-amp EV charger to each. 141 versus 127 versus 113 amps on a 200-amp service. Room to spare every way. This house never needed an upgrade.
+>
+> *(Updated after the 2026-07-25 teaching reframe — any re-roll must show all THREE methods and land on 141/127/113, matching slide 9's on-screen beats and the installed clip.)*
 > **FOUR:** Close on the second lever nobody mentions. Charging at 16 amps instead of 48 still adds about 100 miles overnight against a 37-mile average day, and turns an over-limit 100-amp house into one that fits with no upgrade at all.
 > **Tone:** a master electrician talking straight to a homeowner at a kitchen table. Confident, plain-spoken, no jargon without immediately explaining it, never condescending. The takeaway: run the math before you spend the money.
 
@@ -63,7 +65,7 @@ NotebookLM output quality tracks source *focus*, not source *count*. An 11-sourc
 
 NotebookLM will paraphrase, and paraphrased code math can drift. Before anything goes public:
 
-- [ ] Check every number against `SOURCE-load-math-explained.md` — especially **93 A**, **79 A**, **141 A**, **127 A**, and the **10 kVA / 40%** split
+- [ ] Check every number against `SOURCE-load-math-explained.md` — especially **93 / 79 / 65 A** (base) and **141 / 127 / 113 A** (with the 48 A charger), plus the **10 kVA / 40%** (220.82) and **8 kVA / 40%** (220.83) splits
 - [ ] Make sure it doesn't state a code section number that isn't in the source
 - [ ] Make sure it doesn't promise the tool is free — it's a **free calculator** plus a **$12.99** photo assessment
 - [ ] Nothing should imply Jason does installs
