@@ -113,14 +113,20 @@
   .tog input{accent-color:var(--blue);width:15px;height:15px}
   .tog:has(input:checked){border-color:var(--blue);background:var(--blue-wash)}
   /* ===== video insert slides (NotebookLM clips) ===== */
-  .vidwrap{margin-top:clamp(10px,1.6vw,18px);border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#0B0F18;position:relative}
-  .vid{display:block;width:100%;height:clamp(240px,42vh,400px);object-fit:contain;background:#0B0F18}
-  .vidfall{background:var(--paper);padding:clamp(16px,2.4vw,26px)}
-  .vf-h{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:10px}
-  .vidfall ul{margin:0;padding-left:19px;font-size:clamp(14px,1.75vw,19px);line-height:1.5;color:var(--soft)}
-  .vidfall li{margin-bottom:7px}
-  .vidfall li b{color:var(--ink);font-weight:700}
-  .vidskip{font-family:var(--mono);font-size:10px;color:var(--faint);letter-spacing:.05em;margin-top:8px}
+  /* Portrait clip (NotebookLM Shorts are 9:16) beside the beats, so the 16:9
+     frame is filled instead of letterboxing a skinny strip into black bars. */
+  .vidwrap{display:grid;grid-template-columns:auto 1fr;gap:clamp(16px,2.8vw,36px);
+    align-items:center;margin-top:clamp(8px,1.4vw,16px)}
+  .vid{display:block;height:clamp(230px,47vh,430px);width:auto;max-width:40vw;
+    border-radius:12px;border:1px solid var(--line2);background:#0B0F18;
+    box-shadow:0 22px 44px -30px rgba(23,28,43,.8)}
+  .vidfall{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:clamp(14px,2vw,22px)}
+  .vf-h{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:9px}
+  .vidbeats{margin:0;padding-left:19px;font-size:clamp(14px,1.8vw,21px);line-height:1.45;color:var(--soft)}
+  .vidbeats li{margin-bottom:clamp(7px,1.1vw,12px)}
+  .vidbeats li b{color:var(--ink);font-weight:700}
+  .vidskip{font-family:var(--mono);font-size:10px;color:var(--faint);letter-spacing:.05em;margin-top:10px}
+  @media (max-width:860px){ .vidwrap{grid-template-columns:1fr} .vid{max-width:100%;margin:0 auto} }
   /* ===== "this panel is full / it's barely working" ===== */
   .pnl{display:grid;grid-template-columns:auto 1fr;gap:clamp(18px,3vw,38px);align-items:center;margin-top:clamp(10px,1.6vw,18px)}
   .pbox{background:#EFEDE6;border:2px solid var(--line2);border-radius:10px;padding:10px 9px 8px;width:clamp(150px,19vw,208px)}
@@ -252,21 +258,23 @@ const METHODS=[
    the keypress, so audio is allowed). If the mp4 is missing or won't decode, the
    fallback bullets take over — the deck must never dead-end on stage. */
 function videoMarkup(s){
-  return `<div class="vidwrap">
+  // Beats are ALWAYS on screen — they reinforce the narration and give the room
+  // something to read. If the clip dies they simply become the whole slide.
+  return `<div class="vidwrap" id="vidwrap">
       <video id="vid" class="vid" src="${s.src}" tabindex="-1" playsinline controls preload="auto"></video>
-      <div id="vidfall" class="vidfall" style="display:none">
-        <div class="vf-h">Video didn&rsquo;t load &mdash; say this instead</div>
-        <ul>${s.fallback.map(f=>`<li>${f}</li>`).join('')}</ul>
+      <div class="vidfall">
+        <div class="vf-h" id="vf_h" style="display:none">Video didn&rsquo;t load &mdash; say this instead</div>
+        <ul class="vidbeats">${s.fallback.map(f=>`<li>${f}</li>`).join('')}</ul>
       </div>
     </div>
     <p class="vidskip">plays automatically &middot; &rarr; to move on &middot; cuttable if you&rsquo;re running long</p>`;
 }
 function wireVideo(){
-  const v=document.getElementById('vid'),f=document.getElementById('vidfall');
-  if(!v||!f) return;
-  const fail=()=>{v.style.display='none';f.style.display='block';};
+  const v=document.getElementById('vid'),h=document.getElementById('vf_h'),w=document.getElementById('vidwrap');
+  if(!v) return;
+  const fail=()=>{v.style.display='none';if(h)h.style.display='block';if(w)w.style.gridTemplateColumns='1fr';};
   v.addEventListener('error',fail);
-  // src that resolves to a 404 HTML page never fires 'error' on some browsers — check readyState too
+  // a src that 404s to an HTML page doesn't always fire 'error' — check the load state too
   setTimeout(()=>{if(v.networkState===v.NETWORK_NO_SOURCE||(v.readyState===0&&!v.currentSrc))fail();},1800);
   const p=v.play(); if(p&&p.catch)p.catch(()=>{}); // blocked autoplay is fine — controls are right there
 }
