@@ -19,7 +19,8 @@ Running record across rehearsal passes. Add a row every time something comes out
 
 | Pass | Date | What we drilled | Fumbled on | Fix applied |
 |---|---|---|---|---|
-| 1 | 2026-07-24 | *(in progress)* | | |
+| 1 | 2026-07-24 | Cold-open A/B (picked D, "the Tesla tax") | — | — |
+| 2 | 2026-07-26 AM | **Full dress run on the beat deck** — timer + recorder, offline via present.command | "went fine" per Jason. Per-slide numbers not captured (recorder only saved on timer-off; fixed — now saves every slide change) | Recorder hardened. Venue run WILL capture per-slide actuals: press T at the start, R after |
 
 ---
 

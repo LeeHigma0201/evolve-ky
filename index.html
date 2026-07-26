@@ -1275,7 +1275,11 @@ function startRun(){runSegs=[];slideEnter=Date.now()/1000;recording=true;}
 function markLeave(){
   if(!recording)return;
   const t=Date.now()/1000,d=t-slideEnter;
-  if(d>0.4) runSegs.push({s:i,secs:d});   /* ignore instant fly-throughs */
+  if(d>0.4){
+    runSegs.push({s:i,secs:d});   /* ignore instant fly-throughs */
+    /* persist EVERY segment — a closed tab or dead battery must not lose the run */
+    try{localStorage.setItem('evolveRun',JSON.stringify(runSegs));}catch(e){}
+  }
   slideEnter=t;
 }
 function stopRun(){
