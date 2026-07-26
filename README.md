@@ -23,7 +23,16 @@ Light, editorial, human — not a dark SaaS deck. ChargeRight design system (**D
 
 Open `index.html` in any browser — one self-contained file, no build. The live calculators want `http` rather than `file://` in some browsers: `python3 -m http.server 8899` in this folder, or just use the deployed URL.
 
-**Controls:** `→`/`Space` next · `←` back · `N` speaker notes · `T` rehearsal timer · on-screen `‹ ›` always work (even while typing in a calculator).
+**It advances in beats, not slides.** One tap of `Space` reveals the next piece of the slide and swaps the cue line at the bottom — the sentence Jason reads and the room reads with him. 17 slides, **69 beats**.
+
+**Controls:** `Space`/`→` next beat (next slide at the last beat) · `←` back a beat (previous slide *fully revealed* at the first) · `↓`/`↑` skip a whole slide · `N` notes (every beat, current highlighted) · `T` timer · `P` pre-show loop · on-screen `‹ ›` always work, even while typing in a calculator.
+
+**Pre-show loop.** The deck opens on a looping title card — logo, the question, four rotating lines and the QR, on a 20-second cycle. Pure CSS, so there's no video file to fail and it needs no network. Tap to start the talk; `P` brings it back.
+
+**Full bleed.** The deck fills the projector at any aspect ratio — verified with zero overflow across all 69 beats at 1920×1080, 1280×800 and 1024×768. Everything scales off one unit (`--s: min(1.04vw, 1.55vh)`) taken from whichever screen dimension is tighter.
+
+### How beats are wired
+Elements carry `data-r="<reveal id>"`; each slide's `beats[]` says which beat each id lands on. So beats can be reordered or cut without retagging markup, a reveal id with no matching element just advances the cue (that's how the live-demo slides work), and an element whose id isn't in `beats[]` stays visible. Hidden beats keep their layout space — nothing on screen jumps as pieces land.
 
 ## The deck — 17 slides
 
@@ -45,7 +54,7 @@ Open `index.html` in any browser — one self-contained file, no build. The live
 | 14 | Do it yourself | the questions to answer · what a panel photo adds |
 | 15 | …or don't | ChargeRight · $12.99 · free calculator |
 | 16 | Tell somebody | the one repeatable share line |
-| 17 | Pass it on | hero close + QR to evchargeright.com |
+| 17 | Pass it on | hero close + QR · **$12.99 at evchargeright.com, or ChargeRight on the App Store (free download)** |
 
 **≈24:30 full.** A six-step cut ladder down to ~17:05 is in the run card; slides 9 and 12 say "cuttable" on screen.
 
@@ -82,8 +91,8 @@ The close turns the room into advocates: a **wow** (the live demos), a **repeata
 ```
 index.html            the deck (self-contained, 17 slides)
 runcard.html          phone-readable / printable run card
-rehearse.html         🎧 audio rehearsal player — every slide's notes, spoken
-audio/                17 per-slide tracks + 17:26 full run (generated from the deck's notes)
+rehearse.html         🎧 audio rehearsal player — every beat, spoken
+audio/                17 per-slide tracks + 26:37 full run (generated from the deck's beats)
 video-methods.mp4     slot A clip (NotebookLM short, 78 s)
 qr.svg                QR to evchargeright.com
 install-video.sh      probe + transcode a NotebookLM download into a slot

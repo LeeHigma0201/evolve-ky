@@ -1,104 +1,104 @@
 [
-  {
-    "n": 1,
-    "label": "The cold open",
-    "head": "The Tesla tax cold open",
-    "target": 45
-  },
-  {
-    "n": 2,
-    "label": "Who I am",
-    "head": "I'm Jason. I-B-E-W Local 369.",
-    "target": 60
-  },
-  {
-    "n": 3,
-    "label": "What's at stake",
-    "head": "You bought the car. Then came the quote.",
-    "target": 75
-  },
-  {
-    "n": 4,
-    "label": "Start here",
-    "head": "Your panel is barely working.",
-    "target": 90
-  },
-  {
-    "n": 5,
-    "label": "The myth that sells the upgrade",
-    "head": "This panel is full. It isn't close to loaded.",
-    "target": 90
-  },
-  {
-    "n": 6,
-    "label": "Lesson one",
-    "head": "There is more than one legal way to run it.",
-    "target": 105
-  },
-  {
-    "n": 7,
-    "label": "Lesson two",
-    "head": "two-twenty point eighty-three — the one that's yours.",
-    "target": 85
-  },
-  {
-    "n": 8,
-    "label": "Lesson three",
-    "head": "Or don't estimate at all.",
-    "target": 85
-  },
-  {
-    "n": 9,
-    "label": "Watch it happen",
-    "head": "The same house, three legal ways.",
-    "target": 90
-  },
-  {
-    "n": 10,
-    "label": "See it for a real house",
-    "head": "How full is your panel — really?",
-    "target": 180
-  },
-  {
-    "n": 11,
-    "label": "Lesson four",
-    "head": "Size the charger to your driving — not to the box it came in.",
-    "target": 150
-  },
-  {
-    "n": 12,
-    "label": "One more thing",
-    "head": "You may not need the big charger either.",
-    "target": 60
-  },
-  {
-    "n": 13,
-    "label": "So what do I find?",
-    "head": "When I actually run it:",
-    "target": 50
-  },
-  {
-    "n": 14,
-    "label": "Do it yourself",
-    "head": "Here's what you need to answer.",
-    "target": 75
-  },
-  {
-    "n": 15,
-    "label": "…or don't",
-    "head": "You just learned it. You don't have to do it.",
-    "target": 80
-  },
-  {
-    "n": 16,
-    "label": "Tell somebody",
-    "head": "Here's all you have to say:",
-    "target": 60
-  },
-  {
-    "n": 17,
-    "label": "Pass it on",
-    "head": "Be the reason your buddy keeps his $4,000.",
-    "target": 90
-  }
+ {
+  "n": 1,
+  "label": "The cold open",
+  "beats": 3,
+  "target": 45
+ },
+ {
+  "n": 2,
+  "label": "Who I am",
+  "beats": 3,
+  "target": 60
+ },
+ {
+  "n": 3,
+  "label": "What’s at stake",
+  "beats": 4,
+  "target": 75
+ },
+ {
+  "n": 4,
+  "label": "Start here",
+  "beats": 4,
+  "target": 90
+ },
+ {
+  "n": 5,
+  "label": "The myth",
+  "beats": 7,
+  "target": 90
+ },
+ {
+  "n": 6,
+  "label": "Lesson one — four methods",
+  "beats": 5,
+  "target": 105
+ },
+ {
+  "n": 7,
+  "label": "Lesson two — 220.83",
+  "beats": 4,
+  "target": 85
+ },
+ {
+  "n": 8,
+  "label": "Lesson three — 220.87",
+  "beats": 4,
+  "target": 85
+ },
+ {
+  "n": 9,
+  "label": "Video A",
+  "beats": 2,
+  "target": 90
+ },
+ {
+  "n": 10,
+  "label": "Live panel calculator",
+  "beats": 5,
+  "target": 180
+ },
+ {
+  "n": 11,
+  "label": "Lesson four — the charger sizer",
+  "beats": 6,
+  "target": 150
+ },
+ {
+  "n": 12,
+  "label": "Video B",
+  "beats": 2,
+  "target": 60
+ },
+ {
+  "n": 13,
+  "label": "What I find",
+  "beats": 5,
+  "target": 50
+ },
+ {
+  "n": 14,
+  "label": "Do it yourself",
+  "beats": 5,
+  "target": 75
+ },
+ {
+  "n": 15,
+  "label": "…or don’t",
+  "beats": 5,
+  "target": 80
+ },
+ {
+  "n": 16,
+  "label": "Tell somebody",
+  "beats": 2,
+  "target": 60
+ },
+ {
+  "n": 17,
+  "label": "Pass it on",
+  "beats": 3,
+  "target": 90
+ }
 ]

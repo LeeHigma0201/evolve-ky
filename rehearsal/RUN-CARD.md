@@ -16,6 +16,22 @@
 - [ ] **Know your house cold** — sq ft, service size, gas or electric. It's your demo backup.
 - [ ] **Know your number** — how many homes have you run this on? You say "in the homes I've checked."
 - [ ] Business cards with the QR.
+- [ ] **Leave the pre-show loop up while people come in.** It's what the deck opens on — the logo, the question, four rotating lines and the QR, cycling every 20 seconds. Tap the spacebar (or click) when Mike hands it to you. `P` brings it back any time.
+
+---
+
+## HOW THE DECK DRIVES — read this once
+
+**One tap of the spacebar = one beat, not one slide.** Each slide reveals itself a piece at a time, and the sentence at the bottom of the screen changes with it. That sentence is your cue — read it, then talk around it.
+
+- **space** (or `→`, or click the right half) — next beat; at the last beat it moves to the next slide
+- **`←`** — back one beat; at the first beat it goes back to the previous slide *fully revealed*
+- **`↓` / `↑`** — skip the rest of this slide / jump back a whole slide, if you're running long
+- **bottom-right dots** — how many taps this slide has, and how many you've used. When it says **`next ▸ 6`** the next tap leaves the slide.
+- **`N`** — notes: every beat listed with what to say, current beat highlighted
+- **`T`** timer · **`P`** pre-show loop
+
+**The taps column in the spine below is your map.** Slide 5 is 7 taps, slide 11 is 6. Nothing appears before you ask for it, so you can never get ahead of the room — and the room can't read ahead of you.
 
 ---
 
@@ -39,25 +55,25 @@
 
 ## THE SPINE — 17 slides
 
-| # | Slide | The one line you must land | Time |
-|---|---|---|---|
-| 1 | Title | *(the cold open above)* | 0:45 |
-| 2 | **Who I am** | "Union electrician, **Local 369**, right here. I run these calcs every day — and I'm going to teach you how." | 1:00 |
-| 3 | What's at stake | "$3–5k. And some people get that quote and just don't buy the car." | 1:15 |
-| 4 | Start here | "Your panel is **barely working.** Your house never runs everything at once." | 1:30 |
-| 5 | **The myth** | "410 amps of breakers on a 200 amp service. Nothing ever trips." | 1:30 |
-| 6 | **Lesson 1** | "There's more than one legal way to run it. Three estimate. One measures." | 1:45 |
-| 7 | **Lesson 2** | "**220.83.** Existing service, additional load. That's you — and it's the first line of the section." | 1:25 |
-| 8 | **Lesson 3** | "Or don't estimate at all. Use what the house **actually pulled.**" | 1:25 |
-| 9 | 🎬 Video | *breather.* Then: "Three legal ways. All three agree." | 1:30 |
-| 10 | **LIVE CALC** | "Give me a real house. Let's run it right now." | 3:00 |
-| 11 | **Lesson 4 — LIVE** | "**Hours are the lever. Not the badge on the box.**" | 2:30 |
-| 12 | 🎬 Video | *breather.* Then: "You don't have a panel problem." | 1:00 |
-| 13 | What I find | "In the homes I've checked — about four out of five had the room." | 0:50 |
-| 14 | Do it yourself | "None of this is secret. Tape measure, flashlight, code book." | 1:15 |
-| 15 | …or don't | "You just learned it. You don't have to **do** it. **$12.99.**" | 1:20 |
-| 16 | Tell somebody | *(read the line slow, twice)* | 1:00 |
-| 17 | Pass it on | "Be the reason your buddy keeps his four thousand dollars." | 1:30 |
+| # | Slide | The one line you must land | Taps | Time |
+|---|---|---|---|---|
+| 1 | Title | *(the cold open above)* | **3** | 0:45 |
+| 2 | **Who I am** | "Union electrician, **Local 369**, right here. I run these calcs every day — and I'm going to teach you how." | **3** | 1:00 |
+| 3 | What's at stake | "$3–5k. And some people get that quote and just don't buy the car." | **4** | 1:15 |
+| 4 | Start here | "Your panel is **barely working.** Your house never runs everything at once." | **4** | 1:30 |
+| 5 | **The myth** | "410 amps of breakers on a 200 amp service. Nothing ever trips." | **7** | 1:30 |
+| 6 | **Lesson 1** | "There's more than one legal way to run it. Three estimate. One measures." | **5** | 1:45 |
+| 7 | **Lesson 2** | "**220.83.** Existing service, additional load. That's you — and it's the first line of the section." | **4** | 1:25 |
+| 8 | **Lesson 3** | "Or don't estimate at all. Use what the house **actually pulled.**" | **4** | 1:25 |
+| 9 | 🎬 Video | *breather.* Then: "Three legal ways. All three agree." | **2** | 1:30 |
+| 10 | **LIVE CALC** | "Give me a real house. Let's run it right now." | **5** | 3:00 |
+| 11 | **Lesson 4 — LIVE** | "**Hours are the lever. Not the badge on the box.**" | **6** | 2:30 |
+| 12 | 🎬 Video | *breather.* Then: "You don't have a panel problem." | **2** | 1:00 |
+| 13 | What I find | "In the homes I've checked — about four out of five had the room." | **5** | 0:50 |
+| 14 | Do it yourself | "None of this is secret. Tape measure, flashlight, code book." | **5** | 1:15 |
+| 15 | …or don't | "You just learned it. You don't have to **do** it. **$12.99.**" | **5** | 1:20 |
+| 16 | Tell somebody | *(read the line slow, twice)* | **2** | 1:00 |
+| 17 | Pass it on | "Be the reason your buddy keeps his four thousand dollars." | **3** | 1:30 |
 
 **Full run ≈ 24:30.**
 
@@ -122,7 +138,7 @@ Start on defaults (35 mi, 8 hrs → **20 A breaker**). Then change **one thing a
 | **peak × 1.25 + new load ≤ service** | 220.87 | NEC 220.87(2) |
 | **charger amps × 1.25 → next standard size** | the breaker rule | 625.41 · 210.20(A) · 240.4(B) |
 | **4 out of 5** | Homes with room | **"In the homes *I've* checked."** Your data, not a study. Know the count. |
-| **$12.99 / free calculator / ~$300 service call** | The ladder | Say the price on slide 15. Website only — iOS is $16.99 (Apple's cut). |
+| **$12.99 / free calculator / ~$300 service call** | The ladder | Say the price on slide 15. iOS is $16.99 (Apple's cut) — the app itself is a **free download**, verified live. Slide 17 shows both. |
 
 ⚠️ **Never state a code section number you're not sure of.** "That's in the existing-dwelling section" is always safe.
 ⚠️ **Never quote 2023 text as verbatim.** Everything you have is the 2017 copy. Say so — it makes you *more* credible, not less.

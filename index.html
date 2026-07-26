@@ -18,6 +18,10 @@
     --sans:"DM Sans",system-ui,-apple-system,sans-serif;
     --mono:"Space Mono",ui-monospace,Menlo,monospace;
     --r:14px;
+    /* One scaling unit for the whole deck. Sized off whichever screen dimension is
+       TIGHTER, so the deck fills a 16:9, 16:10 or 4:3 projector edge to edge without
+       ever overflowing. Every former "Nvw" in this sheet is now calc(N*var(--s)). */
+    --s:min(1.04vw,1.55vh);
   }
   *{box-sizing:border-box}
   html,body{margin:0;height:100%}
@@ -25,40 +29,42 @@
     display:flex;align-items:center;justify-content:center;-webkit-font-smoothing:antialiased;
     background-image:radial-gradient(var(--line) .9px, transparent .9px);background-size:26px 26px}
   #bar{position:fixed;top:0;left:0;height:3px;background:var(--blue);width:0;transition:width .3s cubic-bezier(.4,0,.2,1);z-index:9}
-  .stage{position:relative;z-index:2;width:min(1060px,94vw);height:min(650px,92vh);
-    background:var(--card);border:1px solid var(--line);border-radius:22px;
-    box-shadow:0 40px 80px -50px rgba(23,28,43,.5),0 2px 0 var(--line)}
-  /* top padding clears the absolutely-positioned .brand so dense slides can't collide with it */
+  /* FULL BLEED — fills the projector, whatever its aspect ratio. No card, no letterbox. */
+  .stage{position:relative;z-index:2;width:100vw;height:100vh;background:var(--card);
+    background-image:radial-gradient(var(--line) .9px,transparent .9px);background-size:26px 26px;
+    overflow:hidden}
+  /* top padding clears the absolutely-positioned .brand so dense slides can't collide with it;
+     bottom padding reserves the cue band + beat dots so revealing a beat never reflows the slide */
   .slide{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;
-    padding:clamp(86px,11vw,118px) clamp(32px,5.2vw,72px) clamp(44px,5.4vw,62px)}
+    padding:clamp(60px,9.6vh,112px) clamp(38px,calc(5.2*var(--s)),96px) clamp(112px,19vh,200px)}
   .slide.active{display:flex}
-  .slide.active > *{animation:rise .5s cubic-bezier(.2,.7,.2,1) both}
+  .slide.active > *:not([data-r]):not(.cue):not(.dots){animation:rise .5s cubic-bezier(.2,.7,.2,1) both}
   .slide.active > *:nth-child(2){animation-delay:.05s}
   .slide.active > *:nth-child(3){animation-delay:.1s}
   .slide.active > *:nth-child(4){animation-delay:.15s}
   @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
   /* logo (top rule) */
-  .brand{display:flex;align-items:center;gap:10px;position:absolute;top:clamp(26px,4vw,40px);left:clamp(32px,5.2vw,72px)}
+  .brand{display:flex;align-items:center;gap:10px;position:absolute;top:clamp(26px,calc(4*var(--s)),40px);left:clamp(32px,calc(5.2*var(--s)),72px)}
   .brand .mark{width:26px;height:26px;color:var(--ink)}
   .brand .mark .bolt{fill:var(--blue)}
   .brand .wm{font-weight:800;font-size:17px;letter-spacing:-.02em}
   .brand .wm b{color:var(--blue)}
-  .kicker{font-family:var(--mono);font-size:clamp(10px,1.2vw,12.5px);letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin:0 0 clamp(14px,2.2vw,20px);display:inline-flex;align-items:center;gap:10px}
+  .kicker{font-family:var(--mono);font-size:clamp(10px,calc(1.2*var(--s)),18px);letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin:0 0 clamp(14px,calc(2.2*var(--s)),20px);display:inline-flex;align-items:center;gap:10px}
   .kicker::before{content:"";width:22px;height:2px;background:var(--blue)}
-  h1{font-weight:900;line-height:1.0;letter-spacing:-.035em;margin:0;font-size:clamp(34px,6.4vw,72px);max-width:15ch}
-  h2{font-weight:800;line-height:1.05;letter-spacing:-.03em;margin:0;font-size:clamp(28px,4.8vw,54px);max-width:17ch}
-  .body{margin:clamp(16px,2.3vw,24px) 0 0;font-size:clamp(17px,2.2vw,26px);line-height:1.45;color:var(--soft);max-width:32ch}
+  h1{font-weight:900;line-height:1.0;letter-spacing:-.035em;margin:0;font-size:clamp(34px,calc(6.4*var(--s)),104px);max-width:15ch}
+  h2{font-weight:800;line-height:1.05;letter-spacing:-.03em;margin:0;font-size:clamp(28px,calc(4.8*var(--s)),74px);max-width:17ch}
+  .body{margin:clamp(16px,calc(2.3*var(--s)),24px) 0 0;font-size:clamp(17px,calc(2.2*var(--s)),34px);line-height:1.45;color:var(--soft);max-width:32ch}
   .body b{color:var(--ink);font-weight:700}
   /* highlighter — human, editorial emphasis (not gradient) */
   .hl{background:linear-gradient(120deg,var(--blue-wash),var(--blue-wash));box-shadow:0 0 0 3px var(--blue-wash);border-radius:3px;padding:0 .05em}
   .hl-g{background:var(--green-wash);box-shadow:0 0 0 3px var(--green-wash);border-radius:3px;padding:0 .05em}
   .u{background:linear-gradient(var(--blue),var(--blue)) bottom/100% .12em no-repeat;padding-bottom:.02em}
-  .byline{margin-top:clamp(22px,4vw,38px);font-family:var(--mono);font-size:clamp(12px,1.5vw,14px);color:var(--soft)}
+  .byline{margin-top:clamp(22px,calc(4*var(--s)),38px);font-family:var(--mono);font-size:clamp(12px,calc(1.5*var(--s)),22px);color:var(--soft)}
   .link{color:var(--blue);font-weight:700}
-  .big{font-weight:900;letter-spacing:-.045em;line-height:.86;font-size:clamp(50px,10.4vw,122px);color:var(--ink);margin:clamp(4px,1vw,10px) 0}
-  .caplabel{font-family:var(--mono);font-size:clamp(11px,1.4vw,14px);letter-spacing:.02em;color:var(--faint);text-transform:uppercase}
-  .foot{position:absolute;left:clamp(32px,5.2vw,72px);bottom:clamp(24px,3vw,30px);font-family:var(--mono);font-size:11px;color:var(--faint);letter-spacing:.05em}
-  .count{position:absolute;right:clamp(32px,5.2vw,72px);bottom:clamp(24px,3vw,30px);font-family:var(--mono);font-size:12px;color:var(--soft)}
+  .big{font-weight:900;letter-spacing:-.045em;line-height:.86;font-size:clamp(50px,calc(10.4*var(--s)),178px);color:var(--ink);margin:clamp(4px,calc(1*var(--s)),10px) 0}
+  .caplabel{font-family:var(--mono);font-size:clamp(11px,calc(1.4*var(--s)),21px);letter-spacing:.02em;color:var(--faint);text-transform:uppercase}
+  .foot{position:absolute;left:clamp(32px,calc(5.2*var(--s)),72px);bottom:clamp(24px,calc(3*var(--s)),30px);font-family:var(--mono);font-size:11px;color:var(--faint);letter-spacing:.05em}
+  .count{position:absolute;right:clamp(32px,calc(5.2*var(--s)),72px);bottom:clamp(24px,calc(3*var(--s)),30px);font-family:var(--mono);font-size:12px;color:var(--soft)}
   .count b{color:var(--blue)}
   /* rehearsal timer — off by default, toggle with T */
   #timer{position:fixed;top:12px;right:14px;z-index:11;display:none;gap:12px;align-items:baseline;
@@ -73,42 +79,42 @@
   .nav button{font-family:var(--mono);font-size:15px;border:1px solid var(--line2);background:var(--card);color:var(--soft);width:42px;height:32px;border-radius:8px;cursor:pointer}
   .nav button:hover{border-color:var(--blue);color:var(--blue)}
   #notes{position:fixed;left:0;right:0;bottom:0;max-height:44vh;overflow:auto;z-index:10;background:var(--ink);color:#EBEEF5;
-    border-top:3px solid var(--blue);padding:20px clamp(24px,6vw,80px);font-size:15px;line-height:1.55;transform:translateY(101%);transition:transform .26s cubic-bezier(.4,0,.2,1)}
+    border-top:3px solid var(--blue);padding:20px clamp(24px,calc(6*var(--s)),80px);font-size:15px;line-height:1.55;transform:translateY(101%);transition:transform .26s cubic-bezier(.4,0,.2,1)}
   #notes.show{transform:none}
   #notes .nlabel{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#6ea0ff;margin-bottom:6px}
   /* title */
-  .logo-lg{display:flex;align-items:center;gap:14px;margin-bottom:clamp(18px,3vw,28px)}
-  .logo-lg .mark{width:clamp(44px,6vw,64px);height:clamp(44px,6vw,64px);color:var(--ink)}
+  .logo-lg{display:flex;align-items:center;gap:14px;margin-bottom:clamp(18px,calc(3*var(--s)),28px)}
+  .logo-lg .mark{width:clamp(44px,calc(6*var(--s)),64px);height:clamp(44px,calc(6*var(--s)),64px);color:var(--ink)}
   .logo-lg .mark .bolt{fill:var(--blue)}
-  .logo-lg .wm{font-size:clamp(24px,3.6vw,36px);font-weight:900;letter-spacing:-.03em}
+  .logo-lg .wm{font-size:clamp(24px,calc(3.6*var(--s)),36px);font-weight:900;letter-spacing:-.03em}
   .logo-lg .wm b{color:var(--blue)}
   /* houses (social proof) */
-  .houses{display:flex;gap:clamp(6px,1.4vw,16px);margin:clamp(12px,2vw,20px) 0 clamp(6px,1vw,12px);align-items:flex-end}
-  .houses svg{width:clamp(40px,7vw,82px);height:auto}
+  .houses{display:flex;gap:clamp(6px,calc(1.4*var(--s)),16px);margin:clamp(12px,calc(2*var(--s)),20px) 0 clamp(6px,calc(1*var(--s)),12px);align-items:flex-end}
+  .houses svg{width:clamp(40px,calc(7*var(--s)),124px);height:auto}
   .h-ok{color:var(--green)} .h-no{color:var(--red);opacity:.9}
-  .houses .tag{font-family:var(--mono);font-size:12px;color:var(--faint);align-self:center;margin-left:6px}
+  .houses .tag{font-family:var(--mono);font-size:clamp(12px,calc(1.3*var(--s)),19px);color:var(--faint);align-self:center;margin-left:6px}
   /* product steps */
-  .steps{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:stretch;gap:clamp(8px,1.4vw,14px);margin-top:clamp(18px,3vw,28px)}
-  .step{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:clamp(16px,2.2vw,24px);text-align:center}
-  .step .si{width:clamp(28px,3.6vw,40px);height:clamp(28px,3.6vw,40px);margin:0 auto 12px;color:var(--blue)}
-  .step h4{margin:0 0 6px;font-size:clamp(15px,1.8vw,20px);font-weight:800}
-  .step p{margin:0;font-size:clamp(12px,1.5vw,15px);color:var(--soft);line-height:1.35}
+  .steps{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:stretch;gap:clamp(8px,calc(1.4*var(--s)),14px);margin-top:clamp(18px,calc(3*var(--s)),28px)}
+  .step{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:clamp(13px,calc(1.9*var(--s)),26px);text-align:center}
+  .step .si{width:clamp(28px,calc(3.6*var(--s)),40px);height:clamp(28px,calc(3.6*var(--s)),40px);margin:0 auto 12px;color:var(--blue)}
+  .step h4{margin:0 0 6px;font-size:clamp(15px,calc(1.8*var(--s)),29px);font-weight:800}
+  .step p{margin:0;font-size:clamp(12px,calc(1.5*var(--s)),22px);color:var(--soft);line-height:1.35}
   .arrow{align-self:center;color:var(--line2);font-size:22px;font-family:var(--mono)}
   /* quote */
-  .quote{margin:clamp(16px,2.6vw,26px) 0 0;font-weight:800;line-height:1.24;letter-spacing:-.02em;font-size:clamp(23px,3.5vw,42px);max-width:22ch;position:relative;padding-left:clamp(16px,2vw,22px)}
+  .quote{margin:clamp(16px,calc(2.6*var(--s)),26px) 0 0;font-weight:800;line-height:1.24;letter-spacing:-.02em;font-size:clamp(23px,calc(3.5*var(--s)),58px);max-width:22ch;position:relative;padding-left:clamp(16px,calc(2*var(--s)),22px)}
   .quote::before{content:"";position:absolute;left:0;top:5px;bottom:5px;width:5px;border-radius:3px;background:var(--blue)}
   /* close + qr */
-  .close{display:grid;grid-template-columns:1fr auto;gap:clamp(24px,4vw,56px);align-items:center}
+  .close{display:grid;grid-template-columns:1fr auto;gap:clamp(24px,calc(4*var(--s)),56px);align-items:center}
   .qrbox{background:#fff;padding:14px;border:1px solid var(--line);border-radius:14px;box-shadow:0 20px 40px -24px rgba(23,28,43,.4)}
-  .qrbox img{width:clamp(130px,19vw,184px);height:auto;display:block}
-  .qrcap{font-family:var(--mono);font-size:12px;color:var(--soft);text-align:center;margin-top:10px;max-width:22ch}
+  .qrbox img{width:clamp(130px,calc(19*var(--s)),240px);height:auto;display:block}
+  .qrcap{font-family:var(--mono);font-size:clamp(12px,calc(1.3*var(--s)),18px);color:var(--soft);text-align:center;margin-top:10px;max-width:22ch}
   /* ===== CALCULATOR — "how full is your panel" ===== */
-  .calc{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(16px,2.6vw,30px);align-items:stretch;margin-top:6px}
-  .calc h2{font-size:clamp(21px,2.9vw,30px);margin-bottom:12px}
+  .calc{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(16px,calc(2.6*var(--s)),30px);align-items:stretch;margin-top:6px}
+  .calc h2{font-size:clamp(21px,calc(2.9*var(--s)),30px);margin-bottom:12px}
   .fields{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px}
   .fld{display:flex;flex-direction:column;gap:4px}
-  .fld label{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
-  .fld input,.fld select{font-family:var(--sans);font-size:16px;font-weight:700;color:var(--ink);background:var(--paper);border:1px solid var(--line2);border-radius:9px;padding:9px 10px;width:100%;outline:none}
+  .fld label{font-family:var(--mono);font-size:clamp(10px,calc(1.1*var(--s)),16px);letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
+  .fld input,.fld select{font-family:var(--sans);font-size:clamp(16px,calc(1.75*var(--s)),26px);font-weight:700;color:var(--ink);background:var(--paper);border:1px solid var(--line2);border-radius:9px;padding:9px 10px;width:100%;outline:none}
   .fld input:focus,.fld select:focus{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-wash)}
   .toggles{grid-column:1/3;display:flex;flex-wrap:wrap;gap:7px}
   .tog{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:700;color:var(--ink);background:var(--paper);border:1px solid var(--line2);border-radius:20px;padding:6px 12px;cursor:pointer}
@@ -116,88 +122,188 @@
   .tog:has(input:checked){border-color:var(--blue);background:var(--blue-wash)}
   /* ===== teaching slides: code quotes, method cards, charger sizer ===== */
   .codeq{background:var(--paper);border-left:5px solid var(--blue);border-radius:0 10px 10px 0;
-    padding:clamp(13px,1.9vw,20px) clamp(15px,2.2vw,24px);margin:clamp(12px,1.8vw,18px) 0 0}
-  .codeq q{font-family:var(--mono);font-size:clamp(12.5px,1.55vw,17px);line-height:1.55;color:var(--ink);display:block;quotes:none}
-  .codeq .src{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-top:9px;display:block}
-  .mgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(7px,1.1vw,12px);margin-top:clamp(12px,2vw,20px)}
-  .mcard{background:var(--paper);border:1px solid var(--line);border-radius:11px;padding:clamp(11px,1.5vw,16px);position:relative}
+    padding:clamp(13px,calc(1.9*var(--s)),20px) clamp(15px,calc(2.2*var(--s)),24px);margin:clamp(12px,calc(1.8*var(--s)),18px) 0 0}
+  .codeq q{font-family:var(--mono);font-size:clamp(12.5px,calc(1.55*var(--s)),27px);line-height:1.55;color:var(--ink);display:block;quotes:none}
+  .codeq .src{font-family:var(--mono);font-size:clamp(10px,calc(1.1*var(--s)),16px);letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-top:9px;display:block}
+  .mgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(7px,calc(1.1*var(--s)),12px);margin-top:clamp(12px,calc(2*var(--s)),20px)}
+  .mcard{background:var(--paper);border:1px solid var(--line);border-radius:11px;padding:clamp(11px,calc(1.5*var(--s)),16px);position:relative}
   .mcard.on{border-color:var(--green);border-width:2px;background:rgba(18,152,106,.07)}
-  .mcard .mno{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;color:var(--faint);text-transform:uppercase}
-  .mcard h4{margin:5px 0 5px;font-size:clamp(13px,1.6vw,17px);font-weight:800;line-height:1.15}
+  .mcard .mno{font-family:var(--mono);font-size:clamp(9.5px,calc(1.05*var(--s)),15px);letter-spacing:.1em;color:var(--faint);text-transform:uppercase}
+  .mcard h4{margin:5px 0 5px;font-size:clamp(13px,calc(1.6*var(--s)),27px);font-weight:800;line-height:1.15}
   .mcard.on h4{color:var(--green)}
-  .mcard p{margin:0;font-size:clamp(11px,1.32vw,14px);color:var(--soft);line-height:1.35}
+  .mcard p{margin:0;font-size:clamp(11px,calc(1.32*var(--s)),21px);color:var(--soft);line-height:1.35}
   .mcard .tag{position:absolute;top:-9px;right:9px;background:var(--green);color:#fff;font-family:var(--mono);
     font-size:9px;letter-spacing:.07em;padding:2px 7px;border-radius:20px;text-transform:uppercase}
   /* charger sizer */
-  .szr{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(15px,2.4vw,28px);margin-top:clamp(8px,1.4vw,14px)}
-  .chain{display:flex;flex-direction:column;gap:clamp(5px,.8vw,9px)}
-  .ch{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:10px;padding:clamp(7px,1vw,11px) clamp(11px,1.5vw,15px);
+  .szr{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(15px,calc(2.4*var(--s)),28px);margin-top:clamp(8px,calc(1.4*var(--s)),14px)}
+  .chain{display:flex;flex-direction:column;gap:clamp(5px,.calc(8*var(--s)),9px)}
+  .ch{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:10px;padding:clamp(6px,calc(.85*var(--s)),13px) clamp(11px,calc(1.5*var(--s)),18px);
     background:var(--paper);border:1px solid var(--line);border-radius:9px}
-  .ch .cl{font-family:var(--mono);font-size:clamp(10px,1.2vw,12.5px);color:var(--soft);line-height:1.3}
-  .ch .cv{font-weight:800;font-size:clamp(15px,1.9vw,21px);letter-spacing:-.02em;white-space:nowrap}
+  .ch .cl{font-family:var(--mono);font-size:clamp(10px,calc(1.2*var(--s)),19px);color:var(--soft);line-height:1.3}
+  .ch .cv{font-weight:800;font-size:clamp(15px,calc(1.9*var(--s)),33px);letter-spacing:-.02em;white-space:nowrap}
   .ch.final{background:rgba(18,152,106,.10);border-color:rgba(18,152,106,.45)}
-  .ch.final .cv{color:var(--green);font-size:clamp(19px,2.6vw,29px)}
+  .ch.final .cv{color:var(--green);font-size:clamp(19px,calc(2.6*var(--s)),45px)}
   .ch.nec{border-left:4px solid var(--blue)}
-  .szrnote{font-family:var(--mono);font-size:10.5px;color:var(--faint);line-height:1.5;margin-top:9px}
+  .szrnote{font-family:var(--mono);font-size:clamp(10.5px,calc(1.15*var(--s)),17px);color:var(--faint);line-height:1.5;margin-top:9px}
   /* ===== video insert slides (NotebookLM clips) ===== */
   /* Portrait clip (NotebookLM Shorts are 9:16) beside the beats, so the 16:9
      frame is filled instead of letterboxing a skinny strip into black bars. */
-  .vidwrap{display:grid;grid-template-columns:auto 1fr;gap:clamp(16px,2.8vw,36px);
-    align-items:center;margin-top:clamp(8px,1.4vw,16px)}
-  .vid{display:block;height:clamp(230px,47vh,430px);width:auto;max-width:40vw;
+  .vidwrap{display:grid;grid-template-columns:auto 1fr;gap:clamp(16px,calc(2.8*var(--s)),36px);
+    align-items:center;margin-top:clamp(8px,calc(1.4*var(--s)),16px)}
+  .vid{display:block;height:clamp(230px,47vh,430px);width:auto;max-width:calc(40*var(--s));
     border-radius:12px;border:1px solid var(--line2);background:#0B0F18;
     box-shadow:0 22px 44px -30px rgba(23,28,43,.8)}
-  .vidfall{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:clamp(14px,2vw,22px)}
+  .vidfall{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:clamp(14px,calc(2*var(--s)),22px)}
   .vf-h{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:9px}
-  .vidbeats{margin:0;padding-left:19px;font-size:clamp(14px,1.8vw,21px);line-height:1.45;color:var(--soft)}
-  .vidbeats li{margin-bottom:clamp(7px,1.1vw,12px)}
+  .vidbeats{margin:0;padding-left:19px;font-size:clamp(14px,calc(1.8*var(--s)),31px);line-height:1.45;color:var(--soft)}
+  .vidbeats li{margin-bottom:clamp(7px,calc(1.1*var(--s)),12px)}
   .vidbeats li b{color:var(--ink);font-weight:700}
   .vidskip{font-family:var(--mono);font-size:10px;color:var(--faint);letter-spacing:.05em;margin-top:10px}
   @media (max-width:860px){ .vidwrap{grid-template-columns:1fr} .vid{max-width:100%;margin:0 auto} }
   /* ===== "this panel is full / it's barely working" ===== */
-  .pnl{display:grid;grid-template-columns:auto 1fr;gap:clamp(18px,3vw,38px);align-items:center;margin-top:clamp(10px,1.6vw,18px)}
-  .pbox{background:#EFEDE6;border:2px solid var(--line2);border-radius:10px;padding:10px 9px 8px;width:clamp(150px,19vw,208px)}
-  .pbox-h{font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--soft);text-align:center;margin-bottom:7px}
+  .pnl{display:grid;grid-template-columns:auto 1fr;gap:clamp(18px,calc(3*var(--s)),38px);align-items:center;margin-top:clamp(10px,calc(1.6*var(--s)),18px)}
+  .pbox{background:#EFEDE6;border:2px solid var(--line2);border-radius:10px;padding:10px 9px 8px;width:clamp(150px,calc(19*var(--s)),300px)}
+  .pbox-h{font-family:var(--mono);font-size:clamp(9px,calc(1*var(--s)),14px);letter-spacing:.1em;color:var(--soft);text-align:center;margin-bottom:7px}
   .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:3px 5px}
   .brk{display:block;background:var(--card);border:1px solid var(--line2);border-radius:2px;
-    font-family:var(--mono);font-size:8.5px;font-weight:700;color:var(--soft);text-align:center;padding:2.5px 0}
-  .pbox-f{font-family:var(--mono);font-size:9px;color:var(--red);text-align:center;margin-top:7px;font-weight:700}
-  .pbars{display:flex;flex-direction:column;gap:clamp(7px,1.1vw,11px)}
-  .pb{display:grid;grid-template-columns:clamp(96px,13vw,150px) 1fr auto;gap:10px;align-items:center}
-  .pb-l{font-family:var(--mono);font-size:clamp(9.5px,1.15vw,12px);color:var(--soft);line-height:1.25}
-  .pb-t{position:relative;height:clamp(17px,2.3vw,25px);background:#EEEBE2;border:1px solid var(--line2);border-radius:5px;overflow:hidden}
+    font-family:var(--mono);font-size:clamp(8.5px,calc(.95*var(--s)),14px);font-weight:700;color:var(--soft);text-align:center;padding:2.5px 0}
+  .pbox-f{font-family:var(--mono);font-size:clamp(9px,calc(1*var(--s)),14px);color:var(--red);text-align:center;margin-top:7px;font-weight:700}
+  .pbars{display:flex;flex-direction:column;gap:clamp(7px,calc(1.1*var(--s)),11px)}
+  .pb{display:grid;grid-template-columns:clamp(96px,calc(13*var(--s)),150px) 1fr auto;gap:10px;align-items:center}
+  .pb-l{font-family:var(--mono);font-size:clamp(9.5px,calc(1.15*var(--s)),19px);color:var(--soft);line-height:1.25}
+  .pb-t{position:relative;height:clamp(17px,calc(2.3*var(--s)),40px);background:#EEEBE2;border:1px solid var(--line2);border-radius:5px;overflow:hidden}
   .pb-f{position:absolute;left:0;top:0;bottom:0;border-radius:4px}
-  .pb-v{font-family:var(--mono);font-size:clamp(11px,1.4vw,15px);font-weight:700;min-width:52px;text-align:right}
+  .pb-v{font-family:var(--mono);font-size:clamp(11px,calc(1.4*var(--s)),25px);font-weight:700;min-width:52px;text-align:right}
   .pb-lim{position:absolute;top:-5px;bottom:-5px;width:2px;background:var(--ink);z-index:2}
-  .pb-limcap{font-family:var(--mono);font-size:9px;color:var(--soft);position:absolute;top:-15px;transform:translateX(-50%);white-space:nowrap}
+  .pb-limcap{font-family:var(--mono);font-size:clamp(9px,calc(1*var(--s)),15px);color:var(--soft);position:absolute;top:-15px;transform:translateX(-50%);white-space:nowrap}
   .limrow{position:relative;height:14px}
-  .miles{font-family:var(--mono);font-size:15px;font-weight:700;color:var(--green);padding-top:9px}
-  .cite{grid-column:1/3;font-family:var(--mono);font-size:10.5px;color:var(--faint);line-height:1.5}
-  .out{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:clamp(16px,2.2vw,24px);display:flex;flex-direction:column;gap:12px}
+  .miles{font-family:var(--mono);font-size:clamp(15px,calc(1.6*var(--s)),24px);font-weight:700;color:var(--green);padding-top:9px}
+  .cite{grid-column:1/3;font-family:var(--mono);font-size:clamp(10.5px,calc(1.15*var(--s)),17px);color:var(--faint);line-height:1.5}
+  .out{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:clamp(16px,calc(2.2*var(--s)),24px);display:flex;flex-direction:column;gap:12px}
   .rowtop{display:flex;align-items:baseline;gap:10px}
-  .rowtop .amps{font-weight:900;font-size:clamp(42px,6.6vw,62px);letter-spacing:-.04em;line-height:.85;color:var(--ink)}
-  .rowtop .of{font-family:var(--mono);font-size:13px;color:var(--soft)}
-  .rowtop .util{margin-left:auto;font-family:var(--mono);font-size:13px;color:var(--soft)}
-  .meter{position:relative;height:40px;border-radius:9px;overflow:hidden;background:#EEEBE2;border:1px solid var(--line2)}
+  .rowtop .amps{font-weight:900;font-size:clamp(42px,calc(6.6*var(--s)),96px);letter-spacing:-.04em;line-height:.85;color:var(--ink)}
+  .rowtop .of{font-family:var(--mono);font-size:clamp(13px,calc(1.4*var(--s)),21px);color:var(--soft)}
+  .rowtop .util{margin-left:auto;font-family:var(--mono);font-size:clamp(13px,calc(1.4*var(--s)),21px);color:var(--soft)}
+  .meter{position:relative;height:clamp(40px,calc(4.6*var(--s)),64px);border-radius:9px;overflow:hidden;background:#EEEBE2;border:1px solid var(--line2)}
   .zones{position:absolute;inset:0;display:flex}
   .z-g{background:rgba(18,152,106,.16)} .z-a{background:rgba(199,125,10,.18)} .z-r{background:rgba(210,59,46,.18)}
   .fill{position:absolute;top:6px;bottom:6px;left:6px;display:flex;border-radius:6px;overflow:hidden;transition:width .5s cubic-bezier(.3,.7,.2,1);max-width:calc(100% - 12px)}
   .f-exist{background:var(--blue)} .f-ev{background:var(--green)}
   .limit{position:absolute;top:-4px;bottom:-4px;width:3px;background:var(--ink);transition:left .5s}
   .limit::after{content:"your limit";position:absolute;top:-16px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:9px;color:var(--soft);white-space:nowrap}
-  .legend{display:flex;gap:16px;font-family:var(--mono);font-size:11.5px;color:var(--soft);flex-wrap:wrap}
+  .legend{display:flex;gap:16px;font-family:var(--mono);font-size:clamp(11.5px,calc(1.25*var(--s)),18px);color:var(--soft);flex-wrap:wrap}
   .legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px}
-  .verdict{border-radius:11px;padding:13px 15px;font-weight:800;font-size:clamp(16px,1.9vw,21px);line-height:1.2;border:1px solid}
-  .verdict small{display:block;font-family:var(--mono);font-weight:400;font-size:12px;margin-top:6px;opacity:.95;letter-spacing:.01em}
+  .verdict{border-radius:11px;padding:13px 15px;font-weight:800;font-size:clamp(16px,calc(1.9*var(--s)),33px);line-height:1.2;border:1px solid}
+  .verdict small{display:block;font-family:var(--mono);font-weight:400;font-size:clamp(12px,calc(1.3*var(--s)),19px);margin-top:6px;opacity:.95;letter-spacing:.01em}
   .v-comfortable{background:rgba(18,152,106,.10);color:var(--green);border-color:rgba(18,152,106,.4)}
   .v-tight{background:rgba(199,125,10,.10);color:var(--amber);border-color:rgba(199,125,10,.4)}
   .v-exceeds{background:rgba(210,59,46,.09);color:var(--red);border-color:rgba(210,59,46,.4)}
+  /* ===== BEATS — one spacebar tap reveals one piece =====
+     Hidden beats keep their space in the layout (opacity, not display), so nothing
+     on screen jumps or reflows as pieces land. Anything without data-b is always up. */
+  [data-b]{opacity:0;transform:translateY(13px);
+    transition:opacity .4s cubic-bezier(.2,.7,.2,1),transform .4s cubic-bezier(.2,.7,.2,1)}
+  [data-b].lit{opacity:1;transform:none}
+  /* the cue line — the sentence Jason reads, and the room reads with him */
+  /* Cue and beat dots share one flex band, so the sentence and the step counter can
+     never collide no matter how long either gets or how narrow the screen is. */
+  .cband{position:absolute;left:0;right:0;bottom:clamp(44px,8vh,96px);
+    padding:0 clamp(38px,calc(5.2*var(--s)),96px);display:flex;align-items:flex-end;
+    gap:clamp(16px,calc(2.4*var(--s)),44px);pointer-events:none}
+  .cue{flex:1 1 auto;min-width:0}
+  .cue p{margin:0;max-width:46ch;font-weight:700;line-height:1.26;letter-spacing:-.015em;
+    font-size:clamp(19px,calc(2.45*var(--s)),40px);color:var(--ink);
+    border-left:5px solid var(--blue);padding-left:clamp(14px,calc(1.8*var(--s)),24px);
+    animation:cuein .36s cubic-bezier(.2,.7,.2,1) both}
+  .cue p b{color:var(--blue-ink)}
+  .cue p .qt{color:var(--soft);font-weight:600}
+  @keyframes cuein{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
+  /* beat dots — how many taps are left on this slide */
+  .dots{flex:0 0 auto;display:flex;align-items:center;gap:6px;padding-bottom:.3em;white-space:nowrap}
+  .dots i{width:clamp(14px,calc(1.7*var(--s)),26px);height:5px;border-radius:3px;
+    background:var(--line2);transition:background .3s}
+  .dots i.on{background:var(--blue)}
+  .dots .dl{font-family:var(--mono);font-size:clamp(9.5px,calc(1.05*var(--s)),12.5px);
+    letter-spacing:.09em;text-transform:uppercase;color:var(--faint);margin-left:9px}
+  .dots .dl.last{color:var(--blue);font-weight:700}
+  /* revealed checklist / point stack (the text-only teaching slides) */
+  /* Flows into two columns as soon as there's width for it — a five-point checklist
+     is far too tall for a projector in one column. */
+  .bitlist{list-style:none;margin:clamp(16px,calc(2.4*var(--s)),34px) 0 0;padding:0;display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(min(100%,27ch),1fr));
+    gap:clamp(9px,calc(1.2*var(--s)),16px) clamp(20px,calc(3*var(--s)),52px);max-width:64ch}
+  .bitlist li{position:relative;padding-left:clamp(26px,calc(3*var(--s)),46px);
+    font-size:clamp(17px,calc(2.05*var(--s)),30px);font-weight:700;line-height:1.24;
+    letter-spacing:-.015em;color:var(--ink)}
+  .bitlist li::before{content:"";position:absolute;left:0;top:.36em;
+    width:clamp(13px,calc(1.45*var(--s)),22px);height:clamp(13px,calc(1.45*var(--s)),22px);
+    border-radius:50%;background:var(--blue-wash);box-shadow:inset 0 0 0 3px var(--blue)}
+  .bitlist li b{color:var(--blue-ink)}
+  .bitlist li i{display:block;font-style:normal;font-weight:500;font-size:.62em;
+    color:var(--soft);margin-top:.28em;line-height:1.35}
+  /* speaker notes, built from the beats so they can't drift from the screen */
+  #notes .nbeat{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;padding:9px 10px 9px 0;
+    border-top:1px solid rgba(235,238,245,.1)}
+  #notes .nbeat:first-child{border-top:none}
+  #notes .nbeat.now{background:rgba(110,160,255,.13);border-radius:7px;padding-left:10px}
+  #notes .nbeat .nb{grid-row:1/3;font-family:var(--mono);font-size:11px;color:#6ea0ff;
+    padding-top:3px;min-width:16px}
+  #notes .nbeat b{font-weight:700;color:#fff}
+  #notes .nbeat i{font-style:normal;color:#AEBACF;font-size:13.5px;line-height:1.5}
+  #notes .nextra{margin-top:13px;padding-top:11px;border-top:2px solid rgba(110,160,255,.42);
+    color:#AEBACF;font-size:13.5px}
+  /* ===== PRE-SHOW LOOP — runs while the room fills in ===== */
+  #pre{position:fixed;inset:0;z-index:20;display:none;background:var(--ink);color:#F2F5FA;
+    flex-direction:column;align-items:center;justify-content:center;text-align:center;
+    padding:clamp(28px,calc(4*var(--s)),70px);overflow:hidden;cursor:pointer}
+  #pre.show{display:flex}
+  #pre::after{content:"";position:absolute;left:0;bottom:0;height:4px;background:var(--blue);
+    animation:sweep 9s cubic-bezier(.5,0,.5,1) infinite}
+  @keyframes sweep{0%{width:0;opacity:.35}70%{width:100%;opacity:1}100%{width:100%;opacity:0}}
+  #pre .pmark{width:clamp(72px,calc(9.5*var(--s)),150px);height:auto;color:#F2F5FA;
+    animation:breathe 3.6s ease-in-out infinite}
+  #pre .pmark .bolt{fill:#5B95FF;animation:zap 3.6s ease-in-out infinite}
+  @keyframes breathe{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+  @keyframes zap{0%,100%{opacity:.55}50%{opacity:1}}
+  #pre .pwm{font-size:clamp(26px,calc(4*var(--s)),58px);font-weight:900;letter-spacing:-.03em;
+    margin-top:clamp(12px,calc(1.8*var(--s)),24px)}
+  #pre .pwm b{color:#5B95FF}
+  #pre h2{color:#fff;max-width:26ch;margin:clamp(16px,calc(2.4*var(--s)),34px) auto 0;
+    font-size:clamp(24px,calc(3.9*var(--s)),64px);text-wrap:balance}
+  #pre .phl{background:rgba(91,149,255,.22);box-shadow:0 0 0 4px rgba(91,149,255,.22);border-radius:4px}
+  #pre .tick{position:relative;height:clamp(58px,calc(7.4*var(--s)),110px);width:min(90vw,42ch);
+    margin:clamp(18px,calc(2.6*var(--s)),34px) auto 0}
+  #pre .tick span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    font-size:clamp(16px,calc(2.15*var(--s)),33px);font-weight:700;line-height:1.3;color:#C9D4E8;
+    opacity:0;animation:tick 20s cubic-bezier(.2,.7,.2,1) infinite}
+  #pre .tick span .tl{display:block;text-align:center;font-style:normal}
+  #pre .tick span em{color:#fff;font-style:normal}
+  #pre .tick span:nth-child(1){animation-delay:0s}
+  #pre .tick span:nth-child(2){animation-delay:5s}
+  #pre .tick span:nth-child(3){animation-delay:10s}
+  #pre .tick span:nth-child(4){animation-delay:15s}
+  @keyframes tick{0%{opacity:0;transform:translateY(12px)}
+    3%{opacity:1;transform:none}22%{opacity:1;transform:none}25%{opacity:0;transform:translateY(-10px)}
+    100%{opacity:0;transform:translateY(-10px)}}
+  #pre .pfoot{margin-top:clamp(20px,calc(3*var(--s)),40px);display:flex;align-items:center;
+    gap:clamp(16px,calc(2.4*var(--s)),34px);flex-wrap:wrap;justify-content:center}
+  #pre .pqr{background:#fff;padding:10px;border-radius:12px}
+  #pre .pqr img{display:block;width:clamp(74px,calc(9*var(--s)),128px);height:auto}
+  #pre .pmeta{font-family:var(--mono);font-size:clamp(11px,calc(1.35*var(--s)),16px);
+    line-height:1.7;color:#9FB0CC;text-align:left}
+  #pre .pmeta b{color:#fff}
+  #pre .ptap{position:absolute;bottom:clamp(16px,calc(2.2*var(--s)),28px);left:0;right:0;
+    font-family:var(--mono);font-size:clamp(9.5px,calc(1.05*var(--s)),12.5px);letter-spacing:.16em;
+    text-transform:uppercase;color:#5E6B84}
   @media (max-width:860px){ .calc,.close{grid-template-columns:1fr} .steps{grid-template-columns:1fr} .arrow{transform:rotate(90deg)} }
 </style>
 </head>
 <body>
 <div id="bar"></div>
 <div id="stage" class="stage"></div>
+<!-- Pre-show loop: what's on the screen while the room fills in. Pure CSS animation on a
+     20-second cycle, so it runs forever with no video file, no codec and no wifi. Tap to start. -->
+<div id="pre" class="show"></div>
 <div class="nav"><button id="prev">&lsaquo;</button><button id="next">&rsaquo;</button></div>
 <div id="notes"><div class="nlabel">Speaker note</div><div id="ntext"></div></div>
 <div id="timer"><span class="tt" id="t_total">0:00</span><span class="ts" id="t_slide"></span></div>
@@ -210,6 +316,25 @@ const IC={
   check:`<svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9"/></svg>`
 };
 const HOUSE=c=>`<svg class="${c}" viewBox="0 0 120 120" fill="none"><path d="M60 15 L101 46 V95 a7 7 0 0 1-7 7 H26 a7 7 0 0 1-7-7 V46 Z" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/><path d="M66 40 L42 70 H57 L52 90 L80 58 H62 Z" fill="currentColor"/></svg>`;
+
+/* ---- PRE-SHOW LOOP ----
+   On screen while people find seats. Four lines cycle on a 20 s loop; the QR is up the
+   whole time so anyone can scan before he says a word. No mp4 — CSS only, so it can't
+   fail to decode and it needs no network. Tap / space / arrow starts the talk. ---- */
+const PRE=`<svg class="pmark" viewBox="0 0 120 120" fill="none"><path d="M60 15 L101 46 V95 a7 7 0 0 1-7 7 H26 a7 7 0 0 1-7-7 V46 Z" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/><path class="bolt" d="M66 38 L40 72 H57 L52 94 L82 56 H63 Z"/></svg>
+  <div class="pwm">Charge<b>Right</b></div>
+  <h2>Do you really need a <span class="phl">panel upgrade</span> for your EV charger?</h2>
+  <div class="tick">
+    <span><i class="tl"><em>410 amps</em> of breakers on a 200 amp service &mdash; and nothing ever trips.</i></span>
+    <span><i class="tl">Four legal ways to run the math. <em>Only one</em> was written for your house.</i></span>
+    <span><i class="tl">In the homes I&rsquo;ve checked, <em>4 out of 5</em> already had the room.</i></span>
+    <span><i class="tl">Charge at what you need &mdash; <em>not</em> what the box says it can do.</i></span>
+  </div>
+  <div class="pfoot">
+    <div class="pqr"><img src="qr.svg" alt="QR to evchargeright.com"></div>
+    <div class="pmeta"><b>Jason Walls</b> &middot; Master Electrician<br>IBEW Local 369 &middot; Louisville<br><b>evchargeright.com</b></div>
+  </div>
+  <div class="ptap">Evolve Kentucky &middot; starting shortly &mdash; tap to begin</div>`;
 
 const slides=[
   { type:"title",
@@ -275,9 +400,503 @@ const slides=[
     note:"The ask + social currency. Scan or text it to someone about to buy an EV — right now, in the room." },
 ];
 
+/* ---- THE BEAT SCRIPT ----
+   One entry per slide: the cue line the room reads, which piece of the slide it reveals,
+   and what Jason expands into (that feeds the notes panel and his audio rehearsal track).
+   Authored against the run card, then passed through a single-voice edit. 69 beats. */
+const BEATS={
+ "1": [
+  {
+   "line": "Show of hands — who’s heard of the Tesla tax?",
+   "reveal": "none",
+   "say": "Now — not the one on your registration. That one’s a hundred and some-odd bucks a year and there’s nothing I can do about it. I mean the other one: you mention you’re getting an EV, and the number goes up. Keep your hand up if somebody’s quoted you to upgrade your panel."
+  },
+  {
+   "line": "Three grand? Four? That’s the Tesla tax.",
+   "reveal": "promise",
+   "say": "Look around at those hands. That’s not bad luck, that’s a pattern — every one of those quotes started with somebody deciding your panel couldn’t handle it. Almost none of them proved it."
+  },
+  {
+   "line": "By the time you leave, you’ll know whether you actually owe it.",
+   "reveal": "byline",
+   "say": "I’m not going to stand up here and tell you what your house needs. I’m going to teach you the math, and you can run it on your own house tonight."
+  }
+ ],
+ "2": [
+  {
+   "line": "I’m a union electrician, and I run these load calculations for a living.",
+   "reveal": "credential",
+   "say": "Local 369, right here in town. When somebody adds a hot tub, or a heat pump, or a welder out in the garage, I’m the guy who has to put on paper whether the service can carry it."
+  },
+  {
+   "line": "Somebody has to prove a house can carry one more big load. That’s my job.",
+   "reveal": "none",
+   "say": "It’s the same question every single time — does this house have room for one more thing? There’s a real calculation that answers it, and it’s written down in the code book. It’s not a hunch and it’s not a guess."
+  },
+  {
+   "line": "For twenty minutes I’m handing you the same math I use at work.",
+   "reveal": "promise",
+   "say": "Same sections, same arithmetic, nothing held back. When we’re done you can go check a quote you’ve already got sitting on the kitchen table."
+  }
+ ],
+ "3": [
+  {
+   "line": "Three to five thousand dollars — before you’ve charged the car one time.",
+   "reveal": "bignumber",
+   "say": "That’s the range I see around here. And that’s not a rounding error — that’s a transmission, or a year of groceries. It lands after you already bought the car."
+  },
+  {
+   "line": "For a lot of people the first quote isn’t the charger — it’s a new panel.",
+   "reveal": "caplabel",
+   "say": "That’s the opening move on a whole lot of quotes: upgrade the panel, then we’ll talk about the charger. It’s the safe answer for the installer, because nobody ever got in trouble for selling somebody too much service."
+  },
+  {
+   "line": "Some people get that quote and just don’t buy the car.",
+   "reveal": "notbuying",
+   "say": "That’s the part that ought to bother everybody in this room. It’s not just the money — it’s the car that never got bought, over a number nobody ever checked."
+  },
+  {
+   "line": "Every one of those quotes is a number you can check yourself.",
+   "reveal": "promise",
+   "say": "Not a guess and not a vibe — a number you run off your own square footage and your own main breaker. So let’s learn how to run it."
+  }
+ ],
+ "4": [
+  {
+   "line": "Everybody opens their panel, sees no empty slots, and figures it’s full.",
+   "reveal": "slots",
+   "say": "That’s what everybody does — flashlight, open the door, no empty spots, must be full. But slots are just parking spaces for breakers, and counting them was never the math."
+  },
+  {
+   "line": "Your house almost never runs the oven, the dryer and the AC all at once.",
+   "reveal": "neverall",
+   "say": "That panel is sized like the oven, the dryer and the AC all kick on the same minute. You’ve never done that in your life. Most of the day that box is half asleep."
+  },
+  {
+   "line": "And the car charges at two in the morning, when all of that is already off.",
+   "reveal": "twoam",
+   "say": "At two in the morning every one of those things is off. The car sits in the driveway eight, nine hours and gets the whole panel to itself. A charger’s about like adding an electric range — except it runs when the range doesn’t."
+  },
+  {
+   "line": "Your panel is barely working, and your car charges while you’re asleep.",
+   "reveal": "button",
+   "say": "If you remember nothing else from today, remember that sentence. Your panel is barely working, and your car charges while you’re asleep. Everything I show you after this is just how to prove it with a number."
+  }
+ ],
+ "5": [
+  {
+   "line": "This is a real 200 amp panel, and there’s not one empty slot left in it.",
+   "reveal": "panel",
+   "say": "That could be your panel. Every installer who opens that door tells you you’re out of room and you need an upgrade, and that one sentence is where the three or four grand comes from."
+  },
+  {
+   "line": "Add up every number printed on those breakers and you get 410 amps.",
+   "reveal": "sum410",
+   "say": "Fifty, forty, thirty, all the twenties and fifteens. Add up every number stamped on those handles and you land on 410 amps. That’s the number the counting method hands you."
+  },
+  {
+   "line": "That bar is more than double the 200 amp limit, and nothing has ever tripped.",
+   "reveal": "limit",
+   "say": "Four hundred and ten amps of breakers on a two hundred amp service. If adding up breakers were the load calculation, this house would be tripping its main every night. It never has — not once."
+  },
+  {
+   "line": "Run the standard method on this same house and you get 141 amps.",
+   "reveal": "m141",
+   "say": "That’s the calculation for a house being built — square footage, the range, the dryer, the three-ton AC. The 48 amp charger is in there at full value, no discount. A hundred and forty-one."
+  },
+  {
+   "line": "The optional method, 220.82, puts the same house at 127 amps.",
+   "reveal": "m127",
+   "say": "Same house, same charger, a hundred and twenty-seven. Nothing changed but which page of the book I’m working from."
+  },
+  {
+   "line": "The existing-dwelling method, 220.83, comes in at 113 amps.",
+   "reveal": "m113",
+   "say": "That’s the section written for a house that already exists and is taking on one more load — we’ll spend a whole slide on it. And look at them together: 141, 127, 113. Every real method fits under the 200, with room left over."
+  },
+  {
+   "line": "Adding up breakers was never the load calculation — it just looks like one.",
+   "reveal": "closing",
+   "say": "It looks like math, so nobody questions it, and that’s how upgrades get sold. Three legal methods say this house is fine with the car in it. The only method that says it isn’t is the one that isn’t in the book."
+  }
+ ],
+ "6": [
+  {
+   "line": "This first one is for a house that hasn’t been built yet.",
+   "reveal": "card1",
+   "say": "That’s the standard method, Article 220 Part Three. You rebuild the house circuit by circuit, the way an engineer sizes a service off a blueprint. Your house is already standing, so that’s a lot of work to answer a question you can answer another way."
+  },
+  {
+   "line": "The second one’s a legal shortcut, but it needs a 100 amp service or bigger.",
+   "reveal": "card2",
+   "say": "That’s 220.82, the optional method. It’s a whole-house shortcut off your total connected load, and it’s perfectly legal. But it’s written for sizing a service, and it doesn’t apply at all under a 100 amp service."
+  },
+  {
+   "line": "The third one is the only one written for the house you’re already living in.",
+   "reveal": "card3",
+   "say": "That’s 220.83, existing dwelling unit. An existing service taking on one more load — that’s a house getting an EV charger, which is everybody in this room. That’s the one we’re going to spend a minute on."
+  },
+  {
+   "line": "The first three estimate what your house might pull. This one measures what it did.",
+   "reveal": "card4",
+   "say": "That’s 220.87. The first three all guess at what you might run some day. This one goes and gets what your meter already recorded, and real numbers beat assumed numbers every time."
+  },
+  {
+   "line": "The guy who quoted you counted your breakers — and that’s not one of the four.",
+   "reveal": "counted",
+   "say": "Here’s the honest part. A lot of guys quoting you have never run any of these four. They opened the panel, counted what was in it, and gave you a number — and I’m not knocking anybody, I’m telling you why two quotes on the same house come out so far apart."
+  }
+ ],
+ "7": [
+  {
+   "line": "The whole method is two numbers — first 8 kVA at 100%, everything after that at 40%.",
+   "reveal": "mechanics",
+   "say": "A kVA is a thousand volt-amps, and for a house calculation you can read it as a thousand watts. So the first eight thousand watts of your house counts in full, and everything past that counts at forty cents on the dollar. That’s the whole method."
+  },
+  {
+   "line": "Don’t take my word for it — here’s the first line of the section.",
+   "reveal": "quote",
+   "say": "\"This section shall be permitted to be used to determine if the existing service or feeder is of sufficient capacity to serve additional loads.\" That’s the code, word for word. I didn’t paraphrase a thing."
+  },
+  {
+   "line": "Existing service, additional load — that’s a house getting an EV charger.",
+   "reveal": "translate",
+   "say": "Existing service. Additional load. The code has a section written for exactly what you’re doing, and most people never open it."
+  },
+  {
+   "line": "That quote is out of the 2017 book, Kentucky’s on 2023, and you ought to know that.",
+   "reveal": "edition",
+   "say": "These sections read the same in 2023, but I’m quoting you the copy I can legally hand you, so I’m going to tell you that every time. And if somebody gives you a number and can’t tell you which edition it came out of, that ought to bother you."
+  }
+ ],
+ "8": [
+  {
+   "line": "Your power company already wrote down what your house actually pulled.",
+   "reveal": "idea",
+   "say": "Every method on that last slide is an estimate — an educated guess at what you might run. Meanwhile there’s a meter on the side of your house that’s been keeping score for years."
+  },
+  {
+   "line": "The code says out loud that you’re allowed to use that real number.",
+   "reveal": "quote",
+   "say": "\"The calculation of a feeder or service load for existing installations shall be permitted to use actual maximum demand.\" That’s 220.87 — 2017 wording again, and I trimmed the conditions down to fit the screen. Measuring isn’t a loophole, it’s in the book."
+  },
+  {
+   "line": "Take your peak, multiply by 1.25, add the charger, and stay under your service.",
+   "reveal": "math",
+   "say": "Say your meter comes back with a forty amp peak. Times one-two-five is fifty, add a forty-eight amp charger, and you’re sitting at ninety-eight amps on a two hundred amp service. You’re done — and you never estimated anything."
+  },
+  {
+   "line": "You get that number with a phone call, not a guess.",
+   "reveal": "howtoget",
+   "say": "You call the utility and ask for your interval demand data — most of them have it. Or you hang a recording meter on the house for thirty days, with somebody living in it and the heat or the AC running. The code even spells the peak out as the highest fifteen-minute average, and that’s the same interval most utilities record on."
+  }
+ ],
+ "9": [
+  {
+   "line": "Nothing about the house changes — only which method you run.",
+   "reveal": "video",
+   "say": "Same house, same panel, same forty-eight amp charger the whole way through. The only thing that changes is which section of the code book I open. I’m going to get out of the way and let this run."
+  },
+  {
+   "line": "Three legal methods, three different answers — and not one says buy a panel.",
+   "reveal": "beats",
+   "say": "A hundred and forty-one, a hundred and twenty-seven, a hundred and thirteen, and every one of them fits under the two hundred. The only number that ever said upgrade was four hundred and ten, and that one came from adding up breakers."
+  }
+ ],
+ "10": [
+  {
+   "line": "Same math I just walked you through — only now it runs while you watch.",
+   "reveal": "calculator",
+   "say": "Square footage, service size off the main breaker, air conditioning tonnage, the big appliances. That’s every input. Blue is what the house pulls, green is the car stacked on top, and that line right there is your service rating."
+  },
+  {
+   "line": "Somebody give me a real house — roughly how big, and are you 100 or 200 amp?",
+   "reveal": "askroom",
+   "say": "If you don’t know your service size, it’s stamped on the big breaker at the top of the panel. Don’t be shy — nobody’s getting graded, and if nobody wants to holler one out I’ll just run my own house. Either way we run it right here in front of you."
+  },
+  {
+   "line": "Two thousand square feet on 200 amps with a 48 amp charger: 127 amps of the 200.",
+   "reveal": "house1",
+   "say": "That’s seventy-three amps to spare, and the verdict says exactly what it ought to say — no upgrade. And notice which method this gauge runs: 220.82, the stricter estimate. Same house reads 127 here where 220.83 reads 113, so if you fit under the strict one there’s no argument left to have."
+  },
+  {
+   "line": "Same house on a 100 amp service — and that same 127 is now over the limit.",
+   "reveal": "house2",
+   "say": "Nothing about the house changed. I changed one number, the service size, and now the tool tells the truth in the other direction. Some houses really are tight, and I’m not going to pretend otherwise — but stay with me, because we’re not done."
+  },
+  {
+   "line": "Drop the charger to 16 amps and the same house reads 95. It fits, no upgrade.",
+   "reveal": "rescue",
+   "say": "I didn’t add a panel. I didn’t pull a permit. I turned one dial down, and sixteen amps overnight still puts back better than a hundred miles. The gauge calls that tight, and tight is my own comfort line, not the code’s — the code test is calculated load under the service rating, and 95 under 100 passes."
+  }
+ ],
+ "11": [
+  {
+   "line": "Start where most people live — 35 miles a day, eight hours plugged in at home.",
+   "reveal": "sizer",
+   "say": "Follow the chain down the right side: ten kilowatt-hours over eight hours is about a kilowatt and a quarter, and the 1.2 buffer puts it at a kilowatt and a half — six amps at 240 volts. Six is below the sixteen amp floor the sizer will even hand you, so the code breaker lands on twenty amps. Twenty, for the way most people actually drive."
+  },
+  {
+   "line": "Now I double the driving to 60 miles a day — and the breaker doesn’t move.",
+   "reveal": "miles60",
+   "say": "Still twenty amps. Here’s why, right there in the chain: double the miles spread over a night’s sleep is only about eleven amps. That’s still under the sixteen amp floor, so there’s nothing for the breaker to do."
+  },
+  {
+   "line": "Same 60 miles, but now it’s only plugged in four hours. Thirty amp breaker.",
+   "reveal": "hours4",
+   "say": "Same driver, same car, same sixty miles. The only thing that changed is how long it sits in the driveway. That’s the question nobody asked you before they quoted you, and it’s the one that actually sets the size."
+  },
+  {
+   "line": "Same 60 miles in four hours — but now it’s an F-150 Lightning. Fifty amps.",
+   "reveal": "truck",
+   "say": "The truck gets about two miles a kilowatt-hour, so the same trip takes a lot more energy and the breaker climbs. Now let me be straight with you about this whole screen: the breaker row is code, and it’s exact. Everything above it is arithmetic — and your miles-per-kWh is a guess until you check your own car."
+  },
+  {
+   "line": "A hundred miles a day on a two-hour window — 60 amps, and hardwire only.",
+   "reveal": "bigone",
+   "say": "That’s a real person: long commute, home at six, gone again at eight. The chain wants more than eleven and a half kilowatts, the tool caps it right there, and it still lands on a sixty amp breaker — and the code won’t let you plug that in, it has to be hardwired. Look around the room, though. That’s not most of you."
+  },
+  {
+   "line": "Hours are the lever. Not the badge on the box.",
+   "reveal": "lever",
+   "say": "I never touched the panel through any of that. All I changed was how far the car drives and how long it sits. So before somebody sells you a bigger circuit, ask them which of those two they asked you about."
+  }
+ ],
+ "12": [
+  {
+   "line": "Everybody sells the biggest charger on the shelf.",
+   "reveal": "video",
+   "say": "Every installer, every website, every display at the big-box store — it’s the biggest one on the shelf, forty-eight amps, and nobody asks what you drive. That’s how a panel problem gets invented. Watch what happens when you turn it down."
+  },
+  {
+   "line": "Charge at what you need — size it to your driving, not to the box it came in.",
+   "reveal": "beats",
+   "say": "That same house on a hundred amp service came in at a hundred and twenty-seven amps with the forty-eight amp charger, over the limit. Drop the charger to sixteen and it’s ninety-five amps, and it fits with no upgrade at all. Sixteen amps overnight still puts back about a hundred and five miles, and the average driver goes thirty-seven."
+  }
+ ],
+ "13": [
+  {
+   "line": "Four out of five already had the room.",
+   "reveal": "big",
+   "say": "Not four out of five squeaked by — four out of five had the room. The calculation came back under the service rating with the charger in it, and there was nothing to buy."
+  },
+  {
+   "line": "The math was never the problem. Nobody ever ran it.",
+   "reveal": "houses",
+   "say": "In four of these five, nobody had ever run the numbers. Somebody opened the panel, saw no empty slots, and quoted an upgrade off a look. Twenty minutes with a tape measure and a code book would have settled it."
+  },
+  {
+   "line": "That’s my own count — the homes I’ve checked, not a study.",
+   "reveal": "mydata",
+   "say": "That’s not a study and I’m not going to dress it up as one. It’s houses I’ve been in, with my own hands and my own code book. Ask me how many and I’ll give you the real number."
+  },
+  {
+   "line": "And if you already upgraded — that’s not on you.",
+   "reveal": "absolve",
+   "say": "You did what anybody does — you trusted the guy with the license, and that’s the right instinct. And you’re in good shape now: room for a second car, a heat pump down the road, and it helps when you sell. I just want the next person to get asked the question."
+  },
+  {
+   "line": "One in five genuinely is tight — and even that house has a way out.",
+   "reveal": "fifth",
+   "say": "Older house, small service, everything electric — that house is real, and if it’s yours I’ll tell you straight. But you just learned two ways out of it: charge slower, or pull your real demand off the meter. Nobody leaves here with only bad news."
+  }
+ ],
+ "14": [
+  {
+   "line": "Two numbers get you started — your square footage, and the size on your main breaker.",
+   "reveal": "list1",
+   "say": "Square footage you either already know or you can pace off in ten minutes. The service size is stamped right on the main breaker at the top of the panel — it’ll say 100, or 150, or 200. That number is your ceiling."
+  },
+  {
+   "line": "Then walk the house and name the big loads — range, dryer, water heater, AC.",
+   "reveal": "list2",
+   "say": "Is the range electric, is the dryer electric, is the water heater electric. Your AC tonnage is printed on the sticker on the outdoor unit. Then anything unusual — heat strips, a pool, a hot tub, a well pump."
+  },
+  {
+   "line": "And the two that matter most: how far you drive, and how long it’s plugged in.",
+   "reveal": "two",
+   "say": "Those two aren’t printed anywhere in your house — you’re the only one who knows them. And you just watched what they do: the hours moved that breaker, not the badge on the box."
+  },
+  {
+   "line": "A photo of the open panel catches what you’d never think to write down.",
+   "reveal": "photo",
+   "say": "It gets the real number stamped on that main breaker, every branch breaker and its size, and the brand on the breaker faces. That’s how you catch a Federal Pacific or a Zinsco, or mixed breakers that don’t belong in that cabinet."
+  },
+  {
+   "line": "None of this is secret — a tape measure, a flashlight and the code book will do it.",
+   "reveal": "nosecret",
+   "say": "I’m not holding anything back tonight. Every number I put on that screen came out of a code book you can buy and a panel you already own. It’s an afternoon, not a career."
+  }
+ ],
+ "15": [
+  {
+   "line": "Step one is what you drive and the charger you want — same as we just did.",
+   "reveal": "step1",
+   "say": "Everything I just showed you, you can do by hand. I do it by hand. But I got tired of working it out on a napkin for people, so I built it — and it opens right where we were a minute ago."
+  },
+  {
+   "line": "Step two, you snap that photo of the open panel and it reads the breakers for you.",
+   "reveal": "step2",
+   "say": "Same picture I just described. It pulls the rating off the main breaker and every branch breaker with it, so you’re not squinting at a label or typing in twenty numbers."
+  },
+  {
+   "line": "Step three is a report in plain English you can hand to any contractor.",
+   "reveal": "step3",
+   "say": "It runs 220.82 — the stricter estimate — and it shows the work, not just an answer. A number with nothing behind it is an opinion, and an opinion doesn’t win a conversation in your driveway."
+  },
+  {
+   "line": "The photo assessment is $12.99 — against an upgrade that runs three to five grand.",
+   "reveal": "price",
+   "say": "Twelve ninety-nine. A service call, just to have somebody come out and tell you, is two or three hundred. And if you’d rather punch your own numbers in, there’s a free calculator sitting on the same website — that one doesn’t cost you a thing."
+  },
+  {
+   "line": "It’s hard to get upsold while you’re standing there holding the calculation.",
+   "reveal": "verify",
+   "say": "Honestly, the use that saves the most money isn’t running it before you call anybody — it’s checking a quote you’ve already been given. You’re not accusing anybody of anything. You just ask which method they ran, and you’ve got the paper in your hand."
+  }
+ ],
+ "16": [
+  {
+   "line": "Nobody’s going to remember 220.83, and your neighbor doesn’t want to hear it.",
+   "reveal": "line",
+   "say": "You won’t remember the code section tomorrow, and the guy at the cookout doesn’t want it anyway. So here’s the whole thing in one sentence. Before you pay thousands to upgrade your panel for an EV charger, check evchargeright dot com — a union electrician built it, and four out of five people don’t even need the upgrade."
+  },
+  {
+   "line": "If you carry one sentence out of this room, make it that one.",
+   "reveal": "none",
+   "say": "Before you pay thousands to upgrade your panel for an EV charger, check evchargeright dot com. A union electrician built it, and four out of five people don’t even need the upgrade. That’s it — you don’t have to explain the math, and you don’t have to mention me."
+  }
+ ],
+ "17": [
+  {
+   "line": "Somebody you know is about to get quoted thousands for an upgrade they don’t need.",
+   "reveal": "body",
+   "say": "Somebody’s going to hand them a number, and they’ll have nothing to check it against. That’s how three to five thousand dollars gets spent on a panel that was already fine. Send them here first — that’s the whole favor."
+  },
+  {
+   "line": "That code and that web address go to the same place.",
+   "reveal": "qr",
+   "say": "One destination. Scan it now if your phone’s already out, or just remember the name — evchargeright dot com. The free calculator is right there on the front page."
+  },
+  {
+   "line": "Text this to one person who’s talked about getting an EV — before you leave.",
+   "reveal": "oneperson",
+   "say": "You’ve got somebody in mind already. Text them while you’re sitting here — you don’t have to explain it, just send the link. And when they don’t spend four grand on a panel they didn’t need, that was you."
+  }
+ ]
+};
+/* which structural slot on each slide carries which reveal id */
+const SLIDE_R={
+ "3": {
+  "big": "bignumber",
+  "caplabel": "caplabel",
+  "body": "promise"
+ },
+ "6": {
+  "body": "counted"
+ },
+ "7": {
+  "body": "mechanics",
+  "quote": "quote",
+  "src": "edition"
+ },
+ "8": {
+  "body": "idea",
+  "quote": "quote"
+ },
+ "13": {
+  "big": "big",
+  "houses": "houses",
+  "body": "mydata"
+ },
+ "15": {
+  "body": "price"
+ },
+ "16": {
+  "quote": "line"
+ },
+ "17": {
+  "body": "body",
+  "byline": "qr",
+  "qr": "qr"
+ }
+};
+/* short on-screen fragments for the text-only slides (the cue line carries the sentence) */
+const SLIDE_BITS={
+ "2": [
+  {
+   "r": "credential",
+   "t": "IBEW <b>Local 369</b><i>Union electrician &mdash; I run these load calculations for a living</i>"
+  },
+  {
+   "r": "promise",
+   "t": "The same math I use at work<i>Same sections, same arithmetic, nothing held back</i>"
+  }
+ ],
+ "4": [
+  {
+   "r": "slots",
+   "t": "No empty slots <b>&ne;</b> no room<i>Counting breakers was never the calculation</i>"
+  },
+  {
+   "r": "neverall",
+   "t": "Never everything at once<i>The oven, the dryer and the AC don&rsquo;t all kick on together</i>"
+  },
+  {
+   "r": "twoam",
+   "t": "The car charges at <b>2 AM</b><i>When every one of those is already off</i>"
+  },
+  {
+   "r": "button",
+   "t": "&hellip;and your car charges while you&rsquo;re asleep."
+  }
+ ],
+ "8": [
+  {
+   "r": "math",
+   "t": "Peak &times; <b>1.25</b> + the charger &le; your service<i>Nothing estimated &mdash; that&rsquo;s the whole test</i>"
+  },
+  {
+   "r": "howtoget",
+   "t": "How you get the number<i>Ask the utility for your interval demand data &mdash; or 30 days on a recording meter, house occupied, with the heat or AC running</i>"
+  }
+ ],
+ "14": [
+  {
+   "r": "list1",
+   "t": "Square footage &middot; service size off the main breaker"
+  },
+  {
+   "r": "list2",
+   "t": "Range? Dryer? Water heater?<i>AC tonnage off the outdoor sticker &middot; heat strips &middot; pool, hot tub, well</i>"
+  },
+  {
+   "r": "two",
+   "t": "The two that matter most<i>How far you drive &mdash; and how long it&rsquo;s plugged in</i>"
+  },
+  {
+   "r": "photo",
+   "t": "What a panel photo adds<i>The real number on the main, every branch breaker and its size, the brand on the faces &mdash; that&rsquo;s how you catch a Federal Pacific or a Zinsco</i>"
+  },
+  {
+   "r": "nosecret",
+   "t": "None of it is secret<i>A tape measure, a flashlight and the code book</i>"
+  }
+ ]
+};
+const SLIDE_BODY={
+ "6": "The guy who quoted you counted your breakers. <b>That isn&rsquo;t one of the four.</b>"
+};
+slides.forEach((s,k)=>{const n=k+1;
+  if(BEATS[n])s.beats=BEATS[n];
+  if(SLIDE_R[n])s.r=SLIDE_R[n];
+  if(SLIDE_BODY[n])s.body=SLIDE_BODY[n];
+  if(SLIDE_BITS[n]){s.bits=SLIDE_BITS[n];delete s.body;}
+});
+
 const stage=document.getElementById('stage'),bar=document.getElementById('bar');
 const notesEl=document.getElementById('notes'),ntext=document.getElementById('ntext');
-let i=0,notesOpen=false;
+let i=0,b=1,notesOpen=false;   /* i = slide, b = beat within the slide (1-based) */
 
 /* ---- "the panel is full but barely loaded" ----
    Breakers sum to 410 A on a 200 A service. The three method results all include
@@ -297,8 +916,8 @@ function videoMarkup(s){
   // Beats are ALWAYS on screen — they reinforce the narration and give the room
   // something to read. If the clip dies they simply become the whole slide.
   return `<div class="vidwrap" id="vidwrap">
-      <video id="vid" class="vid" src="${s.src}" tabindex="-1" playsinline controls preload="auto"></video>
-      <div class="vidfall">
+      <video id="vid" class="vid" src="${s.src}" tabindex="-1" playsinline controls preload="auto" data-r="video"></video>
+      <div class="vidfall" data-r="beats">
         <div class="vf-h" id="vf_h" style="display:none">Video didn&rsquo;t load &mdash; say this instead</div>
         <ul class="vidbeats">${s.fallback.map(f=>`<li>${f}</li>`).join('')}</ul>
       </div>
@@ -322,7 +941,7 @@ const METHOD_CARDS=[
   {n:"NEC 220.87",t:"Measured Demand",d:"Skip the estimating. Use what your house <b>actually pulled</b>, from the meter.",on:false}
 ];
 function methodsMarkup(){
-  return `<div class="mgrid">${METHOD_CARDS.map(m=>`<div class="mcard${m.on?' on':''}">
+  return `<div class="mgrid">${METHOD_CARDS.map((m,k)=>`<div class="mcard${m.on?' on':''}" data-r="card${k+1}">
     ${m.tag?`<span class="tag">${m.tag}</span>`:''}
     <div class="mno">${m.n}</div><h4>${m.t}</h4><p>${m.d}</p></div>`).join('')}</div>`;
 }
@@ -335,7 +954,7 @@ const SETTINGS=[16,20,24,32,40,48,64,80];
 const NEC_BREAKERS=[15,20,25,30,35,40,45,50,60,70,80,90,100,110,125];
 const L2MAX=11.5;
 function sizerMarkup(){
-  return `<div class="szr"><div>
+  return `<div class="szr" data-r="sizer"><div>
     <div class="fields" style="grid-template-columns:1fr 1fr">
       <div class="fld"><label>Miles you drive a day</label><input type="number" id="s_mi" value="35" min="1" step="5"></div>
       <div class="fld"><label>Hours plugged in at home</label><input type="number" id="s_hr" value="8" min="1" max="24" step="1"></div>
@@ -377,24 +996,25 @@ function wireSizer(){
 function panelMythMarkup(){
   const SCALE=410,LIM=200,lp=LIM/SCALE*100;
   const sum=BRK.reduce((a,b)=>a+b,0);
-  const bars=METHODS.map(m=>`<div class="pb">
+  const RID=['sum410','m141','m127','m113'];
+  const bars=METHODS.map((m,k)=>`<div class="pb" data-r="${RID[k]}">
       <div class="pb-l">${m.k}</div>
       <div class="pb-t"><div class="pb-f" style="width:${m.v/SCALE*100}%;background:${m.c}"></div>
         <div class="pb-lim" style="left:${lp}%"></div></div>
       <div class="pb-v" style="color:${m.c}">${m.v} A</div></div>`).join('');
   return `<div class="pnl">
-    <div class="pbox"><div class="pbox-h">MAIN &mdash; 200 A</div>
+    <div class="pbox" data-r="panel"><div class="pbox-h">MAIN &mdash; 200 A</div>
       <div class="pgrid">${BRK.map(n=>`<span class="brk">${n}</span>`).join('')}</div>
       <div class="pbox-f">NO OPEN SLOTS</div></div>
     <div class="pbars">
-      <div class="pb"><div></div><div class="limrow"><span class="pb-limcap" style="left:${lp}%">your 200 A limit</span></div><div></div></div>
+      <div class="pb" data-r="limit"><div></div><div class="limrow"><span class="pb-limcap" style="left:${lp}%">your 200 A limit</span></div><div></div></div>
       ${bars}
-      <p class="pb-l" style="margin:6px 0 0;color:var(--ink);font-family:var(--sans);font-size:clamp(12px,1.5vw,16px);line-height:1.4">
+      <p class="pb-l" data-r="closing" style="margin:6px 0 0;color:var(--ink);font-family:var(--sans);font-size:clamp(12px,calc(1.5*var(--s)),22px);line-height:1.4">
         Same panel. Same house. Same charger. <b>${sum} amps of breakers &mdash; and every real method says it fits.</b></p>
     </div></div>`;
 }
 function calcMarkup(){
-  return `<div class="calc"><div>
+  return `<div class="calc" data-r="calculator"><div>
     <h2 id="chead"></h2>
     <div class="fields">
       <div class="fld"><label>Home size (ft²)</label><input type="number" id="c_sqft" value="2000" min="0" step="100"></div>
@@ -456,36 +1076,77 @@ function wireCalc(){
     const el=document.getElementById(id); el.addEventListener('input',computeCalc); el.addEventListener('change',computeCalc);});
   computeCalc();
 }
-function chrome(){return `<div class="brand">${MARK}${WORD}</div><div class="foot">← → move · N notes · T timer</div><div class="count"><b>${String(i+1).padStart(2,'0')}</b> / ${slides.length}</div>`;}
+/* ---- BEATS ----
+   Every slide is a short sequence. One tap of the spacebar reveals the next piece of the
+   slide and swaps the cue line — the sentence Jason reads and the room reads with him.
+   Elements are tagged data-r="<reveal id>"; the slide's beats[] say which beat each id
+   lands on, so beats can be reordered or cut without ever retagging the markup. An id with
+   no matching element simply advances the cue (that's how the live-demo slides work), and
+   an element whose id isn't in beats[] just stays visible. Nothing can dead-end. */
+const beatsOf=s=>(s.beats&&s.beats.length)?s.beats:[{line:s.body||'',reveal:'none'}];
+const R=(s,slot)=>(s.r&&s.r[slot])?` data-r="${s.r[slot]}"`:'';
+function bitsMarkup(s){
+  if(!s.bits||!s.bits.length) return '';
+  return `<ul class="bitlist">${s.bits.map(x=>`<li data-r="${x.r}">${x.t}</li>`).join('')}</ul>`;
+}
+function chrome(){return `<div class="brand">${MARK}${WORD}</div><div class="foot">space next · ← back · N notes · T timer · P pre-show</div><div class="count"><b>${String(i+1).padStart(2,'0')}</b> / ${slides.length}</div>`;}
 function render(){
   const s=slides[i]; let inner='';
   if(s.type==='title'){
     inner=`<div class="logo-lg">${MARK}${WORD}</div>
       <p class="kicker">Evolve Kentucky · July 26</p>
       <h1>Do you really need a <span class="hl">panel upgrade</span> for your EV charger?</h1>
-      <p class="body" style="max-width:34ch">Usually not. Let me save you a few thousand dollars.</p>
-      <p class="byline">Jason Walls · Master Electrician · IBEW 369 · <span class="link">evchargeright.com</span></p>`;
-    stage.innerHTML=`<section class="slide active">${inner}<div class="foot">← → move · N notes · T timer</div><div class="count"><b>01</b> / ${slides.length}</div></section>`;
-  } else {
-    if(s.type==='methods') inner=`<p class="kicker">${s.label}</p><h2 style="font-size:clamp(22px,3.2vw,38px);max-width:24ch">${s.head}</h2>`+methodsMarkup()+(s.body?`<p class="body" style="max-width:46ch;margin-top:clamp(12px,1.8vw,18px)">${s.body}</p>`:'');
-    else if(s.type==='sizer') inner=`<p class="kicker">${s.label}</p><h2 style="font-size:clamp(20px,2.8vw,32px);max-width:26ch">${s.head}</h2>`+sizerMarkup();
-    else if(s.type==='codeq') inner=`<p class="kicker">${s.label}</p><h2 style="font-size:clamp(23px,3.4vw,42px)">${s.head}</h2><p class="body" style="max-width:44ch">${s.body}</p><div class="codeq"><q>&ldquo;${s.quote}&rdquo;</q><span class="src">${s.src}</span></div>`;
-    else if(s.type==='video') inner=`<p class="kicker">${s.label}</p><h2 style="font-size:clamp(21px,3vw,34px);max-width:26ch">${s.head}</h2>`+videoMarkup(s);
-    else if(s.type==='panelmyth') inner=`<p class="kicker">${s.label}</p><h2 style="font-size:clamp(22px,3.2vw,38px);max-width:24ch">${s.head}</h2>`+panelMythMarkup();
-    else if(s.type==='calc') inner=`<p class="kicker">${s.label}</p>`+calcMarkup();
-    else if(s.type==='anchor') inner=`<p class="kicker">${s.label}</p><h2>${s.head}</h2><div class="big">${s.big}</div><p class="caplabel">${s.caplabel}</p><p class="body">${s.body}</p>`;
-    else if(s.type==='stat') inner=`<p class="kicker">${s.label}</p><h2>${s.head}</h2><div class="big">${s.big}</div><div class="houses">${HOUSE('h-ok')}${HOUSE('h-ok')}${HOUSE('h-ok')}${HOUSE('h-ok')}${HOUSE('h-no')}<span class="tag">= have room</span></div><p class="body">${s.body}</p>`;
-    else if(s.type==='product') inner=`<p class="kicker">${s.label}</p><h2>${s.head}</h2><div class="steps"><div class="step">${IC.calc}<h4>1 · Pick your car</h4><p>And the charger you want.</p></div><div class="arrow">→</div><div class="step">${IC.camera}<h4>2 · Snap your panel</h4><p>It runs the NEC 220.82 calc.</p></div><div class="arrow">→</div><div class="step">${IC.check}<h4>3 · Get the report</h4><p>Plain English. Hand it to any contractor.</p></div></div><p class="body" style="max-width:42ch">${s.body} <span class="link">evchargeright.com</span></p>`;
-    else if(s.type==='quote') inner=`<p class="kicker">${s.label}</p><h2>${s.head}</h2><p class="quote">&ldquo;${s.quote}&rdquo;</p>`;
-    else if(s.type==='close') inner=`<p class="kicker">${s.label}</p><div class="close"><div><h2>${s.head}</h2><p class="body">${s.body}</p><p class="byline"><span class="link">${s.url}</span></p></div><div><div class="qrbox"><img src="qr.svg" alt="QR to evchargeright.com"></div><div class="qrcap">Scan it — or text it to someone about to buy an EV</div></div></div>`;
-    else inner=`<p class="kicker">${s.label}</p><h2>${s.head}</h2><p class="body">${s.body}</p>`;
-    stage.innerHTML=`<section class="slide active">${chrome()}${inner}</section>`;
-    if(s.type==='calc') wireCalc();
-    else if(s.type==='sizer') wireSizer();
-    else if(s.type==='video') wireVideo();
+      <p class="body" style="max-width:34ch" data-r="promise">Usually not. Let me save you a few thousand dollars.</p>
+      <p class="byline" data-r="byline">Jason Walls · Master Electrician · IBEW 369 · <span class="link">evchargeright.com</span></p>`;
   }
+  else if(s.type==='methods') inner=`<p class="kicker">${s.label}</p><h2 style="font-size:clamp(22px,calc(3.2*var(--s)),54px);max-width:24ch">${s.head}</h2>`+methodsMarkup()+(s.body?`<p class="body" style="max-width:46ch;margin-top:clamp(12px,calc(1.8*var(--s)),18px)"${R(s,'body')}>${s.body}</p>`:'');
+  else if(s.type==='sizer') inner=`<p class="kicker">${s.label}</p><h2 style="font-size:clamp(20px,calc(2.8*var(--s)),46px);max-width:26ch">${s.head}</h2>`+sizerMarkup();
+  else if(s.type==='codeq') inner=`<p class="kicker">${s.label}</p><h2 style="font-size:clamp(23px,calc(3.4*var(--s)),58px)">${s.head}</h2><p class="body" style="max-width:44ch"${R(s,'body')}>${s.body}</p><div class="codeq"${R(s,'quote')}><q>&ldquo;${s.quote}&rdquo;</q><span class="src"${R(s,'src')}>${s.src}</span></div>`+bitsMarkup(s);
+  else if(s.type==='video') inner=`<p class="kicker">${s.label}</p><h2 style="font-size:clamp(21px,calc(3*var(--s)),48px);max-width:26ch">${s.head}</h2>`+videoMarkup(s);
+  else if(s.type==='panelmyth') inner=`<p class="kicker">${s.label}</p><h2 style="font-size:clamp(22px,calc(3.2*var(--s)),54px);max-width:24ch">${s.head}</h2>`+panelMythMarkup();
+  else if(s.type==='calc') inner=`<p class="kicker">${s.label}</p>`+calcMarkup();
+  else if(s.type==='anchor') inner=`<p class="kicker">${s.label}</p><h2>${s.head}</h2><div class="big"${R(s,'big')}>${s.big}</div><p class="caplabel"${R(s,'caplabel')}>${s.caplabel}</p><p class="body"${R(s,'body')}>${s.body}</p>`;
+  else if(s.type==='stat') inner=`<p class="kicker">${s.label}</p><h2>${s.head}</h2><div class="big"${R(s,'big')}>${s.big}</div><div class="houses"${R(s,'houses')}>${HOUSE('h-ok')}${HOUSE('h-ok')}${HOUSE('h-ok')}${HOUSE('h-ok')}${HOUSE('h-no')}<span class="tag">= have room</span></div><p class="body"${R(s,'body')}>${s.body}</p>`;
+  else if(s.type==='product') inner=`<p class="kicker">${s.label}</p><h2>${s.head}</h2><div class="steps"><div class="step" data-r="step1">${IC.calc}<h4>1 · Pick your car</h4><p>And the charger you want.</p></div><div class="arrow">→</div><div class="step" data-r="step2">${IC.camera}<h4>2 · Snap your panel</h4><p>It runs the NEC 220.82 calc.</p></div><div class="arrow">→</div><div class="step" data-r="step3">${IC.check}<h4>3 · Get the report</h4><p>Plain English. Hand it to any contractor.</p></div></div><p class="body" style="max-width:42ch"${R(s,'body')}>${s.body} <span class="link">evchargeright.com</span></p>`;
+  else if(s.type==='quote') inner=`<p class="kicker">${s.label}</p><h2>${s.head}</h2><p class="quote"${R(s,'quote')}>&ldquo;${s.quote}&rdquo;</p>`;
+  else if(s.type==='close') inner=`<p class="kicker">${s.label}</p><div class="close"><div><h2>${s.head}</h2><p class="body"${R(s,'body')}>${s.body}</p><p class="byline"${R(s,'byline')}>Get it at <span class="link">${s.url}</span> &mdash; $12.99<br>or <b>ChargeRight</b> on the <span class="link">App Store</span>, free to download</p></div><div${R(s,'qr')}><div class="qrbox"><img src="qr.svg" alt="QR to evchargeright.com"></div><div class="qrcap">Scan it — or text it to someone about to buy an EV</div></div></div>`;
+  else inner=`<p class="kicker">${s.label}</p><h2>${s.head}</h2>`+bitsMarkup(s)+(s.body?`<p class="body"${R(s,'body')}>${s.body}</p>`:'');
+
+  const head=(s.type==='title')?`<div class="foot">space next · ← back · N notes · T timer · P pre-show</div><div class="count"><b>01</b> / ${slides.length}</div>`:chrome();
+  stage.innerHTML=`<section class="slide active">${head}${inner}<div class="cband"><div class="cue" id="cue"></div><div class="dots" id="dots"></div></div></section>`;
+  if(s.type==='calc') wireCalc();
+  else if(s.type==='sizer') wireSizer();
+  else if(s.type==='video') wireVideo();
+  paint();
   bar.style.width=(i/(slides.length-1)*100)+'%';
-  ntext.innerHTML=s.note||'';
+  ntext.innerHTML=noteFor(s);
+}
+/* Paint the current beat: light up everything up to it, swap the cue, redraw the dots. */
+function paint(){
+  const s=slides[i],bs=beatsOf(s),n=bs.length;
+  b=Math.max(1,Math.min(n,b));
+  const at={}; bs.forEach((bt,k)=>{ if(bt.reveal&&bt.reveal!=='none'&&!(bt.reveal in at)) at[bt.reveal]=k+1; });
+  stage.querySelectorAll('[data-r]').forEach(el=>{
+    const k=at[el.dataset.r];
+    if(k){el.setAttribute('data-b',k);el.classList.toggle('lit',k<=b);}
+    else{el.removeAttribute('data-b');el.classList.add('lit');}
+  });
+  const cue=document.getElementById('cue');
+  if(cue) cue.innerHTML=bs[b-1].line?`<p>${bs[b-1].line}</p>`:'';
+  const dots=document.getElementById('dots');
+  if(dots){
+    const last=b>=n;
+    dots.innerHTML=Array.from({length:n},(_,k)=>`<i class="${k<b?'on':''}"></i>`).join('')+
+      `<span class="dl${last?' last':''}">${last?(i<slides.length-1?'next ▸ '+(i+2):'end'):b+' of '+n}</span>`;
+  }
+}
+/* The speaker note is built from the beats, so the note panel and the audio track can
+   never drift from what's actually on screen. */
+function noteFor(s){
+  const bs=beatsOf(s);
+  if(!s.beats||!s.beats.length) return s.note||'';
+  return bs.map((bt,k)=>`<div class="nbeat${k+1===b?' now':''}"><span class="nb">${k+1}</span><b>${bt.line}</b>${bt.say?`<i>${bt.say}</i>`:''}</div>`).join('')
+    +(s.note?`<div class="nextra">${s.note}</div>`:'');
 }
 /* ---- rehearsal timer (T). Targets match RUN-CARD.md — 24:30 total. ---- */
 const TARGETS=[45,60,75,90,90,105,85,85,90,180,150,60,50,75,80,60,90];
@@ -505,19 +1166,47 @@ function toggleTimer(){
   if(tOn){tStart=sStart=Date.now()/1000;tickTimer();tTick=setInterval(tickTimer,1000);}
   else{clearInterval(tTick);tTick=null;}
 }
-function go(x){i=Math.max(0,Math.min(slides.length-1,x));notesEl.classList.remove('show');notesOpen=false;sStart=Date.now()/1000;render();if(tOn)tickTimer();}
-document.getElementById('next').addEventListener('click',e=>{e.stopPropagation();go(i+1);});
-document.getElementById('prev').addEventListener('click',e=>{e.stopPropagation();go(i-1);});
+/* atEnd: when stepping BACKWARD into a slide, land on its last beat so the slide is
+   fully revealed — going back should never blank out what the room already saw. */
+function go(x,atEnd){
+  const t=Math.max(0,Math.min(slides.length-1,x));
+  if(t===i&&!atEnd){paint();return;}
+  i=t;b=atEnd?beatsOf(slides[i]).length:1;
+  notesEl.classList.remove('show');notesOpen=false;sStart=Date.now()/1000;
+  render();if(tOn)tickTimer();
+}
+/* One tap = one beat. Only when the slide's beats run out does it move on. */
+function step(d){
+  const n=beatsOf(slides[i]).length;
+  if(d>0){ if(b<n){b++;paint();if(notesOpen)ntext.innerHTML=noteFor(slides[i]);} else go(i+1); }
+  else{ if(b>1){b--;paint();if(notesOpen)ntext.innerHTML=noteFor(slides[i]);} else if(i>0) go(i-1,true); }
+}
+/* ---- pre-show loop ---- */
+const preEl=document.getElementById('pre');
+preEl.innerHTML=PRE;
+const preOn=()=>preEl.classList.contains('show');
+function showPre(on){preEl.classList.toggle('show',on);}
+preEl.addEventListener('click',()=>showPre(false));
+document.getElementById('next').addEventListener('click',e=>{e.stopPropagation();if(preOn()){showPre(false);return;}step(1);});
+document.getElementById('prev').addEventListener('click',e=>{e.stopPropagation();if(preOn()){showPre(false);return;}step(-1);});
 document.addEventListener('keydown',e=>{
   const t=(e.target.tagName||'').toLowerCase(),inF=t==='input'||t==='select'||t==='textarea';
+  if(e.key.toLowerCase()==='p'&&!inF){showPre(!preOn());return;}
+  if(preOn()){ if(e.key===' '||e.key==='ArrowRight'||e.key==='ArrowLeft'||e.key==='Enter'||e.key==='Escape'){e.preventDefault();showPre(false);} return; }
   if(e.key.toLowerCase()==='n'&&!inF){notesOpen=!notesOpen;notesEl.classList.toggle('show',notesOpen);return;}
   if(e.key.toLowerCase()==='t'&&!inF){toggleTimer();return;}
   if(inF)return;
-  if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();go(i+1);}
-  else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();go(i-1);}
-  else if(e.key==='Home')go(0); else if(e.key==='End')go(slides.length-1);
+  if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();step(1);}
+  else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();step(-1);}
+  else if(e.key==='ArrowDown'){e.preventDefault();go(i+1);}   /* skip the rest of this slide */
+  else if(e.key==='ArrowUp'){e.preventDefault();go(i-1);}
+  else if(e.key==='Home')go(0); else if(e.key==='End')go(slides.length-1,true);
 });
-document.addEventListener('click',e=>{if(e.target.closest('input,select,button,label,a,.calc,.szr,.szrnote,.nav,#notes,.out'))return;go(e.clientX>window.innerWidth/2?i+1:i-1);});
+document.addEventListener('click',e=>{
+  if(preOn())return;
+  if(e.target.closest('input,select,button,label,a,.calc,.szr,.szrnote,.nav,#notes,.out'))return;
+  step(e.clientX>window.innerWidth/2?1:-1);
+});
 render();
 </script>
 </body>

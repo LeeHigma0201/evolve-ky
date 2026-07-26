@@ -42,7 +42,7 @@
 <div class="wrap">
 <header>
   <h1>Listen &amp; rehearse</h1>
-  <p>Every slide, spoken: what's on screen, the target time, and what you say. Generated straight from the deck's own notes.</p>
+  <p>Every slide, beat by beat: the line that appears on screen, then what you say about it. Same order you'll tap through on stage. Generated straight from the deck.</p>
 </header>
 
 <div class="controls">
@@ -51,14 +51,14 @@
   <button class="ghost sp" data-r="1.25">1.25×</button>
   <button class="ghost sp" data-r="1.5">1.5×</button>
 </div>
-<p class="hint">Tap any slide to hear just that one. <b>Play all</b> walks 1→17 and keeps going — good with AirPods in, or in the car on the way. The green ones are the four lessons.</p>
+<p class="hint">Tap any slide to hear just that one. <b>Play all</b> walks 1→17 and keeps going — good with AirPods in, or in the car on the way. Green rows are the four lessons. The <b>taps</b> number is how many times you hit the spacebar on that slide.</p>
 
 <ol id="list">
   <li class="row fullrow" data-src="audio/fullrun.m4a">
     <button class="pl">▶</button>
     <div class="tt"><span class="k mono">Full run-through</span>
-      <div class="h">All 17 slides, back to back</div>
-      <div class="d">17:26 · the whole talk in one listen</div></div>
+      <div class="h">All 17 slides, every beat, back to back</div>
+      <div class="d">26:37 · all 69 beats in one listen</div></div>
   </li>
 </ol>
 
@@ -71,23 +71,23 @@
 <audio id="au" preload="none"></audio>
 <script>
 const META=[
- {n:1,label:"The cold open",head:"The Tesla tax",target:45,dur:46},
- {n:2,label:"Who I am",head:"IBEW Local 369 — the promise to teach",target:60,dur:54},
- {n:3,label:"What's at stake",head:"You bought the car. Then came the quote.",target:75,dur:47},
- {n:4,label:"Start here",head:"Your panel is barely working.",target:90,dur:60},
- {n:5,label:"The myth",head:"This panel is full. It isn't close to loaded.",target:90,dur:60},
- {n:6,label:"Lesson one",head:"More than one legal way to run it.",target:105,dur:70,lesson:1},
- {n:7,label:"Lesson two",head:"220.83 — the one that's yours.",target:85,dur:98,lesson:1},
- {n:8,label:"Lesson three",head:"Or don't estimate at all. (220.87)",target:85,dur:93,lesson:1},
- {n:9,label:"Video A",head:"The same house, three legal ways.",target:90,dur:62},
- {n:10,label:"Live calc",head:"How full is your panel — really?",target:180,dur:36},
- {n:11,label:"Lesson four · live",head:"Size the charger to your driving.",target:150,dur:92,lesson:1},
- {n:12,label:"Video B",head:"You may not need the big charger either.",target:60,dur:63},
- {n:13,label:"So what do I find?",head:"4 of 5 already had the room.",target:50,dur:50},
- {n:14,label:"Do it yourself",head:"Here's what you need to answer.",target:75,dur:61},
- {n:15,label:"…or don't",head:"You just learned it. $12.99.",target:80,dur:65},
- {n:16,label:"Tell somebody",head:"The one repeatable line.",target:60,dur:30},
- {n:17,label:"Pass it on",head:"Be the reason your buddy keeps his $4,000.",target:90,dur:25},
+ {n:1,label:"The cold open",head:"The Tesla tax",beats:3,target:45,dur:61},
+ {n:2,label:"Who I am",head:"IBEW Local 369 — the promise to teach",beats:3,target:60,dur:62},
+ {n:3,label:"What’s at stake",head:"You bought the car. Then came the quote.",beats:4,target:75,dur:74},
+ {n:4,label:"Start here",head:"Your panel is barely working.",beats:4,target:90,dur:83},
+ {n:5,label:"The myth",head:"410 A of breakers, and nothing trips",beats:7,target:90,dur:144},
+ {n:6,label:"Lesson one — four methods",head:"Four legal methods. Three estimate, one measures.",beats:5,target:105,dur:114,lesson:1},
+ {n:7,label:"Lesson two — 220.83",head:"220.83 — the one that's yours",beats:4,target:85,dur:92,lesson:1},
+ {n:8,label:"Lesson three — 220.87",head:"220.87 — don't estimate, measure",beats:4,target:85,dur:97,lesson:1},
+ {n:9,label:"Video A",head:"The same house, three legal ways",beats:2,target:90,dur:48},
+ {n:10,label:"Live panel calculator",head:"How full is your panel — really?",beats:5,target:180,dur:134},
+ {n:11,label:"Lesson four — the charger sizer",head:"Size the charger to your driving",beats:6,target:150,dur:154,lesson:1},
+ {n:12,label:"Video B",head:"You may not need the big charger either",beats:2,target:60,dur:55},
+ {n:13,label:"What I find",head:"4 of 5 already had the room",beats:5,target:50,dur:102},
+ {n:14,label:"Do it yourself",head:"What you need to answer",beats:5,target:75,dur:109},
+ {n:15,label:"…or don’t",head:"You just learned it. $12.99.",beats:5,target:80,dur:108},
+ {n:16,label:"Tell somebody",head:"The one repeatable line",beats:2,target:60,dur:58},
+ {n:17,label:"Pass it on",head:"Be the reason your buddy keeps his $4,000",beats:3,target:90,dur:65},
 ];
 const fmt=s=>Math.floor(s/60)+":"+String(Math.round(s%60)).padStart(2,"0");
 const list=document.getElementById("list"),au=document.getElementById("au");
@@ -98,7 +98,7 @@ META.forEach(m=>{
   li.innerHTML=`<button class="pl">▶</button><div class="tt">
     <span class="k mono">Slide ${m.n} · ${m.label}</span>
     <div class="h">${m.head}</div>
-    <div class="d">on stage: ${fmt(m.target)} · audio: ${fmt(m.dur)}</div></div>`;
+    <div class="d">${m.beats} taps · on stage ${fmt(m.target)} · audio ${fmt(m.dur)}</div></div>`;
   list.appendChild(li);
 });
 let cur=null,allMode=false,rate=1;

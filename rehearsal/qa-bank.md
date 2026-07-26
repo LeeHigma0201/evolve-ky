@@ -28,9 +28,11 @@ Then don't leave them at a dead end. Hand them the useful part:
 **The report-as-armor angle is your real product.** You're not selling a number, you're selling something they can put in a contractor's hand. Say it that way.
 
 ### "Is there an app?"
-> **"Skip the app store — Apple takes thirty percent, so anything there runs $16.99. The website's $12.99 and there's nothing to download. Just use the site."**
+> **"There is — search ChargeRight on the App Store, it's free to download. The assessment's $16.99 in there because Apple takes their cut; it's $12.99 on the website. Either one works. The site's the better deal."**
 
-Volunteering that you're steering them to the *cheaper* option — against your own app revenue — buys more credibility than anything else you'll say in Q&A. **Website only from the stage.** Don't send anyone to the App Store; its live status isn't confirmed.
+✅ **Verified live 2026-07-26:** *ChargeRight*, published by Jason Lloyd Walls, free download, last updated July 10 — [apps.apple.com/us/app/chargeright/id6755695416](https://apps.apple.com/us/app/chargeright/id6755695416). Your own site links to it. Slide 17 now says both.
+
+Volunteering that you're steering them to the *cheaper* option — against your own app revenue — buys more credibility than anything else you'll say in Q&A.
 
 ### "How much does it cost?" ⚠️ SAY THIS RIGHT — the QR lands on a page that shows the price
 Two tiers, and the free one is real:
