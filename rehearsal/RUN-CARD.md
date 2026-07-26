@@ -8,6 +8,8 @@
 ## PRE-FLIGHT
 
 - [ ] Open **evolve-deck.vercel.app** on the presenting machine. Leave the tab open.
+- [ ] **Press `F` for fullscreen once the projector is connected.** Browser chrome steals ~100 px of height; the deck now survives without it, but fullscreen is how it's meant to look.
+- [ ] **Stop the display sleeping.** It's set to 10 minutes — long enough to blank the QR during Q&A. Run `caffeinate -d` in a Terminal window and leave it open (Ctrl-C after).
 - [ ] Local backup (no wifi): `python3 -m http.server 8899` in `~/dev/evolve-ky`, open **localhost:8899**. (Double-clicking index.html can break the live calculators in some browsers — file:// is last resort; test it tonight if you want it as one.)
 - [ ] **Video: one clip only, on slide 12** — the real assessment, full-bleed, already installed and live. Slide 9 has no video. If 12 won't play, its three bullets appear automatically and ARE your script.
 - [ ] Laptop charged. Charger. **HDMI + USB-C dongle.**
@@ -29,6 +31,7 @@
 - **`↓` / `↑`** — skip the rest of this slide / jump back a whole slide, if you're running long
 - **bottom-right dots** — how many taps this slide has, and how many you've used. When it says **`next ▸ 6`** the next tap leaves the slide.
 - **`N`** — notes: every beat listed with what to say, current beat highlighted
+- **`F`** fullscreen — do this first at the venue
 - **`T`** timer — also starts recording the run · **`R`** run report (where the time actually went) · **`P`** pre-show loop
 
 **The taps column in the spine below is your map.** Slide 5 is 7 taps, slide 11 is 6. Nothing appears before you ask for it, so you can never get ahead of the room — and the room can't read ahead of you.

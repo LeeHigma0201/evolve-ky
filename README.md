@@ -25,11 +25,11 @@ Open `index.html` in any browser — one self-contained file, no build. The live
 
 **It advances in beats, not slides.** One tap of `Space` reveals the next piece of the slide and swaps the cue line at the bottom — the sentence Jason reads and the room reads with him. 17 slides, **70 beats**.
 
-**Controls:** `Space`/`→` next beat (next slide at the last beat) · `←` back a beat (previous slide *fully revealed* at the first) · `↓`/`↑` skip a whole slide · `N` notes (every beat, current highlighted) · `T` timer (starts run recording) · `R` practice-run report · `P` pre-show loop · on-screen `‹ ›` always work, even while typing in a calculator.
+**Controls:** `Space`/`→` next beat (next slide at the last beat) · `←` back a beat (previous slide *fully revealed* at the first) · `↓`/`↑` skip a whole slide · `N` notes (every beat, current highlighted) · `F` fullscreen · `T` timer (starts run recording) · `R` practice-run report · `P` pre-show loop · on-screen `‹ ›` always work, even while typing in a calculator.
 
 **Pre-show loop.** The deck opens on a looping title card — logo, the question, four rotating lines and the QR, on a 20-second cycle. Pure CSS, so there's no video file to fail and it needs no network. Tap to start the talk; `P` brings it back.
 
-**Full bleed.** The deck fills the projector at any aspect ratio — verified with zero overflow across all 70 beats at 1920×1080, 1280×800 and 1024×768. Everything scales off one unit (`--s: min(1.04vw, 1.55vh)`) taken from whichever screen dimension is tighter.
+**Full bleed.** The deck fills the projector at any aspect ratio — verified with zero overflow across all 70 beats at 1920×1080, 1280×800, 1280×720, 1024×768 — and at 1280×620 / 1024×668, i.e. a projector with browser chrome still showing, with the webfont failing to load. Everything scales off one unit (`--s: min(1.04vw, 1.55vh)`) taken from whichever screen dimension is tighter.
 
 ### How beats are wired
 Elements carry `data-r="<reveal id>"`; each slide's `beats[]` says which beat each id lands on. So beats can be reordered or cut without retagging markup, a reveal id with no matching element just advances the cue (that's how the live-demo slides work), and an element whose id isn't in `beats[]` stays visible. Hidden beats keep their layout space — nothing on screen jumps as pieces land.
