@@ -11,8 +11,10 @@ The deck already has both video slots built and wired. **You only have to drop t
 
 | Slot | Deck slide | File | What the clip covers | Status |
 |---|---|---|---|---|
-| **A** | **9 of 15** — after the panel-myth bars, before the live calculator | `video-methods.mp4` | 410 A of breakers · three methods (141 / 127 / 113) · "every real method says it fits" | ✅ **installed & live** — 78 s, 7 MB |
-| **B** | **12 of 15** — after the product slide, before the CTA | `video-howitworks.mp4` | Charge slower: 16 A adds ~105 mi/night vs a 37 mi day · 127 A → 95 A on a 100 A service | ⏳ generating in NotebookLM |
+| **A** | **9 of 17** — after Lesson 3 (220.87), before the live calculator | `video-methods.mp4` | 410 A of breakers · three methods (141 / 127 / 113) · "every real method says it fits" | ✅ **installed & live** — 78 s, 7 MB |
+| **B** | **12 of 17** — after the live charger sizer, before "what I find" | `video-howitworks.mp4` | Charge slower: 16 A adds ~105 mi/night vs a 37 mi day · 127 A → 95 A on a 100 A service | ⏳ generating in NotebookLM |
+
+> **Deck was reframed to a teaching structure on 2026-07-25 and is now 17 slides.** Both video slots kept their positions (9 and 12) but their neighbours changed — slot A now lands after the four method lessons, which makes it a better fit than before. Slot B now reinforces the live charger-sizing lesson immediately after it.
 
 **To install slot B when it finishes:**
 

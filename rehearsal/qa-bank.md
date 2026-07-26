@@ -13,7 +13,10 @@ Simulated Evolve KY audience: EV-club regulars (Leaf/Bolt/Model 3 owners), 2–4
 
 Own it immediately and name the number. Hedging on "am I being sold to" is what makes a room suspicious; the fastest way to kill the question is to answer it flatter than they expected.
 
-**"I don't do installs" is the strongest sentence you own.** Every other trade guy in that room's life is trying to sell them work. You're the one who isn't. Say it on slide 2 and this question mostly never gets asked.
+**"I don't do installs" is the strongest sentence you own — and in a teaching talk it belongs HERE, not on slide 2.** Leading with it makes the talk about selling. Holding it until someone asks makes it an answer instead of a defense, and it lands twice as hard.
+
+Then pivot straight back to teaching:
+> **"And everything I showed you today, you can do yourself. I gave you the sections. Go run it."**
 
 ### "Can you do my install?" / "What do you charge to come out and look?"
 > **"I don't do installs. That's kind of the point — I've got no reason to want you to need one."**
@@ -60,6 +63,44 @@ Honest, quick, and turns a dead end into a share.
 
 ### "How accurate is it, really?"
 > **"It's the same calculation I'd do by hand on a service call — the optional dwelling method. Same numbers, same answer. The app just does it from a photo instead of me with a clipboard."**
+
+---
+
+## TIER 1.5 — the questions a TEACHING talk invites
+
+You just taught four methods and quoted code. Expect these.
+
+### "Why 220.83 and not 220.82? Both are optional methods."
+> **"Read the first line of each. 220.82 is scoped to your *total connected load* — it's a sizing calc, for figuring out how big a service a house needs. 220.83 says it's for determining whether an *existing* service can carry *additional loads*. That's the exact sentence, and that's exactly what you're doing. Also 220.82 needs 100 amp service or better; 220.83 doesn't have that gate."**
+
+### "Isn't 220.83 just the loophole that gives you the smallest number?"
+Good-faith challenge, answer it head-on:
+> **"It's actually not the smallest. 220.83 starts discounting after 8 kVA; 220.82 doesn't start until 10. On identical inputs 220.83 gives you a *higher* number than 220.82. It's not a loophole — it's the section written for this question."**
+
+### "How do I actually get my maximum demand data for 220.87?"
+> **"Call your utility and ask for your interval demand data — a year of it if they've got it. A lot of them will just email it. If they won't, the code lets you record it yourself: thirty days on a recording meter, house occupied, with the heat or the AC running. Then it's peak times one-two-five, plus the charger, against your service rating."**
+
+If pressed on whether LG&E will provide it: **"I don't know their process off the top of my head. Give me your number and I'll find out and text you."**
+
+### "You keep saying 2017. Aren't we on 2023?"
+This is the credibility question. **Answer it proudly:**
+> **"We are — Kentucky's on 2023. What I can legally hand you is the 2017 copy, and these load-calc sections read the same. But I'm not going to stand up here and quote you a version I can't show you. If your inspector's working from 2023, verify the wording with him."**
+
+Volunteering the limits of your own source is the single most credible thing you can do in front of an electrician.
+
+### "What about 220.57 — the new EV load rule in 2023?"
+⚠️ **Careful. You do not have verbatim 2023 text for this.**
+> **"That's the newer one that puts EV charging in at a hundred percent with no demand factor. I run it that way — it's the conservative reading, and every charger we talked about today is above its floor anyway. But I'd want you reading it out of a 2023 book, not out of my mouth."**
+
+**Never quote 220.57 as if you're reading it.** Summarize, then hand it off.
+
+### "Does the code actually say I can charge at a lower amperage?"
+> **"The code doesn't tell you how fast to charge — it tells you how to size the circuit for whatever you pick. 625.42 makes EV charging a continuous load, so the breaker has to be 125% of it. Pick a smaller charge rate, you get a smaller breaker, and a smaller number in the load calc. Most adjustable chargers set that in the app."**
+
+### "My charger came with a NEMA 14-50. Isn't that 50 amps?"
+> **"That's a 50 amp *circuit* — and because charging is continuous you only get 80% of it. So a '50 amp' plug-in charger is really a 40 amp charger. And that's why a 48 amp unit can't use a plug at all: it needs a 60 amp circuit, and receptacles top out at 50. It has to be hardwired."**
+
+*(The plug names themselves — 14-50, 6-50 — are a NEMA standard, not the NEC. Don't cite a code article for the plug.)*
 
 ---
 

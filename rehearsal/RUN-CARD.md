@@ -1,26 +1,24 @@
 # RUN CARD — Evolve KY · Sun July 26, 2:30–4:30 PM
 **All Peoples, 4936 Brownsboro Rd** · Host: Mike Bewley · Deck: **evolve-deck.vercel.app**
 
-> Print this or pull it up on your phone. Everything you need is on this page.
+> **This is a teaching talk.** You're not there to sell. You're the union electrician who knows the math and is giving it away. The recommendation comes at the end, after you've earned it.
 
 ---
 
-## PRE-FLIGHT (do Saturday night, not Sunday)
+## PRE-FLIGHT
 
-- [ ] Open **evolve-deck.vercel.app** on the machine you're presenting from. Leave the tab open.
-- [ ] Also save a **local copy**: `~/dev/evolve-ky/index.html` — double-click it. Works with no wifi.
-- [ ] Charge the laptop. Bring the charger. Bring an **HDMI + USB-C dongle**.
-- [ ] Text Mike: *"How long do you want me — 15 or 30? And is there a screen/HDMI or should I bring a stand?"* ← **you don't know your slot length yet. Ask.**
-- [ ] Phone on Do Not Disturb. Close Slack/Mail so notifications don't pop on the projector.
-- [ ] Know **one real house** cold for the live demo (yours). Sq ft, service size, gas or electric.
-- [ ] **Bring the business cards** (the ones with the QR). Hand them out during the after-talk checks — warmer than a QR on a screen.
-- [ ] **Know your number:** roughly how many houses have you run this on? You say "in the homes I check, about four out of five" — be ready to answer "how many is that?" with a real figure.
-
-**If there's no screen:** the deck reads fine on a laptop turned around, or on a phone. Slide 12's QR is the only thing they *must* see — hold it up.
+- [ ] Open **evolve-deck.vercel.app** on the presenting machine. Leave the tab open.
+- [ ] Local backup: `~/dev/evolve-ky/index.html` — double-click it. Works with no wifi.
+- [ ] Laptop charged. Charger. **HDMI + USB-C dongle.**
+- [ ] Ask Mike: how long, and is there a screen?
+- [ ] Phone on Do Not Disturb. Quit Slack/Mail so nothing pops on the projector.
+- [ ] **Know your house cold** — sq ft, service size, gas or electric. It's your demo backup.
+- [ ] **Know your number** — how many homes have you run this on? You say "in the homes I've checked."
+- [ ] Business cards with the QR.
 
 ---
 
-## THE COLD OPEN — locked. Say this, don't read it.
+## THE COLD OPEN — say it, don't read it
 
 > **"Show of hands — who's heard of the Tesla tax?"** *(hands)*
 >
@@ -30,46 +28,83 @@
 >
 > **"Three grand? Four?"** *(beat)*
 >
-> **"That's the Tesla tax. And most of you don't owe it."**
+> **"That's the Tesla tax. And by the time you leave here you'll know how to tell whether you actually owe it."**
 
-⚠️ **Do not pause after the first question.** In Kentucky they'll assume you mean the annual EV registration fee. Define which tax you mean in the same breath — the $130-vs-$4,000 contrast is doing the work.
+⚠️ **Don't pause after the first question** — in Kentucky they'll think you mean the registration fee. Define it in the same breath. The ~$130-vs-$4,000 contrast does the work.
 
-Say **"a hundred and some-odd bucks"** — the fee is re-indexed every year and that room knows the number better than you do.
-
-*(It's also in the deck: slide 1, press **N**.)*
+> **The close of the open is the promise to TEACH.** Old version said "most of you don't owe it" — a claim. New version says "you'll know how to tell" — a lesson. That's the whole reframe in one sentence.
 
 ---
 
-## THE SPINE — if you remember nothing else, say these 12 lines
+## THE SPINE — 17 slides
 
 | # | Slide | The one line you must land | Time |
 |---|---|---|---|
-| 1 | Title | "Do you really need a panel upgrade to charge at home? Usually not." | 0:45 |
-| 2 | Who I am | "Master electrician. **And I don't do installs** — so I've got no reason to want you to need one." | 1:00 |
-| 3 | **$3–5k** | "That's the number you get quoted. Most of you won't spend a dime of it." | 1:30 |
-| 4 | **4 of 5** | "In the homes I check, about four out of five already have the room." | 1:15 |
-| 5 | Straight talk | "And I'll tell you who actually does need it." | 1:15 |
-| 6 | Why the quote | "The math takes ten minutes. The upsell takes ten seconds." | 1:00 |
-| 7 | **The aha** | "Your panel is barely working — and your car charges at night." | 2:00 |
-| 8 | **THE MYTH** | "410 amps of breakers on a 200 amp service. And nothing trips." | 1:30 |
-| 9 | 🎬 **VIDEO** | *breather — don't talk over it.* Then: "Three legal ways. All three agree." | 1:30 |
-| 10 | **LIVE CALC** | "Give me a real house. Let's do it right now." | 4:00 |
-| 11 | ChargeRight | "You don't do the math. A photo does. **Twelve ninety-nine.**" | 1:30 |
-| 12 | 🎬 **VIDEO** | *breather.* Then: "That's it. That's the whole thing." | 1:00 |
-| 13 | CTA | "Do this **before you call anybody. Including me.**" | 1:00 |
-| 14 | Share line | "Here's all you have to say —" *(read it slow, twice)* | 1:15 |
-| 15 | Close + QR | "Be the reason your buddy keeps his four thousand dollars." | 1:30 |
+| 1 | Title | *(the cold open above)* | 0:45 |
+| 2 | **Who I am** | "Union electrician, **Local 369**, right here. I run these calcs every day — and I'm going to teach you how." | 1:00 |
+| 3 | What's at stake | "$3–5k. And some people get that quote and just don't buy the car." | 1:15 |
+| 4 | Start here | "Your panel is **barely working.** Your house never runs everything at once." | 1:30 |
+| 5 | **The myth** | "410 amps of breakers on a 200 amp service. Nothing ever trips." | 1:30 |
+| 6 | **Lesson 1** | "There's more than one legal way to run it. Three estimate. One measures." | 1:45 |
+| 7 | **Lesson 2** | "**220.83.** Existing service, additional load. That's you — and it's the first line of the section." | 1:25 |
+| 8 | **Lesson 3** | "Or don't estimate at all. Use what the house **actually pulled.**" | 1:25 |
+| 9 | 🎬 Video | *breather.* Then: "Three legal ways. All three agree." | 1:30 |
+| 10 | **LIVE CALC** | "Give me a real house. Let's run it right now." | 3:00 |
+| 11 | **Lesson 4 — LIVE** | "**Hours are the lever. Not the badge on the box.**" | 2:30 |
+| 12 | 🎬 Video | *breather.* Then: "You don't have a panel problem." | 1:00 |
+| 13 | What I find | "In the homes I've checked — about four out of five had the room." | 0:50 |
+| 14 | Do it yourself | "None of this is secret. Tape measure, flashlight, code book." | 1:15 |
+| 15 | …or don't | "You just learned it. You don't have to **do** it. **$12.99.**" | 1:20 |
+| 16 | Tell somebody | *(read the line slow, twice)* | 1:00 |
+| 17 | Pass it on | "Be the reason your buddy keeps his four thousand dollars." | 1:30 |
 
-**Total ≈ 22 min with videos, ≈ 19:30 without.**
+**Full run ≈ 24:30.**
 
-**If Mike gives you 15 minutes:** cut **9** and **12** (the videos) first — they're marked cuttable on screen. Then **5** and **6**. Never cut **7**, **8**, or **10**.
+### The cut ladder — drop in this order
 
-> 🎬 **The video slides work even with no video file.** If the mp4 isn't there, the slide shows your talking points in an amber card instead. Read them and advance. **Never debug on stage.**
+| Cut | Saves | Leaves you at |
+|---|---|---|
+| 1. Slide 12 (video B) | 1:00 | 23:30 |
+| 2. Slide 9 (video A) | 1:30 | 22:00 |
+| 3. Slide 8 (220.87) | 1:25 | 20:35 |
+| 4. Slide 3 (the $3–5k) | 1:15 | 19:20 |
+| 5. One demo house instead of two on slide 10 | 1:00 | 18:20 |
+| 6. Slide 14 (do it yourself) | 1:15 | 17:05 |
 
-### Slide 8 — the three-method bars, if an electrician asks
-All three include the same 48 A charger at **100%, no demand factor** (2023 EVSE rule), on the same 2,000 ft² house. **220.83(A)** is the one that actually fits the scenario — the code says it's for determining "if the existing service is of sufficient capacity to serve **additional loads**." That's literally adding an EV charger.
+**Never cut: 2, 5, 6, 7, 11, 16, 17.** Those are the credential, the myth, the method lesson, 220.83, your signature lesson, and the ask.
 
-> If pushed on why 220.83(A) and not (B): **"(B) is when you're adding air conditioning or electric heat. I'm adding a charger, so it's (A). The AC that's already there still counts — it's a permanently connected appliance."**
+> Slides 9 and 12 say **"cuttable"** on screen so you can decide live without doing math in your head.
+
+---
+
+## THE FOUR LESSONS — what each one has to land
+
+**Lesson 1 (slide 6) — there's more than one method.**
+Walk the four cards, one sentence each. Standard = the calc for a house being *built*. 220.82 = whole-house shortcut, needs 100 A service or bigger. **220.83 = existing house, adding a load — that's you.** 220.87 = don't estimate, measure.
+> The honest beat, said without sneering: **"A lot of guys quoting you have never run any of these. They counted your breakers. That's not one of the four."**
+
+**Lesson 2 (slide 7) — 220.83.**
+Read the quote out loud, slowly. Then translate: *"Existing service. Additional load. That's a house getting an EV charger."*
+Mechanics: **first 8 kVA at 100%, everything after at 40%.**
+> (A) vs (B) if asked: **(B) is when you're also installing new AC or electric heat. It's about what you're putting IN, not what the house already has.** A charger alone is (A).
+> **Say the edition out loud:** *"That's the 2017 wording — we're on 2023 in Kentucky, these sections read the same, but I'm quoting the copy I can legally hand you."* That sentence buys more credibility than anything else in the talk.
+
+**Lesson 3 (slide 8) — 220.87, the one nobody teaches.**
+> **"Take the highest your house has actually pulled. Multiply by one-two-five. Add the charger. If that's under your service rating, you're done — and you never estimated anything."**
+How they get it: a year of demand data from the utility, or 30 days on a recording meter with the house occupied and the heat or AC running. The code defines the peak as the highest **15-minute average** — the exact interval utilities already report.
+
+**Lesson 4 (slide 11) — YOUR lesson. Do it live.**
+Start on defaults (35 mi, 8 hrs → **20 A breaker**). Then change **one thing at a time:**
+
+| Move | Result | What you say |
+|---|---|---|
+| Miles 35 → **60** | still **20 A** | "I just doubled the driving. **The breaker didn't move.**" |
+| Hours 8 → **4** | **30 A** | "Same driver. Same car. Same miles. Only the parking hours changed." |
+| Car → **the truck** | **50 A** | "Now a Lightning at 100 miles a day." |
+| 100 mi / **2 hrs** | **60 A, hardwire** | "*That's* when you need the big one. That's not most of you." |
+
+> **"Hours are the lever. Not the badge on the box."**
+> Honesty beat: **"The breaker line is code and it's exact. Everything above it is arithmetic — and your miles-per-kWh is a guess until you check your own car."**
 
 ---
 
@@ -77,98 +112,81 @@ All three include the same 48 A charger at **100%, no demand factor** (2023 EVSE
 
 | Number | What it is | If challenged |
 |---|---|---|
-| **$3,000–$5,000** | Typical panel-upgrade quote | "That's the range I see around here. Some are more." |
-| **4 out of 5** | Homes with room | **"In the homes *I've* checked."** Say it that way — it's your field data, not a published study, and there isn't one. Know your house count in case they ask. |
-| **$16.99** | The iOS app price (Apple's 30%) | Only if asked. **"Website's cheaper — just use the site."** Never send them to the App Store. |
-| **3 VA / ft²** | General lighting + receptacles | NEC **220.82(B)(1)** |
-| **First 10 kVA at 100%, rest at 40%** | The demand factor | NEC **220.82(B)** |
-| **240 V** | Charger circuit | amps × 240 = watts |
-| **80%** | Your comfort band — **not a code pass/fail** | See "the 80% question" below. Get this one right. |
-| **$12.99** | The full photo assessment + PDF report | **Say it on slide 9.** The QR lands on a page showing this price — they must hear it from you first. |
-| **Free** | The calculator on the site (type your own numbers) | Both tiers are real. "Free to check it yourself, $12.99 to have it read your panel." |
-| **~$300** | A service call for someone to come tell you | Your best comparison. $12.99 vs $300 vs $4,000. |
+| **$3,000–$5,000** | Typical panel-upgrade quote | "That's the range I see around here." |
+| **410 A** | Breakers in a typical 200 A panel | Illustrative, not a calculation — that's the point. |
+| **141 / 127 / 113 A** | Standard / 220.82 / 220.83(A), same house + 48 A charger | All include the EV at 100%, no demand factor. |
+| **8 kVA @ 100%, then 40%** | 220.83(A) | NEC 220.83(A) |
+| **peak × 1.25 + new load ≤ service** | 220.87 | NEC 220.87(2) |
+| **charger amps × 1.25 → next standard size** | the breaker rule | 625.41 · 210.20(A) · 240.4(B) |
+| **4 out of 5** | Homes with room | **"In the homes *I've* checked."** Your data, not a study. Know the count. |
+| **$12.99 / free calculator / ~$300 service call** | The ladder | Say the price on slide 15. Website only — iOS is $16.99 (Apple's cut). |
 
-⚠️ **Never say a code section number you're not sure of.** "That's in the optional dwelling calc" is always safe. You're the electrician — nobody expects article numbers from memory.
+⚠️ **Never state a code section number you're not sure of.** "That's in the existing-dwelling section" is always safe.
+⚠️ **Never quote 2023 text as verbatim.** Everything you have is the 2017 copy. Say so — it makes you *more* credible, not less.
+⚠️ **The 80% is not a code pass/fail.** It's your comfort line, from the continuous-load 125% rule. The code test is calculated load ≤ service rating.
 
 ---
 
-## WHEN YOU BLANK — three lines that buy you 5 seconds
+## WHEN YOU BLANK
 
 1. **"Let me say that a different way."** ← sounds deliberate, resets you.
-2. **"The short version is—"** then say the spine line from the table above.
-3. **"Actually, let me just show you."** → jump to slide 8 and run a house. The calculator does the talking.
+2. **"The short version is—"** then the spine line from the table.
+3. **"Here, let me just show you."** → slide 10 or 11 and run it live.
 
-Blanking looks like thinking. **Do not apologize for a pause.** Take the drink of water — that's what it's for.
-
----
-
-## THE LANDMINE — someone in that room already paid for an upgrade
-
-When you say "4 out of 5 didn't need it," somebody is going to feel like an idiot in front of their friends. **Get ahead of it on slide 4:**
-
-> *"And if you already upgraded — you're fine, that's not a waste. You've got room for everything now, and it'll help when you sell. I just want the next person to get the choice."*
-
-Say that and you keep the whole room with you. Skip it and you make an enemy.
+Blanking looks like thinking. **Don't apologize for a pause.** That's what the water is for.
 
 ---
 
-## THE LIVE DEMO (slide 8) — how to not have it go sideways
+## THE LANDMINE — someone already paid for an upgrade
 
-**Ask for a volunteer this way:** *"Who's got a house they know the numbers on? Roughly how big, and is it 100 or 200 amp service?"*
+Get ahead of it on slide 13, and **absolve first:**
 
-- Nobody knows their service size → **"Look at the main breaker — the big one at the top. It's got a number on it."** Use 200 A as the default; most post-1990 homes are 200.
-- Nobody volunteers → **use your own house.** Have the numbers ready. Never stand there waiting.
-- The verdict comes back **red** → **that's a gift, not a problem.** *"See — that's the one in five. That's a guy I'd tell to upgrade. That's why you run the math instead of guessing."*
-- Calculator won't load → *"Here's what it would've told you—"* and say the spine line. Then move. **Do not debug on stage.**
+> **"And if you already upgraded — that's not on you. You did what anybody does, you trusted the guy with the license. You're in good shape now: room for a second car, a heat pump, whatever. I just want the next person to get asked the question."**
 
-**Have these three houses in your pocket** (type them fast, they land differently):
+**Don't give that person the charge-slower lesson.** You'd be telling them there were *two* ways they didn't need to spend. Save it for someone who comes back red.
+
+---
+
+## THE LIVE DEMOS — how they don't go sideways
+
+**Slide 10 (panel).** *"Who's got a house they know the numbers on? Roughly how big, and are you 100 or 200 amp?"*
+- Nobody knows their service size → *"Look at the main breaker — the big one at the top. It's got a number on it."* Default to 200.
+- **Nobody volunteers → use your own house.** Never stand there waiting.
+- Comes back **red** → that's a gift: *"That's the one in five. And you already know two ways out — charge slower, or pull your real demand off the meter."*
+
+**Pocket houses:**
 
 | House | Inputs | Result |
 |---|---|---|
-| The reassuring one | 2000 ft², 200 A, 3 ton AC, gas heat, range+dryer, 48 A | **≈127 A of 200** → ✅ room to spare |
-| The scary one | same house, but **100 A service** | **≈127 A of 100** → 🔴 over — "this is the one in five" |
-| The all-electric | 2600 ft², 150 A, 4 ton, 20 kW heat, all boxes checked, 48 A | **187 A of 150** → 🔴 over — "all-electric, older service" |
+| Reassuring | 2000 ft², 200 A, 3 ton, gas heat, range+dryer, 48 A | **127 A of 200** ✅ |
+| Scary | same, **100 A** service | **127 A of 100** 🔴 |
+| Then rescue it | drop to **16 A** | **95 A** ⚠️ — *fits, no upgrade* |
 
-### ⚡ THE MOVE — "you don't need the big charger either"
+**Slide 11 (charger sizer).** Run the four moves in the Lesson 4 table. It cannot fail — it's pure arithmetic in the page.
 
-Your second argument, and the one nobody else makes. Run it **right after a house comes back red.** Change one field on screen: **Charge at → 16 amps.**
-
-| House | At 48 A | At 16 A |
-|---|---|---|
-| 2000 ft² on **100 A** service | **127 A** · 🔴 over the limit | **95 A** · ⚠️ fits — *no upgrade* |
-| 2600 ft² all-electric on 200 A | **187 A** · ⚠️ tight | **155 A** · ✅ room to spare |
-
-Then say it:
-
-> **"Everybody sells you the biggest charger on the shelf. Sixteen amps overnight puts back about a hundred miles. The average person drives thirty-seven. You don't have a panel problem — you've got a charger you didn't need."**
-
-The deck shows the range added right next to the amps, so they can watch the tradeoff. **This is the moment that saves the one-in-five** — they came in expecting bad news and leave with a way to charge at home tonight.
-
-*(All verified against the live deck 2026-07-24. Press **T** for the rehearsal timer — 18:00 target, per-slide pacing.)*
+**If anything won't load:** say the spine line and advance. **Never debug on stage.**
 
 ---
 
-## THE CLOSE — say this verbatim, don't improvise
+## THE CLOSE — verbatim
 
 > **"Here's all you have to say. Before you pay thousands to upgrade your panel for an EV charger, check evchargeright.com — a master electrician built it, and four out of five people don't even need the upgrade."**
 
 Pause. Then:
 
-> **"Somebody you know is about to get quoted three, four thousand dollars for something they don't need. Scan this, or text it to them right now while you're sitting here. That's the whole favor."**
+> **"Think of one person who's talked about getting an EV. You've got somebody. Text them this right now, while you're sitting here. When they don't spend four grand — that was you."**
 
-**Then stop talking.** Let the QR sit on screen for the whole Q&A. Don't advance past slide 12.
-
----
-
-## AFTER — you're not booking work, you're making advocates
-
-You don't do installs, so the win here isn't a lead list. It's people who leave able to *re-say* your line to somebody else.
-
-- Stand at the back, don't leave. **"Grab me, I'll run yours right now"** — do 3 or 4 on your phone. Each one is a person who watched it work.
-- **Hand them a business card** with the QR. Physical beats a screenshot.
-- Ask Mike: *"Would it help if I wrote this up for the newsletter?"* ← free reach to everyone who didn't come.
-- If somebody comes back red: **"So you're the one in five. Here's the thing though —"** and show them the charge-slower move. Nobody leaves with only bad news.
+**Then stop talking.** Leave slide 17 up through the whole Q&A. Don't advance past it.
 
 ---
 
-*Q&A prep: [qa-bank.md](qa-bank.md) · Line variants: [ab-tests.md](ab-tests.md) · What to drill: [fumble-log.md](fumble-log.md)*
+## AFTER — you're making advocates, not booking work
+
+- Stand at the back. **"Grab me, I'll run yours right now"** — do 3 or 4 on your phone.
+- **Hand out business cards** with the QR. Physical beats a screenshot.
+- Ask Mike: *"Would it help if I wrote this up for the newsletter?"*
+- **For the people who speak at ribbon-cuttings:** *"Some of y'all get asked to speak at these things. If one line of this is useful — that four out of five don't need the upgrade — take it. Use it. You don't have to mention me."*
+
+---
+
+*Q&A prep: [qa-bank.md](qa-bank.md) · Line variants: [ab-tests.md](ab-tests.md) · Drill log: [fumble-log.md](fumble-log.md)*
