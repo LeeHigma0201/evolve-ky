@@ -94,7 +94,7 @@ runcard.html          phone-readable / printable run card
 rehearse.html         🎧 audio rehearsal player — every beat, spoken
 audio/                17 per-slide tracks + 26:52 full run (generated from the deck's beats)
 video-methods.mp4     UNUSED in the deck — kept as a website/follow-up asset
-video-howitworks.mp4  slot B clip — real assessment, screen-recorded (83 s, full-bleed)
+video-howitworks.mp4  slide 12 clip — real assessment, screen-recorded (1:45, full-bleed)
 qr.svg                QR to evchargeright.com
 install-video.sh      probe + transcode a NotebookLM download into a slot
 rehearsal/            RUN-CARD.md · qa-bank.md · ab-tests.md · fumble-log.md · narration/

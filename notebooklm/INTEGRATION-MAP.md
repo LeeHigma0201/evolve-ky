@@ -12,7 +12,7 @@
 | Slot | Deck slide | File | What the clip covers | Status |
 |---|---|---|---|---|
 | ~~**A**~~ | ~~9 of 17~~ | `video-methods.mp4` | ❌ **REMOVED from the deck.** Kept in the repo as a website / follow-up asset. Slide 9 is now "which one is yours" — no video. |  |
-| **B** | **12 of 17** — after the live charger sizer, before "what I find" | `video-howitworks.mp4` | **A real assessment, screen-recorded.** Seven questions → 220.83(A) → 21,640 VA = 90 A on a 200 A service (45.1%) → every legal method agrees | ✅ **installed & live** — 83 s, 5 MB |
+| **B** | **12 of 17** — after the live charger sizer, before "what I find" | `video-howitworks.mp4` | **A real assessment, screen-recorded.** Sizer sweep (miles barely move it, hours do) → seven questions → 220.83(A) → 21,640 VA = 90 A on a 200 A service (45.1%) → every legal method agrees | ✅ **installed & live** — 104 s, 5.9 MB |
 
 > **Slot B is no longer a NotebookLM clip.** Built 2026-07-26 as a screen recording of a real
 > ChargeRight assessment, composited 16:9 with its own explainer rail. Because it carries its
@@ -20,6 +20,9 @@
 > beats it would render ~760 px wide and the app UI would be unreadable from the back of the
 > room. Pipeline + regeneration notes: `~/dev/promo-video/panel-check-90s/README.md`.
 > Optional VO: `rehearsal/VO-panel-check-90s.md`, mixed with `rehearsal/mix-vo.sh`.
+>
+> **Slide 12 is now ~1:45, not 60 s** (`narration/meta.json` target updated). It earns it — the
+> first half proves lesson four with the app instead of asserting it.
 >
 > **Do not re-install it with `install-video.sh`** — that scales to 1280 wide, and this clip
 > needs its native 1920 to stay legible full-bleed. Copy it in directly.
