@@ -23,6 +23,18 @@ Running record across rehearsal passes. Add a row every time something comes out
 
 ---
 
+## ⚠️ Reframe risks — added 2026-07-25 when the deck went teaching-shaped
+
+| Risk | Why | Mitigation in the deck |
+|---|---|---|
+| **He's never said any of it out loud** | The whole structure changed ~12 hrs before the talk. Biggest risk by far. | Run card has every spine line; slides 6–8 and 11 have full scripts in `N` notes |
+| **A teaching talk can go dry** | Four lessons + two code quotes is a lot of instruction for a Sunday afternoon | Two live demos (10, 11) and two video breathers break it up; lessons 1–3 are ~1:30 each, not lectures |
+| **Code quotes lose a lay audience** | Slides 7 and 8 put actual NEC text on screen | Both have a plain-English translation in the body ABOVE the quote; the run card says read the quote aloud slowly, then translate |
+| **Quoting 2017 as if it's 2023** | All verbatim text on hand is the 2017 edition; KY is on 2023 | Slide 7's source line says so on screen; run card scripts him saying it out loud — it *builds* credibility |
+| **220.57 misquoted** | No verbatim 2023 text exists in the reference repo | Q&A bank explicitly says: summarize, never quote |
+| **Length** | 24:30 full, slot still unconfirmed | Six-step cut ladder with running totals; slides 9 and 12 marked cuttable on screen |
+| **Two live calculators now, not one** | Second thing that can break | The sizer is pure arithmetic in the page — no data, no network. Focus guard verified on both. |
+
 ## Known risk areas (predicted before the first pass — check these against what actually happens)
 
 | Risk | Why I expect it | Drill |

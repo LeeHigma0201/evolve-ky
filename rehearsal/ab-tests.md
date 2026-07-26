@@ -92,11 +92,17 @@ Your stated goal: word of mouth. This is the only slide that does it.
 
 ---
 
-## THINGS TO DROP IF YOU'RE RUNNING LONG
+## ⚠️ Deck reframed 2026-07-25 — what still applies
 
-In order — cut from the top:
-1. **Slide 6** (why the quote) — the villain is implied by slide 5 anyway
-2. **Slide 5** (who does need it) — but then you *must* say "and I'll tell you when you do need it" out loud on slide 4, or you lose the honesty
-3. **Second demo house** on slide 8 — one house is enough
+The deck went from **sales-shaped to teaching-shaped** and is now **17 slides**. Effect on these tests:
 
-**Never cut:** 3 (the money), 7 (the aha), 8 (the live calc), 11 (the share line), 12 (the QR).
+| Test | Still valid? |
+|---|---|
+| **1 · Cold open** | ✅ **Yes — D still wins.** Only the last line changed: "most of you don't owe it" (a claim) → **"you'll know how to tell whether you actually owe it"** (a promise to teach). |
+| **2 · The anchor** | ✅ Yes, now slide 3. Still let it hang three seconds — but it's the *stakes* of the lesson now, not a sales anchor. |
+| **3 · The aha** | ✅ Yes, now slide 4. Option A + C as the button, unchanged. |
+| **4 · The ask** | ✅ Yes, now slide 17. **B still wins** — "think of one person." |
+
+**The cut list moved.** Use the six-step ladder in [RUN-CARD.md](RUN-CARD.md) — it has running totals (24:30 down to 17:05) so you can compress live without doing arithmetic on stage.
+
+**Never cut:** 2 (Local 369), 5 (the myth), 6 (the four methods), 7 (220.83), 11 (the charger sizer), 16 (share line), 17 (QR).
