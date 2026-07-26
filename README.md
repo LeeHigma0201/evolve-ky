@@ -25,7 +25,7 @@ Open `index.html` in any browser — one self-contained file, no build. The live
 
 **It advances in beats, not slides.** One tap of `Space` reveals the next piece of the slide and swaps the cue line at the bottom — the sentence Jason reads and the room reads with him. 17 slides, **70 beats**.
 
-**Controls:** `Space`/`→` next beat (next slide at the last beat) · `←` back a beat (previous slide *fully revealed* at the first) · `↓`/`↑` skip a whole slide · `N` notes (every beat, current highlighted) · `T` timer · `P` pre-show loop · on-screen `‹ ›` always work, even while typing in a calculator.
+**Controls:** `Space`/`→` next beat (next slide at the last beat) · `←` back a beat (previous slide *fully revealed* at the first) · `↓`/`↑` skip a whole slide · `N` notes (every beat, current highlighted) · `T` timer (starts run recording) · `R` practice-run report · `P` pre-show loop · on-screen `‹ ›` always work, even while typing in a calculator.
 
 **Pre-show loop.** The deck opens on a looping title card — logo, the question, four rotating lines and the QR, on a 20-second cycle. Pure CSS, so there's no video file to fail and it needs no network. Tap to start the talk; `P` brings it back.
 

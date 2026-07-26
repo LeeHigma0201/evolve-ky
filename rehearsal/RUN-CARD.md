@@ -29,7 +29,7 @@
 - **`↓` / `↑`** — skip the rest of this slide / jump back a whole slide, if you're running long
 - **bottom-right dots** — how many taps this slide has, and how many you've used. When it says **`next ▸ 6`** the next tap leaves the slide.
 - **`N`** — notes: every beat listed with what to say, current beat highlighted
-- **`T`** timer · **`P`** pre-show loop
+- **`T`** timer — also starts recording the run · **`R`** run report (where the time actually went) · **`P`** pre-show loop
 
 **The taps column in the spine below is your map.** Slide 5 is 7 taps, slide 11 is 6. Nothing appears before you ask for it, so you can never get ahead of the room — and the room can't read ahead of you.
 
