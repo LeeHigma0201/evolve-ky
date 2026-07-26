@@ -28,7 +28,9 @@
   .stage{position:relative;z-index:2;width:min(1060px,94vw);height:min(650px,92vh);
     background:var(--card);border:1px solid var(--line);border-radius:22px;
     box-shadow:0 40px 80px -50px rgba(23,28,43,.5),0 2px 0 var(--line)}
-  .slide{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;padding:clamp(32px,5.2vw,72px)}
+  /* top padding clears the absolutely-positioned .brand so dense slides can't collide with it */
+  .slide{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;
+    padding:clamp(86px,11vw,118px) clamp(32px,5.2vw,72px) clamp(44px,5.4vw,62px)}
   .slide.active{display:flex}
   .slide.active > *{animation:rise .5s cubic-bezier(.2,.7,.2,1) both}
   .slide.active > *:nth-child(2){animation-delay:.05s}
@@ -53,7 +55,7 @@
   .u{background:linear-gradient(var(--blue),var(--blue)) bottom/100% .12em no-repeat;padding-bottom:.02em}
   .byline{margin-top:clamp(22px,4vw,38px);font-family:var(--mono);font-size:clamp(12px,1.5vw,14px);color:var(--soft)}
   .link{color:var(--blue);font-weight:700}
-  .big{font-weight:900;letter-spacing:-.045em;line-height:.88;font-size:clamp(58px,12vw,140px);color:var(--ink);margin:clamp(8px,1.6vw,16px) 0}
+  .big{font-weight:900;letter-spacing:-.045em;line-height:.86;font-size:clamp(50px,10.4vw,122px);color:var(--ink);margin:clamp(4px,1vw,10px) 0}
   .caplabel{font-family:var(--mono);font-size:clamp(11px,1.4vw,14px);letter-spacing:.02em;color:var(--faint);text-transform:uppercase}
   .foot{position:absolute;left:clamp(32px,5.2vw,72px);bottom:clamp(24px,3vw,30px);font-family:var(--mono);font-size:11px;color:var(--faint);letter-spacing:.05em}
   .count{position:absolute;right:clamp(32px,5.2vw,72px);bottom:clamp(24px,3vw,30px);font-family:var(--mono);font-size:12px;color:var(--soft)}
@@ -112,6 +114,31 @@
   .tog{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:700;color:var(--ink);background:var(--paper);border:1px solid var(--line2);border-radius:20px;padding:6px 12px;cursor:pointer}
   .tog input{accent-color:var(--blue);width:15px;height:15px}
   .tog:has(input:checked){border-color:var(--blue);background:var(--blue-wash)}
+  /* ===== teaching slides: code quotes, method cards, charger sizer ===== */
+  .codeq{background:var(--paper);border-left:5px solid var(--blue);border-radius:0 10px 10px 0;
+    padding:clamp(13px,1.9vw,20px) clamp(15px,2.2vw,24px);margin:clamp(12px,1.8vw,18px) 0 0}
+  .codeq q{font-family:var(--mono);font-size:clamp(12.5px,1.55vw,17px);line-height:1.55;color:var(--ink);display:block;quotes:none}
+  .codeq .src{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-top:9px;display:block}
+  .mgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(7px,1.1vw,12px);margin-top:clamp(12px,2vw,20px)}
+  .mcard{background:var(--paper);border:1px solid var(--line);border-radius:11px;padding:clamp(11px,1.5vw,16px);position:relative}
+  .mcard.on{border-color:var(--green);border-width:2px;background:rgba(18,152,106,.07)}
+  .mcard .mno{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;color:var(--faint);text-transform:uppercase}
+  .mcard h4{margin:5px 0 5px;font-size:clamp(13px,1.6vw,17px);font-weight:800;line-height:1.15}
+  .mcard.on h4{color:var(--green)}
+  .mcard p{margin:0;font-size:clamp(11px,1.32vw,14px);color:var(--soft);line-height:1.35}
+  .mcard .tag{position:absolute;top:-9px;right:9px;background:var(--green);color:#fff;font-family:var(--mono);
+    font-size:9px;letter-spacing:.07em;padding:2px 7px;border-radius:20px;text-transform:uppercase}
+  /* charger sizer */
+  .szr{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(15px,2.4vw,28px);margin-top:clamp(8px,1.4vw,14px)}
+  .chain{display:flex;flex-direction:column;gap:clamp(5px,.8vw,9px)}
+  .ch{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:10px;padding:clamp(7px,1vw,11px) clamp(11px,1.5vw,15px);
+    background:var(--paper);border:1px solid var(--line);border-radius:9px}
+  .ch .cl{font-family:var(--mono);font-size:clamp(10px,1.2vw,12.5px);color:var(--soft);line-height:1.3}
+  .ch .cv{font-weight:800;font-size:clamp(15px,1.9vw,21px);letter-spacing:-.02em;white-space:nowrap}
+  .ch.final{background:rgba(18,152,106,.10);border-color:rgba(18,152,106,.45)}
+  .ch.final .cv{color:var(--green);font-size:clamp(19px,2.6vw,29px)}
+  .ch.nec{border-left:4px solid var(--blue)}
+  .szrnote{font-family:var(--mono);font-size:10.5px;color:var(--faint);line-height:1.5;margin-top:9px}
   /* ===== video insert slides (NotebookLM clips) ===== */
   /* Portrait clip (NotebookLM Shorts are 9:16) beside the beats, so the 16:9
      frame is filled instead of letterboxing a skinny strip into black bars. */
@@ -187,28 +214,32 @@ const HOUSE=c=>`<svg class="${c}" viewBox="0 0 120 120" fill="none"><path d="M60
 const slides=[
   { type:"title",
     note:"COLD OPEN — say it, don't read it:<br><br>&ldquo;Show of hands &mdash; who&rsquo;s heard of the <b>Tesla tax</b>?&rdquo; <i>(hands)</i><br>&ldquo;Now &mdash; not the one on your registration. That one&rsquo;s a hundred and some-odd bucks a year and there&rsquo;s nothing I can do about it.&rdquo; <i>(laugh)</i><br>&ldquo;I mean the other one. Where you mention you&rsquo;re getting an EV, and the number goes up. <b>Keep your hand up</b> if you&rsquo;ve been quoted to upgrade your panel.&rdquo; <i>(hands)</i><br>&ldquo;Three grand? Four?&rdquo; <i>(beat)</i><br>&ldquo;<b>That&rsquo;s the Tesla tax. And most of you don&rsquo;t owe it.</b>&rdquo;<br><br>Don&rsquo;t pause after the first question &mdash; in KY they&rsquo;ll think you mean the registration fee. Define it in the same breath." },
-  { label:"Who I am", head:"I&rsquo;m Jason. A master electrician.",
-    body:"I do this math every day. And <b>I don&rsquo;t do installs</b> &mdash; so I&rsquo;ve got no reason to want you to need one. I built the tool because I got tired of watching good people pay for upgrades they never needed.",
-    note:"AUTHORITY + MOTIVE. You ARE the proof — no slide needed.<br><br>THE LINE THAT KILLS EVERY 'WHAT'S YOUR ANGLE' QUESTION BEFORE IT'S ASKED: &ldquo;<b>I don't do installs. So I've got nothing to sell you but twelve ninety-nine worth of math.</b>&rdquo;<br><br>Say it early and say it flat. Everything after this lands harder because they've already decided you're not working them." },
-  { type:"anchor", label:"The moment", head:"You bought the car. Then came the quote.",
+  { label:"Who I am", head:"I&rsquo;m Jason. <span class='u'>IBEW Local 369.</span>",
+    body:"Union electrician, right here. I run these load calculations for a living &mdash; and in the next twenty minutes I&rsquo;m going to teach you how to run one on your own house.",
+    note:"AUTHORITY THROUGH COMPETENCE, not through distance from selling. You're not here to pitch — you're the guy in the room who actually knows the math, and you're giving it away.<br><br>SAY IT PLAIN: &ldquo;I'm a union electrician, Local 369, right here. I do this math every day. And I'm going to show you how to do it.&rdquo;<br><br>THE PROMISE IS THE HOOK. They came to learn something. Tell them exactly what they'll leave knowing.<br><br>(Save 'I don't do installs' for Q&A — it's a great answer to 'what's your angle,' but leading with it makes this about selling. This talk isn't.)" },
+  { type:"anchor", label:"What&rsquo;s at stake", head:"You bought the car. Then came the quote.",
     big:"$3,000&ndash;$5,000", caplabel:"what an installer quotes to &ldquo;upgrade your panel&rdquo; first",
-    body:"Most of you won&rsquo;t spend a <span class='hl-g'>dime</span> of that.",
-    note:"ANCHOR + LOSS AVERSION. Let the big number sit three full seconds — that's money about to leave their pocket. Then take it back.<br><br>THEN THE BEAT THAT'S BUILT FOR THIS ROOM: &ldquo;And here's the part that ought to bother everybody in here &mdash; some of them get that quote and they just don't buy the car.&rdquo;<br><br>That turns you from a guy saving them money into a guy removing the biggest barrier to the thing this club exists for. It's why they'll pass it on." },
-  { type:"stat", label:"The truth", head:"Most of you don&rsquo;t need it.", big:"4 of 5",
-    body:"In the homes I check, about <span class='hl'>four out of five</span> already have the room.",
-    note:"SOCIAL PROOF. 'People like you, in houses like yours — 80% were fine.' The green houses do the work." },
-  { label:"Straight talk", head:"And I&rsquo;ll tell you who <span class='u'>actually does.</span>",
-    body:"Older homes on a small panel that&rsquo;s already full. All-electric houses near their limit. <b>If that&rsquo;s you, I&rsquo;ll say so.</b> Knowing the difference is the whole point.",
-    note:"RECIPROCITY/HONESTY. Admitting when they DO need it is what makes them trust the 'you don't' — you're not just selling a no." },
-  { label:"So why the quote, then?", head:"Because the math takes ten minutes. The upsell takes ten <span class='hl'>seconds.</span>",
-    body:"Some installers skip the calculation and just sell the upgrade. It&rsquo;s faster, and it pays more.",
-    note:"CONTRAST/VILLAIN. Not anti-EV, anti-lazy-upsell. Positions you + ChargeRight as the honest shortcut." },
-  { label:"The part they skip", head:"Your panel is <span class='u'>barely working.</span>",
+    body:"By the time you leave here you&rsquo;ll know whether you <span class='hl-g'>actually owe it.</span>",
+    note:"THE STAKES, not a sales anchor. Let the number sit three full seconds — this is what it costs to be wrong.<br><br>THEN THE BEAT BUILT FOR THIS ROOM: &ldquo;And here's the part that ought to bother everybody in here &mdash; some people get that quote and they just don't buy the car.&rdquo;<br><br>That makes you an ally of what this club exists for, not a vendor. It's why they'll pass it on.<br><br>THEN THE PROMISE: &ldquo;So let's learn how to tell.&rdquo; That's the transition into the whole lesson." },
+  { label:"Start here", head:"Your panel is <span class='u'>barely working.</span>",
     body:"Your house almost never runs everything at once. And your EV charges <b>overnight</b> &mdash; while the oven, dryer, and AC are all off. That&rsquo;s the room most people already have. (A charger&rsquo;s about like adding an electric range.)",
     note:"THE AHA / MENTAL MODEL. The comprehension unlock. Slow down here — this is the most important 30 seconds in the talk.<br><br>OPEN BY KILLING THE MYTH: &ldquo;Everybody opens their panel, sees no empty slots, and figures it's full. Slots aren't capacity. Counting breakers isn't the math &mdash; that panel could be half asleep.&rdquo;<br><br>THEN: your house never runs everything at once, and the car charges at 2 AM when all of it is off.<br><br>BUTTON IT: &ldquo;Your panel is barely working, and your car charges while you're asleep. That's the whole thing.&rdquo; Say that slower than feels natural &mdash; it's the sentence you want them repeating." },
   { type:"panelmyth", label:"The myth that sells the upgrade",
     head:"This panel is <span class='hl'>full.</span> It isn&rsquo;t close to loaded.",
     note:"THE MYTH, KILLED WITH ONE PICTURE. Point at the panel: &ldquo;No open slots. Every installer who opens this says the same thing &mdash; you're full, you need an upgrade.&rdquo;<br><br>Then the red bar: &ldquo;Add up every number printed on those breakers and you get <b>410 amps</b> on a 200 amp service. And nothing trips. Nothing's ever tripped.&rdquo;<br><br>Then the green bars: &ldquo;Here's the same house run three different legal ways in the code book. A hundred and thirteen. A hundred and twenty-seven. A hundred and forty-one. <b>All three fit.</b>&rdquo;<br><br>THE LINE: &ldquo;<b>Adding up breakers was never the load calculation. It just looks like one &mdash; and it's how upgrades get sold.</b>&rdquo;<br><br>If an electrician asks: all three include the 48 A charger at 100%, no demand factor, per the 2023 EVSE rule. Same house, same charger, three legal methods." },
+  { type:"methods", label:"Lesson one", head:"There is more than one legal way to run it.",
+    body:"Three of these are <b>estimates</b>. One of them <b>measures</b>. And only one of them was written for your situation &mdash; a house that already exists, taking on one more load.",
+    note:"THE CORE LESSON. Most people &mdash; including plenty of electricians &mdash; think there's one load calculation. There isn't.<br><br>WALK THE FOUR, one sentence each:<br>&bull; <b>Standard, Part III</b> &mdash; rebuilds the house circuit by circuit. That's the calc for a house being BUILT.<br>&bull; <b>220.82</b> &mdash; the whole-house shortcut. Fine, but it's a sizing calc, and it needs 100 amp service or bigger.<br>&bull; <b>220.83</b> &mdash; existing house, adding a load. <b>That's you.</b><br>&bull; <b>220.87</b> &mdash; don't estimate at all. Use what the house actually pulled.<br><br>THE HONEST BEAT: &ldquo;Here's the thing &mdash; a lot of guys quoting you have never run any of these. They counted your breakers. That's not one of the four.&rdquo;<br><br>Say that without sneering. You're not attacking the trade, you're explaining why quotes disagree." },
+  { type:"codeq", label:"Lesson two", head:"220.83 &mdash; the one that&rsquo;s yours.",
+    body:"Existing house, adding one more thing. <b>First 8 kVA at 100%, everything after that at 40%.</b> That&rsquo;s the whole method. Read what the code says it&rsquo;s for &mdash; it&rsquo;s the first line.",
+    quote:"This section shall be permitted to be used to determine if the existing service or feeder is of sufficient capacity to serve additional loads.",
+    src:"NEC 220.83, Existing Dwelling Unit &mdash; 2017 text; Kentucky is on 2023",
+    note:"READ THE QUOTE OUT LOUD, SLOWLY. Then translate it: &ldquo;Existing service. Additional load. That is a house with an EV charger going in. The code has a section written for exactly this, and most people never use it.&rdquo;<br><br>THE (A)/(B) POINT, if anyone asks: (A) is when you're NOT also installing new AC or electric heat. (B) is when you are. <b>It's about what you're putting IN, not what the house already has.</b> A charger by itself is (A).<br><br>HONESTY: say &ldquo;this is the 2017 wording &mdash; we're on 2023 in Kentucky and these sections read the same, but I'm quoting the copy I can legally hand you.&rdquo; That sentence buys you more credibility than anything else in the talk." },
+  { type:"codeq", label:"Lesson three", head:"Or don&rsquo;t estimate at all.",
+    body:"Your utility already knows what your house actually pulled. There&rsquo;s a section that lets you use <b>real measured demand</b> instead of adding up nameplates &mdash; and real numbers beat assumed numbers every time.",
+    quote:"The calculation of a feeder or service load for existing installations shall be permitted to use actual maximum demand&hellip; The maximum demand at 125 percent plus the new load does not exceed the ampacity of the feeder or rating of the service.",
+    src:"NEC 220.87, Determining Existing Loads &mdash; conditions abridged",
+    note:"THE ONE NOBODY TEACHES. This is the slide that makes electricians in the room sit up.<br><br>PLAIN ENGLISH: &ldquo;Take the highest your house has actually pulled. Multiply by one-two-five. Add the charger. If that's under your service rating, you're done &mdash; and you never estimated anything.&rdquo;<br><br>HOW THEY GET IT: a year of demand data from the utility, or thirty days on a recording meter with the house occupied and the heating or cooling running. The code even defines the peak as the highest 15-minute average &mdash; which is exactly the interval utilities already report.<br><br>WHY IT MATTERS: estimating adds up every nameplate as if you might run it all. Measuring uses what you really did. It's very often the difference between 'you need an upgrade' and 'you're fine.'" },
   { type:"video", label:"Watch it happen", head:"The same house, three legal ways.",
     src:"video-methods.mp4",
     fallback:["<b>410 amps</b> of breakers on a 200 amp service &mdash; and nothing ever trips.",
@@ -218,18 +249,23 @@ const slides=[
   { type:"calc", label:"See it for a real house",
     head:"How full is your panel &mdash; really?",
     note:"Now they GET it, so show it. Ask for a real house in the room and fill it in. The bar shows how full they already are, the green is the EV on top, the line is their limit. Watch the money land in the verdict." },
-  { type:"product", label:"This is ChargeRight", head:"You don&rsquo;t do the math. A photo does.",
-    body:"Pick your car, snap your panel, and it runs that exact calculation &mdash; then hands you a report you can put in front of any contractor. <b>$12.99.</b>",
-    note:"EFFORT REDUCTION + the price, said out loud and unapologetically.<br><br>&ldquo;Twelve ninety-nine. A service call to have somebody come out and tell you the same thing is two, three hundred &mdash; and the upgrade you might not need is three to five thousand.&rdquo;<br><br>SAY THE PRICE HERE. The QR on the last slide lands on a page that says $12.99 — if they find out from the website instead of from you, you just spent 18 minutes building trust and gave it back." },
+  { type:"sizer", label:"Lesson four", head:"Size the charger to your <span class='u'>driving</span> &mdash; not to the box it came in.",
+    note:"THIS IS YOUR LESSON. Nobody else in that room has heard it, and it's the one they'll repeat.<br><br>THE SETUP: &ldquo;Everybody sells you the biggest charger on the shelf. But the charger doesn't care what it CAN do &mdash; it matters what you actually need. And two things set that: how far you drive, and how long the car sits in your driveway.&rdquo;<br><br>DO IT LIVE. Start on the defaults (35 miles, 8 hours). Then change ONE thing at a time:<br>&bull; Bump miles to 60 &mdash; <b>the breaker doesn't move.</b> Say that out loud.<br>&bull; Now drop hours from 8 to 4 &mdash; <b>now</b> it moves. &ldquo;Same driver. Same car. Same miles. The only thing that changed is how long it's plugged in.&rdquo;<br>&bull; Switch the car to the truck &mdash; watch it climb.<br><br>THE LINE: &ldquo;<b>Hours are the lever. Not the badge on the box.</b>&rdquo;<br><br>HONESTY BEAT: &ldquo;The breaker line is code and it's exact. Everything above it is arithmetic, and your miles-per-kWh is a guess until you check your own car.&rdquo;<br><br>If asked why a 'plug-in 50 amp charger' is really 40: the code makes EV charging a continuous load, so you only get 80% of the circuit &mdash; and receptacles cap at 50 amps, which is why 48 A has to be hardwired." },
   { type:"video", label:"One more thing", head:"You may not need the big charger either.",
     src:"video-howitworks.mp4",
     fallback:["<b>16 amps</b> overnight puts back about <b>105 miles</b>. The average person drives <b>37</b>.",
       "Same house on a 100 A service: at 48 A it&rsquo;s <b>127 A &mdash; over</b>. At 16 A it&rsquo;s <b>95 A &mdash; it fits</b>.",
       "You don&rsquo;t have a panel problem. You&rsquo;ve got a charger you didn&rsquo;t need."],
     note:"SECOND BREATHER, right before the ask &mdash; and the answer for the one-in-five.<br><br>Everybody sells the biggest charger on the shelf. This is the slide that saves the people who came in expecting bad news.<br><br>WHEN IT ENDS: &ldquo;<b>You don't have a panel problem. You've got a charger you didn't need.</b>&rdquo; Then straight to the ask.<br><br>IF IT DOESN'T PLAY: the three bullets are the script. You can also just go back to slide 10 and turn the amps down live &mdash; that demo works with no video at all.<br><br>CUTTABLE &mdash; but this one earns its place if you have the time." },
-  { label:"How to know yours", head:"Do this <span class='u'>before</span> you call anybody.",
-    body:"The calculator at <span class='link'>evchargeright.com</span> is <b>free</b> &mdash; do it tonight. The full read from a photo of your panel is <b>$12.99</b>. Want to watch it work? Grab me after and I&rsquo;ll run yours on my phone.",
-    note:"CTA — 'STEP 0.' Before you call an electrician, before you sign anything.<br><br>The line that wins the room: &ldquo;<b>Do this before you call anybody. Including me.</b>&rdquo; Say it and stop.<br><br>You don't do installs — so this is not a bid, it's a demo. &ldquo;I'll run yours on my phone&rdquo; is the offer, not a service call.<br><br>WEBSITE ONLY. Don't send anyone to the App Store — iOS is $16.99 (Apple's cut) and the web is $12.99. One destination." },
+  { type:"stat", label:"So what do I find?", head:"When I actually run it:", big:"4 of 5",
+    body:"In the homes I&rsquo;ve checked, about <span class='hl'>four out of five</span> already had the room. The math was never the problem &mdash; nobody ran it.",
+    note:"NOW the stat lands, because they know what 'running it' means. This is a FINDING, not a claim.<br><br>SAY IT AS YOUR OWN DATA: &ldquo;In the homes I've checked&rdquo; — not a study, not an industry number. If someone asks how many, give a real figure. Don't inflate it.<br><br>AND BE HONEST ABOUT THE FIFTH: &ldquo;One in five genuinely is tight. Older house, small service, all-electric. If that's you I'll tell you &mdash; and you just learned two ways out of it: charge slower, or pull your real demand off the meter.&rdquo;<br><br>Nobody leaves this room with only bad news." },
+  { label:"Do it yourself", head:"Here&rsquo;s what you need to answer.",
+    body:"Square footage. Service size off the main breaker. Electric range? Dryer? Water heater? A/C tonnage off the outdoor sticker. Any heat strips. Pool, hot tub, well. <b>Then the two that matter most: how far you drive, and how long it&rsquo;s plugged in.</b>",
+    note:"THE HANDOFF. You just taught them the method — now hand them the input list so it's actually doable.<br><br>Then the photo: &ldquo;And a picture of the open panel gets you the stuff you can't easily tell me &mdash; the real number stamped on that main breaker, every branch breaker and its size, the brand on the breaker faces. That's how you catch a Federal Pacific or a Zinsco, or somebody's mixed breakers that don't belong in that cabinet.&rdquo;<br><br>THE POINT TO LAND: &ldquo;None of this is secret. You can do every bit of it with a tape measure, a flashlight and the code book.&rdquo;<br><br>Then pause. That's the setup for the next slide." },
+  { type:"product", label:"&hellip;or don&rsquo;t", head:"You just learned it. You don&rsquo;t have to <span class='hl'>do</span> it.",
+    body:"That&rsquo;s what I built. Same calculation, from a photo &mdash; and a report you can hand any contractor. <b>$12.99.</b> Free calculator on the site if you&rsquo;d rather punch in your own numbers.",
+    note:"THE RECOMMENDATION, earned. You taught it for twenty minutes; now the pitch is a favor, not a pitch.<br><br>SAY IT LIKE THIS: &ldquo;Everything I just showed you, you can do by hand. I do it by hand. But if you don't want to &mdash; that's what this is for.&rdquo;<br><br>THE TWO USES, both honest:<br>&bull; <b>Instead of</b> doing the load calc yourself.<br>&bull; <b>To verify</b> a quote you've already been given. That's the one that saves the most money.<br><br>SAY THE PRICE OUT LOUD. Twelve ninety-nine. A service call to have someone come tell you is two or three hundred; the upgrade you might not need is three to five thousand.<br><br>WEBSITE ONLY — iOS is $16.99 because of Apple's cut. One destination." },
   { type:"quote", label:"Tell somebody", head:"Here&rsquo;s all you have to say:",
     quote:"Before you pay thousands to upgrade your panel for an EV charger, <span class='hl'>check evchargeright.com</span> &mdash; a master electrician built it, and 4 out of 5 people don&rsquo;t even need the upgrade.",
     note:"Hand them the exact line. People share what they can easily re-say. Say it slow, maybe twice." },
@@ -277,6 +313,66 @@ function wireVideo(){
   // a src that 404s to an HTML page doesn't always fire 'error' — check the load state too
   setTimeout(()=>{if(v.networkState===v.NETWORK_NO_SOURCE||(v.readyState===0&&!v.currentSrc))fail();},1800);
   const p=v.play(); if(p&&p.catch)p.catch(()=>{}); // blocked autoplay is fine — controls are right there
+}
+/* ---- the four legal methods, with the one that applies called out ---- */
+const METHOD_CARDS=[
+  {n:"Article 220, Part III",t:"The Standard Method",d:"Rebuilds the house circuit by circuit. This is the <b>design</b> calc &mdash; for a house being built.",on:false},
+  {n:"NEC 220.82",t:"Optional",d:"The whole-house shortcut. Scoped to your <b>total connected load</b>. Needs 100 A service or bigger.",on:false},
+  {n:"NEC 220.83",t:"Existing Dwelling",d:"For an existing service taking on <b>one more load.</b> That&rsquo;s you.",on:true,tag:"yours"},
+  {n:"NEC 220.87",t:"Measured Demand",d:"Skip the estimating. Use what your house <b>actually pulled</b>, from the meter.",on:false}
+];
+function methodsMarkup(){
+  return `<div class="mgrid">${METHOD_CARDS.map(m=>`<div class="mcard${m.on?' on':''}">
+    ${m.tag?`<span class="tag">${m.tag}</span>`:''}
+    <div class="mno">${m.n}</div><h4>${m.t}</h4><p>${m.d}</p></div>`).join('')}</div>`;
+}
+
+/* ---- charger sizing from driving need. Mirrors ChargeRight's shipped
+   calculateChargingNeeds(): 1.2 headroom buffer, capped at the car's onboard
+   L2 ceiling, rounded up the standard charger ladder. The BREAKER step is the
+   only NEC part — 625.42 (continuous) + 625.41/210.20(A) (125%) + 240.4(B). ---- */
+const SETTINGS=[16,20,24,32,40,48,64,80];
+const NEC_BREAKERS=[15,20,25,30,35,40,45,50,60,70,80,90,100,110,125];
+const L2MAX=11.5;
+function sizerMarkup(){
+  return `<div class="szr"><div>
+    <div class="fields" style="grid-template-columns:1fr 1fr">
+      <div class="fld"><label>Miles you drive a day</label><input type="number" id="s_mi" value="35" min="1" step="5"></div>
+      <div class="fld"><label>Hours plugged in at home</label><input type="number" id="s_hr" value="8" min="1" max="24" step="1"></div>
+      <div class="fld" style="grid-column:1/3"><label>Your car&rsquo;s efficiency (miles per kWh)</label>
+        <select id="s_eff">
+          <option value="4.2">4.2 &mdash; Model 3 / efficient sedan</option>
+          <option value="3.5" selected>3.5 &mdash; typical EV</option>
+          <option value="3.17">3.2 &mdash; median of 539 cars</option>
+          <option value="2.0">2.0 &mdash; F-150 Lightning / big truck</option>
+        </select></div>
+      <div class="cite" style="grid-column:1/3">Miles per kWh is just MPG for an EV &middot; buffer &times;1.2 &middot; capped at 11.5 kW onboard</div>
+    </div></div>
+    <div class="chain" id="s_out"></div></div>
+    <p class="szrnote">Everything above the breaker line is arithmetic. The breaker line is code &mdash; 625.42 makes EV charging continuous, so the breaker is 125% of the load, rounded up to a standard size.</p>`;
+}
+function computeSizer(){
+  const n=id=>parseFloat(document.getElementById(id).value)||0;
+  const mi=n('s_mi'),hr=Math.max(1,n('s_hr')),eff=n('s_eff')||3.5;
+  const kwh=mi/eff, reqKW=(kwh/hr)*1.2, capKW=Math.min(reqKW,L2MAX);
+  const amps=capKW*1000/240;
+  const set=SETTINGS.find(a=>a>=amps)||80;
+  const brk=NEC_BREAKERS.find(b=>b>=set*1.25)||125;
+  const back=Math.min(set*240/1000,L2MAX)*eff*hr;
+  const plug=brk<=50?'Plug or hardwire':'Hardwire only';
+  const R=x=>Math.round(x);
+  document.getElementById('s_out').innerHTML=`
+    <div class="ch"><span class="cl">Energy you actually use<br>${mi} mi &divide; ${eff} mi/kWh</span><span class="cv">${kwh.toFixed(1)} kWh</span></div>
+    <div class="ch"><span class="cl">Spread over your plug-in window<br>&divide; ${hr} hrs, +20% buffer</span><span class="cv">${capKW.toFixed(1)} kW</span></div>
+    <div class="ch"><span class="cl">At 240 volts, that&rsquo;s</span><span class="cv">${R(amps)} A</span></div>
+    <div class="ch final"><span class="cl">Set your charger to</span><span class="cv">${set} A</span></div>
+    <div class="ch nec"><span class="cl">So the breaker is <b>${set} &times; 1.25</b>, rounded up<br><b>NEC 625.41 &middot; 240.4(B)</b></span><span class="cv">${brk} A</span></div>
+    <div class="ch"><span class="cl">${plug} &middot; NEC 625.44</span><span class="cv" style="font-size:clamp(12px,1.5vw,16px);color:var(--soft)">puts back ${R(back)} mi</span></div>`;
+}
+function wireSizer(){
+  ['s_mi','s_hr','s_eff'].forEach(id=>{const e=document.getElementById(id);
+    e.addEventListener('input',computeSizer);e.addEventListener('change',computeSizer);});
+  computeSizer();
 }
 function panelMythMarkup(){
   const SCALE=410,LIM=200,lp=LIM/SCALE*100;
@@ -371,7 +467,10 @@ function render(){
       <p class="byline">Jason Walls · Master Electrician · IBEW 369 · <span class="link">evchargeright.com</span></p>`;
     stage.innerHTML=`<section class="slide active">${inner}<div class="foot">← → move · N notes · T timer</div><div class="count"><b>01</b> / ${slides.length}</div></section>`;
   } else {
-    if(s.type==='video') inner=`<p class="kicker">${s.label}</p><h2 style="font-size:clamp(21px,3vw,34px);max-width:26ch">${s.head}</h2>`+videoMarkup(s);
+    if(s.type==='methods') inner=`<p class="kicker">${s.label}</p><h2 style="font-size:clamp(22px,3.2vw,38px);max-width:24ch">${s.head}</h2>`+methodsMarkup()+(s.body?`<p class="body" style="max-width:46ch;margin-top:clamp(12px,1.8vw,18px)">${s.body}</p>`:'');
+    else if(s.type==='sizer') inner=`<p class="kicker">${s.label}</p><h2 style="font-size:clamp(20px,2.8vw,32px);max-width:26ch">${s.head}</h2>`+sizerMarkup();
+    else if(s.type==='codeq') inner=`<p class="kicker">${s.label}</p><h2 style="font-size:clamp(23px,3.4vw,42px)">${s.head}</h2><p class="body" style="max-width:44ch">${s.body}</p><div class="codeq"><q>&ldquo;${s.quote}&rdquo;</q><span class="src">${s.src}</span></div>`;
+    else if(s.type==='video') inner=`<p class="kicker">${s.label}</p><h2 style="font-size:clamp(21px,3vw,34px);max-width:26ch">${s.head}</h2>`+videoMarkup(s);
     else if(s.type==='panelmyth') inner=`<p class="kicker">${s.label}</p><h2 style="font-size:clamp(22px,3.2vw,38px);max-width:24ch">${s.head}</h2>`+panelMythMarkup();
     else if(s.type==='calc') inner=`<p class="kicker">${s.label}</p>`+calcMarkup();
     else if(s.type==='anchor') inner=`<p class="kicker">${s.label}</p><h2>${s.head}</h2><div class="big">${s.big}</div><p class="caplabel">${s.caplabel}</p><p class="body">${s.body}</p>`;
@@ -382,13 +481,14 @@ function render(){
     else inner=`<p class="kicker">${s.label}</p><h2>${s.head}</h2><p class="body">${s.body}</p>`;
     stage.innerHTML=`<section class="slide active">${chrome()}${inner}</section>`;
     if(s.type==='calc') wireCalc();
+    else if(s.type==='sizer') wireSizer();
     else if(s.type==='video') wireVideo();
   }
   bar.style.width=(i/(slides.length-1)*100)+'%';
   ntext.innerHTML=s.note||'';
 }
 /* ---- rehearsal timer (T). Targets match RUN-CARD.md — 18 min total. ---- */
-const TARGETS=[45,60,90,75,75,60,120,90,90,240,90,60,60,75,90];
+const TARGETS=[45,60,75,90,90,105,85,85,90,180,150,60,50,75,80,60,90];
 const TOTAL=TARGETS.reduce((a,b)=>a+b,0);
 const fmt=s=>Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0');
 let tOn=false,tStart=0,sStart=0,tTick=null;
