@@ -9,12 +9,22 @@ The deck already has both video slots built and wired. **You only have to drop t
 
 ## The two deck slots — drop the file, done
 
-| Slot | Deck slide | Filename it expects | What the clip covers |
-|---|---|---|---|
-| **A** | **9 of 15** — right after the panel-myth bars, before the live calculator | `evolve-ky/video-methods.mp4` | 410 A of breakers · the three methods (141 / 127 / 113) · "every real method says it fits" |
-| **B** | **12 of 15** — right after the ChargeRight product slide, before the CTA | `evolve-ky/video-howitworks.mp4` | Pick your car → snap the panel → plain-English report · $12.99 |
+| Slot | Deck slide | File | What the clip covers | Status |
+|---|---|---|---|---|
+| **A** | **9 of 15** — after the panel-myth bars, before the live calculator | `video-methods.mp4` | 410 A of breakers · three methods (141 / 127 / 113) · "every real method says it fits" | ✅ **installed & live** — 78 s, 7 MB |
+| **B** | **12 of 15** — after the product slide, before the CTA | `video-howitworks.mp4` | Charge slower: 16 A adds ~105 mi/night vs a 37 mi day · 127 A → 95 A on a 100 A service | ⏳ generating in NotebookLM |
 
-**To install:** download the mp4 from NotebookLM → rename it to the exact filename above → drop it in `~/dev/evolve-ky/` → `git add . && git commit && git push`. It auto-deploys. Nothing else to change.
+**To install slot B when it finishes:**
+
+```bash
+cd ~/dev/evolve-ky
+./install-video.sh ~/Downloads/<whatever-it-downloaded>.mp4 howitworks
+git add -A && git commit -m "Add video-howitworks.mp4" && git push
+```
+
+`install-video.sh` probes the source, transcodes to web-safe H.264/AAC with `+faststart` (starts playing before the whole file buffers — matters on venue wifi), warns if it's over ~90 s, and puts it where the deck expects it.
+
+> **Note on format:** NotebookLM Shorts come out **720×1280 portrait**. The deck's video slides are built for that — portrait clip on the left, key beats on the right. Don't try to force them landscape.
 
 **If you never add them:** the slides still work. Each shows your talking points instead, in an amber "say this instead" card. **The deck cannot break because a video is missing** — that's deliberate.
 
