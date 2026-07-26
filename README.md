@@ -23,13 +23,13 @@ Light, editorial, human — not a dark SaaS deck. ChargeRight design system (**D
 
 Open `index.html` in any browser — one self-contained file, no build. The live calculators want `http` rather than `file://` in some browsers: `python3 -m http.server 8899` in this folder, or just use the deployed URL.
 
-**It advances in beats, not slides.** One tap of `Space` reveals the next piece of the slide and swaps the cue line at the bottom — the sentence Jason reads and the room reads with him. 17 slides, **69 beats**.
+**It advances in beats, not slides.** One tap of `Space` reveals the next piece of the slide and swaps the cue line at the bottom — the sentence Jason reads and the room reads with him. 17 slides, **70 beats**.
 
 **Controls:** `Space`/`→` next beat (next slide at the last beat) · `←` back a beat (previous slide *fully revealed* at the first) · `↓`/`↑` skip a whole slide · `N` notes (every beat, current highlighted) · `T` timer · `P` pre-show loop · on-screen `‹ ›` always work, even while typing in a calculator.
 
 **Pre-show loop.** The deck opens on a looping title card — logo, the question, four rotating lines and the QR, on a 20-second cycle. Pure CSS, so there's no video file to fail and it needs no network. Tap to start the talk; `P` brings it back.
 
-**Full bleed.** The deck fills the projector at any aspect ratio — verified with zero overflow across all 69 beats at 1920×1080, 1280×800 and 1024×768. Everything scales off one unit (`--s: min(1.04vw, 1.55vh)`) taken from whichever screen dimension is tighter.
+**Full bleed.** The deck fills the projector at any aspect ratio — verified with zero overflow across all 70 beats at 1920×1080, 1280×800 and 1024×768. Everything scales off one unit (`--s: min(1.04vw, 1.55vh)`) taken from whichever screen dimension is tighter.
 
 ### How beats are wired
 Elements carry `data-r="<reveal id>"`; each slide's `beats[]` says which beat each id lands on. So beats can be reordered or cut without retagging markup, a reveal id with no matching element just advances the cue (that's how the live-demo slides work), and an element whose id isn't in `beats[]` stays visible. Hidden beats keep their layout space — nothing on screen jumps as pieces land.
@@ -46,7 +46,7 @@ Elements carry `data-r="<reveal id>"`; each slide's `beats[]` says which beat ea
 | 6 | **Lesson 1** | Four legal methods. Three estimate, one measures. |
 | 7 | **Lesson 2** | **220.83** — quoted verbatim; 8 kVA @100%, then 40% |
 | 8 | **Lesson 3** | **220.87** — measured demand: peak × 1.25 + new load ≤ service |
-| 9 | 🎬 Video | breather · *cuttable* |
+| 9 | **Which one is yours** | the synthesis: standing house → 220.83 · no estimate → 220.87 |
 | 10 | **LIVE calc** | NEC 220.82 panel capacity gauge on a real house |
 | 11 | **Lesson 4 · LIVE** | **Charger sizer** — miles/day + hours plugged in → amps → breaker |
 | 12 | 🎬 Video | **a real assessment, screen-recorded** · breather · *cuttable* |
@@ -56,7 +56,7 @@ Elements carry `data-r="<reveal id>"`; each slide's `beats[]` says which beat ea
 | 16 | Tell somebody | the one repeatable share line |
 | 17 | Pass it on | hero close + QR · **$12.99 at evchargeright.com, or ChargeRight on the App Store (free download)** |
 
-**≈24:30 full.** A six-step cut ladder down to ~17:05 is in the run card; slides 9 and 12 say "cuttable" on screen.
+**≈23:55 full · 70 beats.** A six-step cut ladder down to ~17:05 is in the run card. One video, on slide 12.
 
 ### Still built for word-of-mouth
 The close turns the room into advocates: a **wow** (the live demos), a **repeatable line** (slide 16), and a **friction-free way to share now** (QR on slide 17). `qr.svg` encodes https://evchargeright.com (segno, self-contained, offline-safe).
@@ -92,8 +92,8 @@ The close turns the room into advocates: a **wow** (the live demos), a **repeata
 index.html            the deck (self-contained, 17 slides)
 runcard.html          phone-readable / printable run card
 rehearse.html         🎧 audio rehearsal player — every beat, spoken
-audio/                17 per-slide tracks + 26:37 full run (generated from the deck's beats)
-video-methods.mp4     slot A clip (NotebookLM short, 78 s)
+audio/                17 per-slide tracks + 26:52 full run (generated from the deck's beats)
+video-methods.mp4     UNUSED in the deck — kept as a website/follow-up asset
 video-howitworks.mp4  slot B clip — real assessment, screen-recorded (83 s, full-bleed)
 qr.svg                QR to evchargeright.com
 install-video.sh      probe + transcode a NotebookLM download into a slot

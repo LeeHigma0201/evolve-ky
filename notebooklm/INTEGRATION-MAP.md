@@ -3,7 +3,7 @@
 **Notebook:** [The Real Math of EV Charging and Panel Capacity](https://notebooklm.google.com/notebook/aa6002f0-52df-4dc9-b91f-c1ce1c72f573)
 **Source:** `SOURCE-load-math-explained.md` — three methods, all worked on the same house.
 
-The deck already has both video slots built and wired. **You only have to drop two files in.**
+**The deck now runs ONE video, on slide 12.** Slot A was removed 2026-07-26 at Jason's call — a portrait NotebookLM clip next to the real screen-recorded assessment looked like the amateur one, and its content just repeated slide 5. Slide 9 is now a 3-beat synthesis with no video.
 
 ---
 
@@ -11,7 +11,7 @@ The deck already has both video slots built and wired. **You only have to drop t
 
 | Slot | Deck slide | File | What the clip covers | Status |
 |---|---|---|---|---|
-| **A** | **9 of 17** — after Lesson 3 (220.87), before the live calculator | `video-methods.mp4` | 410 A of breakers · three methods (141 / 127 / 113) · "every real method says it fits" | ✅ **installed & live** — 78 s, 7 MB |
+| ~~**A**~~ | ~~9 of 17~~ | `video-methods.mp4` | ❌ **REMOVED from the deck.** Kept in the repo as a website / follow-up asset. Slide 9 is now "which one is yours" — no video. |  |
 | **B** | **12 of 17** — after the live charger sizer, before "what I find" | `video-howitworks.mp4` | **A real assessment, screen-recorded.** Seven questions → 220.83(A) → 21,640 VA = 90 A on a 200 A service (45.1%) → every legal method agrees | ✅ **installed & live** — 83 s, 5 MB |
 
 > **Slot B is no longer a NotebookLM clip.** Built 2026-07-26 as a screen recording of a real

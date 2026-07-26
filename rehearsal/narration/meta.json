@@ -49,9 +49,9 @@
  },
  {
   "n": 9,
-  "label": "Video A",
-  "beats": 2,
-  "target": 90
+  "label": "Which one is yours",
+  "beats": 3,
+  "target": 55
  },
  {
   "n": 10,

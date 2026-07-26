@@ -383,12 +383,8 @@ const slides=[
     quote:"The calculation of a feeder or service load for existing installations shall be permitted to use actual maximum demand&hellip; The maximum demand at 125 percent plus the new load does not exceed the ampacity of the feeder or rating of the service.",
     src:"NEC 220.87, Determining Existing Loads &mdash; 2017 text, conditions abridged; Kentucky is on 2023",
     note:"THE ONE NOBODY TEACHES. This is the slide that makes electricians in the room sit up.<br><br>PLAIN ENGLISH: &ldquo;Take the highest your house has actually pulled. Multiply by one-two-five. Add the charger. If that's under your service rating, you're done &mdash; and you never estimated anything.&rdquo;<br><br>HOW THEY GET IT: a year of demand data from the utility, or thirty days on a recording meter with the house occupied and the heating or cooling running. The code even defines the peak as the highest 15-minute average &mdash; which is exactly the interval utilities already report.<br><br>WHY IT MATTERS: estimating adds up every nameplate as if you might run it all. Measuring uses what you really did. It's very often the difference between 'you need an upgrade' and 'you're fine.'" },
-  { type:"video", label:"Watch it happen", head:"The same house, three legal ways.",
-    src:"video-methods.mp4",
-    fallback:["<b>410 amps</b> of breakers on a 200 amp service &mdash; and nothing ever trips.",
-      "Standard method: <b>141 A</b>. Optional 220.82: <b>127 A</b>. Existing dwelling 220.83(A): <b>113 A</b>.",
-      "Every real method says it fits. Only the fake one says it doesn&rsquo;t."],
-    note:"YOUR BREATHER. Let it play. Don't talk over it &mdash; step to the side, take a drink of water, and read your next three lines.<br><br>WHEN IT ENDS, one sentence and move: &ldquo;That's three different legal ways to run it, and all three say the same thing.&rdquo; Then straight into the live calculator.<br><br>IF IT DOESN'T PLAY: the bullets on screen ARE your script. Say them and advance. Never debug on stage.<br><br>CUTTABLE &mdash; if you're at 15 minutes, skip this and slide 12." },
+  { label:"Pick it in one question", head:"So which one is <span class='u'>yours</span>?",
+    note:"NO VIDEO HERE &mdash; this is the synthesis slide, and it's still your breather. Three short beats, all of it you know cold, and it hands off straight into the live calculator.<br><br>DON'T re-read the numbers from slide 5. This slide answers a different question: <b>how does a homeowner pick?</b><br><br>THE HANDOFF is the last beat: &ldquo;Both roads landed in the same place on my house. Let's go do yours.&rdquo; Then straight to the calculator &mdash; don't pause for questions here, you'll get them at the end.<br><br>CUTTABLE &mdash; if you're tight, cut this and go from 220.87 straight into the live calc." },
   { type:"calc", label:"See it for a real house",
     head:"How full is your panel &mdash; really?",
     note:"Now they GET it, so show it. Ask for a real house in the room and fill it in. The bar shows how full they already are, the green is the EV on top, the line is their limit. Watch the money land in the verdict.<br><br>NAME THE METHOD while the cite&rsquo;s on screen: &ldquo;This gauge runs 220.82 &mdash; the stricter estimate. Same house: this one reads 127 where 220.83 reads 113. If you fit under the strict one, there&rsquo;s no argument.&rdquo;" },
@@ -421,7 +417,7 @@ const slides=[
 /* ---- THE BEAT SCRIPT ----
    One entry per slide: the cue line the room reads, which piece of the slide it reveals,
    and what Jason expands into (that feeds the notes panel and his audio rehearsal track).
-   Authored against the run card, then passed through a single-voice edit. 69 beats. */
+   Authored against the run card, then passed through a single-voice edit. 70 beats. */
 const BEATS={
  "1": [
   {
@@ -611,14 +607,19 @@ const BEATS={
  ],
  "9": [
   {
-   "line": "Nothing about the house changes — only which method you run.",
-   "reveal": "video",
-   "say": "Same house, same panel, same forty-eight amp charger the whole way through. The only thing that changes is which section of the code book I open. I’m going to get out of the way and let this run."
+   "line": "One question sorts it: is the house already standing?",
+   "reveal": "standing",
+   "say": "If it's already built and you're adding one thing to it, that's two-twenty point eighty-three. That's most of you. The standard method is for a house on a blueprint, and you don't live on a blueprint."
   },
   {
-   "line": "Three legal methods, three different answers — and not one says buy a panel.",
-   "reveal": "beats",
-   "say": "A hundred and forty-one, a hundred and twenty-seven, a hundred and thirteen, and every one of them fits under the two hundred. The only number that ever said upgrade was four hundred and ten, and that one came from adding up breakers."
+   "line": "And if you don't trust an estimate, you don't have to make one.",
+   "reveal": "noestimate",
+   "say": "That's the other road. Call the utility, get what the house actually pulled, multiply by one point two five and add the charger. No assumptions anywhere in it."
+  },
+  {
+   "line": "Both roads landed in the same place on my house. Let's go do yours.",
+   "reveal": "either",
+   "say": "Estimated or measured, that house came in under the limit either way. So let's quit talking about my house. Somebody give me a real one."
   }
  ],
  "10": [
@@ -900,6 +901,20 @@ const SLIDE_BITS={
    "r": "nosecret",
    "t": "None of it is secret<i>A tape measure, a flashlight and the code book</i>"
   }
+ ],
+ "9": [
+  {
+   "r": "standing",
+   "t": "House already standing?<i>NEC <b>220.83</b> &mdash; existing service, one more load. That&rsquo;s you.</i>"
+  },
+  {
+   "r": "noestimate",
+   "t": "Don&rsquo;t want to estimate?<i>NEC <b>220.87</b> &mdash; use what the meter already recorded</i>"
+  },
+  {
+   "r": "either",
+   "t": "Estimated or measured<i>this house fit either way &mdash; and nobody sold it an upgrade</i>"
+  }
  ]
 };
 const SLIDE_BODY={
@@ -1170,8 +1185,8 @@ function noteFor(s){
   return bs.map((bt,k)=>`<div class="nbeat${k+1===b?' now':''}"><span class="nb">${k+1}</span><b>${bt.line}</b>${bt.say?`<i>${bt.say}</i>`:''}</div>`).join('')
     +(s.note?`<div class="nextra">${s.note}</div>`:'');
 }
-/* ---- rehearsal timer (T). Targets match RUN-CARD.md — 24:30 total. ---- */
-const TARGETS=[45,60,75,90,90,105,85,85,90,180,150,60,50,75,80,60,90];
+/* ---- rehearsal timer (T). Targets match RUN-CARD.md — 23:55 total. ---- */
+const TARGETS=[45,60,75,90,90,105,85,85,55,180,150,60,50,75,80,60,90];
 const TOTAL=TARGETS.reduce((a,b)=>a+b,0);
 const fmt=s=>Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0');
 let tOn=false,tStart=0,sStart=0,tTick=null;

@@ -9,7 +9,7 @@
 
 - [ ] Open **evolve-deck.vercel.app** on the presenting machine. Leave the tab open.
 - [ ] Local backup (no wifi): `python3 -m http.server 8899` in `~/dev/evolve-ky`, open **localhost:8899**. (Double-clicking index.html can break the live calculators in some browsers — file:// is last resort; test it tonight if you want it as one.)
-- [ ] **Slot B video**: install it (`./install-video.sh ~/Downloads/<file>.mp4 howitworks` + push) — or decide now that slide 12 runs as its three on-screen bullets / take cut #1.
+- [ ] **Video: one clip only, on slide 12** — the real assessment, full-bleed, already installed and live. Slide 9 has no video. If 12 won't play, its three bullets appear automatically and ARE your script.
 - [ ] Laptop charged. Charger. **HDMI + USB-C dongle.**
 - [ ] Ask Mike: how long, and is there a screen?
 - [ ] Phone on Do Not Disturb. Quit Slack/Mail so nothing pops on the projector.
@@ -65,7 +65,7 @@
 | 6 | **Lesson 1** | "There's more than one legal way to run it. Three estimate. One measures." | **5** | 1:45 |
 | 7 | **Lesson 2** | "**220.83.** Existing service, additional load. That's you — and it's the first line of the section." | **4** | 1:25 |
 | 8 | **Lesson 3** | "Or don't estimate at all. Use what the house **actually pulled.**" | **4** | 1:25 |
-| 9 | 🎬 Video | *breather.* Then: "Three legal ways. All three agree." | **2** | 1:30 |
+| 9 | **Which one is yours** | "Is the house already standing? Then it's **220.83.**" | **3** | 0:55 |
 | 10 | **LIVE CALC** | "Give me a real house. Let's run it right now." | **5** | 3:00 |
 | 11 | **Lesson 4 — LIVE** | "**Hours are the lever. Not the badge on the box.**" | **6** | 2:30 |
 | 12 | 🎬 Video | *breather.* Then: "You don't have a panel problem." | **2** | 1:00 |
@@ -75,14 +75,14 @@
 | 16 | Tell somebody | *(read the line slow, twice)* | **2** | 1:00 |
 | 17 | Pass it on | "Be the reason your buddy keeps his four thousand dollars." | **3** | 1:30 |
 
-**Full run ≈ 24:30.**
+**Full run ≈ 23:55.**
 
 ### The cut ladder — drop in this order
 
 | Cut | Saves | Leaves you at |
 |---|---|---|
-| 1. Slide 12 (video B) | 1:00 | 23:30 |
-| 2. Slide 9 (video A) | 1:30 | 22:00 |
+| 1. Slide 12 (the assessment clip) | 1:00 | 22:55 |
+| 2. Slide 9 (which one is yours) | 0:55 | 22:00 |
 | 3. Slide 8 (220.87) | 1:25 | 20:35 |
 | 4. Slide 3 (the $3–5k) | 1:15 | 19:20 |
 | 5. One demo house instead of two on slide 10 | 1:00 | 18:20 |
@@ -92,7 +92,7 @@
 
 > ⚠️ **If you take cut #3 (slide 8, 220.87):** the "two ways out" callbacks on slides 10 and 13 reference measuring — a lesson the room never got. Change them to: *"charge slower — or there's a measured-demand method in the code; grab me after and I'll show you."*
 
-> Slides 9 and 12 say **"cuttable"** on screen so you can decide live without doing math in your head.
+> Slide 12 says **"cuttable"** on screen. Slide 9 is a 3-beat synthesis — cheap to keep, cheap to drop.
 
 ---
 
