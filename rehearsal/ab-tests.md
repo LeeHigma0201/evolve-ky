@@ -34,7 +34,7 @@ Highest-stakes 15 seconds of the day. The room decides whether to listen.
 
 > **Winner: D.** Beats A, B and C because it does two jobs at once — hands up *and* names the villain in the audience's own language, in the first five seconds. A gets participation but the villain doesn't arrive until slide 6. D also sets up its own payoff: *tax → owe.*
 >
-> **The fix that makes it work:** Kentucky charges an annual EV ownership fee ($126 in 2025, re-indexed yearly), so "EV tax" is ambiguous in that room. **Never ask the question and wait** — define which tax you mean in the same breath. The ~$130-vs-$3,000–5,000 contrast disambiguates *and* makes the real number feel enormous.
+> **The fix that makes it work:** Kentucky charges an annual EV ownership fee (a hundred-and-change, re-indexed yearly — never say an exact figure), so "EV tax" is ambiguous in that room. **Never ask the question and wait** — define which tax you mean in the same breath. The ~$130-vs-$3,000–5,000 contrast disambiguates *and* makes the real number feel enormous.
 >
 > Say **"a hundred and some-odd bucks."** Never quote the exact fee — it changes annually and that room knows it better than you.
 >

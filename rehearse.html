@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Listen &amp; rehearse — Evolve KY</title>
+<style>
+  :root{--blue:#2563eb;--green:#16a34a;--ink:#1c1917;--mut:#78716c;--bg:#fafaf7;--card:#fff;--line:#e7e5e0;--amber:#b45309;}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:"DM Sans",-apple-system,system-ui,sans-serif;background:var(--bg);color:var(--ink);padding-bottom:120px}
+  header{padding:22px 18px 14px;border-bottom:2px solid var(--ink);background:var(--card);position:sticky;top:0;z-index:5}
+  header h1{font-size:19px;letter-spacing:-.01em}
+  header p{font-size:13px;color:var(--mut);margin-top:3px}
+  .mono{font-family:"Space Mono",ui-monospace,monospace}
+  .wrap{max-width:640px;margin:0 auto}
+  .controls{display:flex;gap:8px;padding:14px 18px;flex-wrap:wrap;align-items:center}
+  button{font:inherit;cursor:pointer;border:1.5px solid var(--ink);background:var(--card);border-radius:8px;padding:9px 14px;font-weight:600;font-size:14px}
+  button.primary{background:var(--blue);border-color:var(--blue);color:#fff}
+  button.ghost{border-color:var(--line);color:var(--mut);font-weight:500}
+  button.ghost.on{border-color:var(--blue);color:var(--blue);font-weight:700}
+  .hint{font-size:12.5px;color:var(--mut);padding:0 18px 10px;line-height:1.45}
+  ol{list-style:none;padding:0 12px}
+  li.row{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:11px 12px;margin-bottom:7px}
+  li.row.playing{border-color:var(--blue);box-shadow:0 0 0 2px rgba(37,99,235,.18)}
+  li.row.fullrow{border-width:1.5px;border-color:var(--ink)}
+  .pl{flex:0 0 auto;width:40px;height:40px;border-radius:50%;border:1.5px solid var(--ink);background:var(--card);display:flex;align-items:center;justify-content:center;font-size:15px;padding:0}
+  li.playing .pl{background:var(--blue);border-color:var(--blue);color:#fff}
+  .tt{flex:1;min-width:0}
+  .tt .k{font-family:"Space Mono",ui-monospace,monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--blue)}
+  .tt .h{font-size:14.5px;font-weight:600;line-height:1.3}
+  .tt .d{font-size:12px;color:var(--mut);margin-top:1px}
+  footer{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:2px solid var(--ink);padding:10px 18px 16px}
+  footer .bar{height:5px;background:var(--line);border-radius:3px;overflow:hidden;margin-bottom:8px}
+  footer .fill{height:100%;width:0%;background:var(--blue)}
+  footer .now{font-size:13px;display:flex;justify-content:space-between;gap:10px}
+  footer .now b{font-weight:700}
+  .lessons .k{color:var(--green)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Listen &amp; rehearse</h1>
+  <p>Every slide, spoken: what's on screen, the target time, and what you say. Generated straight from the deck's own notes.</p>
+</header>
+
+<div class="controls">
+  <button class="primary" id="playall">▶ Play all 17</button>
+  <button class="ghost sp on" data-r="1">1×</button>
+  <button class="ghost sp" data-r="1.25">1.25×</button>
+  <button class="ghost sp" data-r="1.5">1.5×</button>
+</div>
+<p class="hint">Tap any slide to hear just that one. <b>Play all</b> walks 1→17 and keeps going — good with AirPods in, or in the car on the way. The green ones are the four lessons.</p>
+
+<ol id="list">
+  <li class="row fullrow" data-src="audio/fullrun.m4a">
+    <button class="pl">▶</button>
+    <div class="tt"><span class="k mono">Full run-through</span>
+      <div class="h">All 17 slides, back to back</div>
+      <div class="d">17:26 · the whole talk in one listen</div></div>
+  </li>
+</ol>
+
+<footer>
+  <div class="bar"><div class="fill" id="fill"></div></div>
+  <div class="now"><span id="nowtitle">Nothing playing</span><span class="mono" id="nowtime"></span></div>
+</footer>
+</div>
+
+<audio id="au" preload="none"></audio>
+<script>
+const META=[
+ {n:1,label:"The cold open",head:"The Tesla tax",target:45,dur:46},
+ {n:2,label:"Who I am",head:"IBEW Local 369 — the promise to teach",target:60,dur:54},
+ {n:3,label:"What's at stake",head:"You bought the car. Then came the quote.",target:75,dur:47},
+ {n:4,label:"Start here",head:"Your panel is barely working.",target:90,dur:60},
+ {n:5,label:"The myth",head:"This panel is full. It isn't close to loaded.",target:90,dur:60},
+ {n:6,label:"Lesson one",head:"More than one legal way to run it.",target:105,dur:70,lesson:1},
+ {n:7,label:"Lesson two",head:"220.83 — the one that's yours.",target:85,dur:98,lesson:1},
+ {n:8,label:"Lesson three",head:"Or don't estimate at all. (220.87)",target:85,dur:93,lesson:1},
+ {n:9,label:"Video A",head:"The same house, three legal ways.",target:90,dur:62},
+ {n:10,label:"Live calc",head:"How full is your panel — really?",target:180,dur:36},
+ {n:11,label:"Lesson four · live",head:"Size the charger to your driving.",target:150,dur:92,lesson:1},
+ {n:12,label:"Video B",head:"You may not need the big charger either.",target:60,dur:63},
+ {n:13,label:"So what do I find?",head:"4 of 5 already had the room.",target:50,dur:50},
+ {n:14,label:"Do it yourself",head:"Here's what you need to answer.",target:75,dur:61},
+ {n:15,label:"…or don't",head:"You just learned it. $12.99.",target:80,dur:65},
+ {n:16,label:"Tell somebody",head:"The one repeatable line.",target:60,dur:30},
+ {n:17,label:"Pass it on",head:"Be the reason your buddy keeps his $4,000.",target:90,dur:25},
+];
+const fmt=s=>Math.floor(s/60)+":"+String(Math.round(s%60)).padStart(2,"0");
+const list=document.getElementById("list"),au=document.getElementById("au");
+META.forEach(m=>{
+  const li=document.createElement("li");
+  li.className="row"+(m.lesson?" lessons":"");
+  li.dataset.src=`audio/slide${String(m.n).padStart(2,"0")}.m4a`;
+  li.innerHTML=`<button class="pl">▶</button><div class="tt">
+    <span class="k mono">Slide ${m.n} · ${m.label}</span>
+    <div class="h">${m.head}</div>
+    <div class="d">on stage: ${fmt(m.target)} · audio: ${fmt(m.dur)}</div></div>`;
+  list.appendChild(li);
+});
+let cur=null,allMode=false,rate=1;
+const rows=[...list.querySelectorAll("li.row")];
+function play(li){
+  rows.forEach(r=>{r.classList.remove("playing");r.querySelector(".pl").textContent="▶";});
+  cur=li;li.classList.add("playing");li.querySelector(".pl").textContent="❚❚";
+  au.src=li.dataset.src;au.playbackRate=rate;au.play();
+  document.getElementById("nowtitle").innerHTML="<b>"+li.querySelector(".k").textContent+"</b>";
+  li.scrollIntoView({block:"nearest",behavior:"smooth"});
+}
+function stop(){au.pause();rows.forEach(r=>{r.classList.remove("playing");r.querySelector(".pl").textContent="▶";});cur=null;allMode=false;document.getElementById("nowtitle").textContent="Nothing playing";document.getElementById("playall").textContent="▶ Play all 17";}
+rows.forEach(li=>li.addEventListener("click",()=>{ if(cur===li&&!au.paused){au.pause();li.querySelector(".pl").textContent="▶";} else if(cur===li&&au.paused){au.play();li.querySelector(".pl").textContent="❚❚";} else {allMode=false;document.getElementById("playall").textContent="▶ Play all 17";play(li);} }));
+document.getElementById("playall").addEventListener("click",()=>{ if(allMode){stop();} else {allMode=true;document.getElementById("playall").textContent="■ Stop";play(rows[1]);} });
+au.addEventListener("ended",()=>{ if(allMode&&cur){const i=rows.indexOf(cur); if(i>=1&&i<rows.length-1){play(rows[i+1]);return;}} stop(); });
+au.addEventListener("timeupdate",()=>{ if(au.duration){document.getElementById("fill").style.width=(au.currentTime/au.duration*100)+"%";document.getElementById("nowtime").textContent=fmt(au.currentTime)+" / "+fmt(au.duration);} });
+document.querySelectorAll(".sp").forEach(b=>b.addEventListener("click",()=>{rate=parseFloat(b.dataset.r);au.playbackRate=rate;document.querySelectorAll(".sp").forEach(x=>x.classList.toggle("on",x===b));}));
+</script>
+</body>
+</html>

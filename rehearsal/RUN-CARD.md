@@ -8,7 +8,8 @@
 ## PRE-FLIGHT
 
 - [ ] Open **evolve-deck.vercel.app** on the presenting machine. Leave the tab open.
-- [ ] Local backup: `~/dev/evolve-ky/index.html` — double-click it. Works with no wifi.
+- [ ] Local backup (no wifi): `python3 -m http.server 8899` in `~/dev/evolve-ky`, open **localhost:8899**. (Double-clicking index.html can break the live calculators in some browsers — file:// is last resort; test it tonight if you want it as one.)
+- [ ] **Slot B video**: install it (`./install-video.sh ~/Downloads/<file>.mp4 howitworks` + push) — or decide now that slide 12 runs as its three on-screen bullets / take cut #1.
 - [ ] Laptop charged. Charger. **HDMI + USB-C dongle.**
 - [ ] Ask Mike: how long, and is there a screen?
 - [ ] Phone on Do Not Disturb. Quit Slack/Mail so nothing pops on the projector.
@@ -73,6 +74,8 @@
 
 **Never cut: 2, 5, 6, 7, 11, 16, 17.** Those are the credential, the myth, the method lesson, 220.83, your signature lesson, and the ask.
 
+> ⚠️ **If you take cut #3 (slide 8, 220.87):** the "two ways out" callbacks on slides 10 and 13 reference measuring — a lesson the room never got. Change them to: *"charge slower — or there's a measured-demand method in the code; grab me after and I'll show you."*
+
 > Slides 9 and 12 say **"cuttable"** on screen so you can decide live without doing math in your head.
 
 ---
@@ -98,9 +101,9 @@ Start on defaults (35 mi, 8 hrs → **20 A breaker**). Then change **one thing a
 
 | Move | Result | What you say |
 |---|---|---|
-| Miles 35 → **60** | still **20 A** | "I just doubled the driving. **The breaker didn't move.**" |
+| Miles 35 → **60** | still **20 A** | "I just doubled the driving. **The breaker didn't move.**" Then the why, pointing at the chain: "Double the miles over a night's sleep is still only about eleven amps — less than the smallest setting a charger even offers. It *can't* move." |
 | Hours 8 → **4** | **30 A** | "Same driver. Same car. Same miles. Only the parking hours changed." |
-| Car → **the truck** | **50 A** | "Now a Lightning at 100 miles a day." |
+| Car → **the truck** | **50 A** | "Same sixty miles — now it's a Lightning." |
 | 100 mi / **2 hrs** | **60 A, hardwire** | "*That's* when you need the big one. That's not most of you." |
 
 > **"Hours are the lever. Not the badge on the box."**
@@ -150,6 +153,7 @@ Get ahead of it on slide 13, and **absolve first:**
 ## THE LIVE DEMOS — how they don't go sideways
 
 **Slide 10 (panel).** *"Who's got a house they know the numbers on? Roughly how big, and are you 100 or 200 amp?"*
+- **Name the method while the cite's on screen:** *"This gauge runs 220.82 — the stricter estimate. Same house: this one reads 127 where 220.83 reads 113. Fit under the strict one and there's no argument."*
 - Nobody knows their service size → *"Look at the main breaker — the big one at the top. It's got a number on it."* Default to 200.
 - **Nobody volunteers → use your own house.** Never stand there waiting.
 - Comes back **red** → that's a gift: *"That's the one in five. And you already know two ways out — charge slower, or pull your real demand off the meter."*

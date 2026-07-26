@@ -39,7 +39,7 @@ Both are **breathers**. You step aside, the room watches the screen, you drink w
 - **Slot A** buys you the 90 seconds before the live calculator — the riskiest part of the talk.
 - **Slot B** buys you the 60 seconds before the ask, while they're still looking at the screen.
 
-**Both are marked cuttable.** If Mike gives you 15 minutes instead of 20, drop both and you're back to ~19 minutes. The slides say so on-screen so you can decide day-of.
+**Both are marked cuttable.** Drop both and you're at **22:00** — for a 15-minute slot keep going down the RUN-CARD.md cut ladder (17:05 floor). The slides say "cuttable" on-screen so you can decide day-of.
 
 ---
 

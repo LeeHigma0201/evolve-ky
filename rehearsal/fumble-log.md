@@ -40,10 +40,10 @@ Running record across rehearsal passes. Add a row every time something comes out
 | Risk | Why I expect it | Drill |
 |---|---|---|
 | **Slot length unknown** | Nobody's confirmed 15 vs 30 min | Text Mike Bewley today. Highest-value 30 seconds available. |
-| **Selling out loud** | First time doing an awareness talk as a tradesman; instinct is to soft-pedal the ask | Say slide 12 five times until it stops feeling like a pitch |
+| **Selling out loud** | First time doing an awareness talk as a tradesman; instinct is to soft-pedal the ask | Say slide 15 five times until it stops feeling like a pitch |
 | **The 80% question** | It's a documented open question in his own repo — an electrician could land it | Rehearse the concede-then-reframe answer verbatim |
 | **Live demo dead air** | Waiting for a volunteer who doesn't come | Default to own house within 5 seconds. Never wait. |
-| **The already-upgraded person** | Emotional, not technical — will derail the room if handled cold | Bake the protective line into slide 4, don't wait to be asked |
+| **The already-upgraded person** | Emotional, not technical — will derail the room if handled cold | Bake the protective line into slide 13, don't wait to be asked |
 | **Over-explaining** | Knows the material *too* well — the trap is going deep when they've already got it | After the verdict lands: stop talking. Count to two. |
 | **Rushing the anchor** | Silence is uncomfortable when you're nervous | Count three actual seconds on slide 3 |
 
@@ -53,4 +53,4 @@ Running record across rehearsal passes. Add a row every time something comes out
 
 | Pass | What I got wrong as a coach | Correction |
 |---|---|---|
-| — | | |
+| audit 2026-07-25 | Wrote the qa-bank "loophole" answer with the direction **backwards** — claimed 220.83 reads higher than 220.82, when the deck's own slide 5 shows 113 vs 127. Also claimed the 220.57 floor covers "every option in the dropdown" when 12/16/24 A sit below it. | Never argue arithmetic direction from memory — check the canonical numbers table first. Both answers rewritten as concede-and-reframe. Caught by the 16-agent verification audit. |
