@@ -68,31 +68,31 @@
 | 9 | **Which one is yours** | "Is the house already standing? Then it's **220.83.**" | **3** | 0:55 |
 | 10 | **LIVE CALC** | "Give me a real house. Let's run it right now." | **5** | 3:00 |
 | 11 | **Lesson 4 — LIVE** | "**Hours are the lever. Not the badge on the box.**" | **6** | 2:30 |
-| 12 | 🎬 Video | *breather.* Then: "You don't have a panel problem." | **2** | 1:00 |
+| 12 | 🎬 **Watch it run** | *breather.* Then: "Four legal methods. Not one says upgrade." | **2** | 1:45 |
 | 13 | What I find | "In the homes I've checked — about four out of five had the room." | **5** | 0:50 |
 | 14 | Do it yourself | "None of this is secret. Tape measure, flashlight, code book." | **5** | 1:15 |
 | 15 | …or don't | "You just learned it. You don't have to **do** it. **$12.99.**" | **5** | 1:20 |
 | 16 | Tell somebody | *(read the line slow, twice)* | **2** | 1:00 |
 | 17 | Pass it on | "Be the reason your buddy keeps his four thousand dollars." | **3** | 1:30 |
 
-**Full run ≈ 23:55.**
+**Full run ≈ 24:40.**
 
 ### The cut ladder — drop in this order
 
 | Cut | Saves | Leaves you at |
 |---|---|---|
-| 1. Slide 12 (the assessment clip) | 1:00 | 22:55 |
-| 2. Slide 9 (which one is yours) | 0:55 | 22:00 |
-| 3. Slide 8 (220.87) | 1:25 | 20:35 |
-| 4. Slide 3 (the $3–5k) | 1:15 | 19:20 |
-| 5. One demo house instead of two on slide 10 | 1:00 | 18:20 |
-| 6. Slide 14 (do it yourself) | 1:15 | 17:05 |
+| 1. Slide 9 (which one is yours) | 0:55 | 23:45 |
+| 2. Slide 3 (the $3–5k) | 1:15 | 22:30 |
+| 3. Slide 14 (do it yourself) | 1:15 | 21:15 |
+| 4. One demo house instead of two on slide 10 | 1:00 | 20:15 |
+| 5. Slide 8 (220.87) ⚠️ see note below | 1:25 | 18:50 |
+| 6. Slide 12 (the video) — **last resort** | 1:45 | 17:05 |
 
 **Never cut: 2, 5, 6, 7, 11, 16, 17.** Those are the credential, the myth, the method lesson, 220.83, your signature lesson, and the ask.
 
-> ⚠️ **If you take cut #3 (slide 8, 220.87):** the "two ways out" callbacks on slides 10 and 13 reference measuring — a lesson the room never got. Change them to: *"charge slower — or there's a measured-demand method in the code; grab me after and I'll show you."*
+> ⚠️ **If you take cut #5 (slide 8, 220.87):** the "two ways out" callbacks on slides 10 and 13 reference measuring — a lesson the room never got. Change them to: *"charge slower — or there's a measured-demand method in the code; grab me after and I'll show you."*
 
-> Slide 12 says **"cuttable"** on screen. Slide 9 is a 3-beat synthesis — cheap to keep, cheap to drop.
+> **Slide 12 moved to the bottom of the ladder on purpose.** At 1:45 it now shows the charger-sizing demo AND the load calc on a real house — it's the strongest 105 seconds in the deck. Cut five other things before you cut it.
 
 ---
 

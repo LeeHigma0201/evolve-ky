@@ -49,14 +49,14 @@ Elements carry `data-r="<reveal id>"`; each slide's `beats[]` says which beat ea
 | 9 | **Which one is yours** | the synthesis: standing house → 220.83 · no estimate → 220.87 |
 | 10 | **LIVE calc** | NEC 220.82 panel capacity gauge on a real house |
 | 11 | **Lesson 4 · LIVE** | **Charger sizer** — miles/day + hours plugged in → amps → breaker |
-| 12 | 🎬 Video | **a real assessment, screen-recorded** · breather · *cuttable* |
+| 12 | 🎬 **Watch it run** | a real assessment, screen-recorded, full-bleed — the charger-sizing demo **and** the load calc (1:45) |
 | 13 | What I find | 4 of 5 — as a **finding**, not an opening claim |
 | 14 | Do it yourself | the questions to answer · what a panel photo adds |
 | 15 | …or don't | ChargeRight · $12.99 · free calculator |
 | 16 | Tell somebody | the one repeatable share line |
 | 17 | Pass it on | hero close + QR · **$12.99 at evchargeright.com, or ChargeRight on the App Store (free download)** |
 
-**≈23:55 full · 70 beats.** A six-step cut ladder down to ~17:05 is in the run card. One video, on slide 12.
+**≈24:40 full · 70 beats.** A six-step cut ladder down to ~17:05 is in the run card. One video, on slide 12.
 
 ### Still built for word-of-mouth
 The close turns the room into advocates: a **wow** (the live demos), a **repeatable line** (slide 16), and a **friction-free way to share now** (QR on slide 17). `qr.svg` encodes https://evchargeright.com (segno, self-contained, offline-safe).

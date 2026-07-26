@@ -13,7 +13,7 @@
  },
  {
   "n": 3,
-  "label": "What’s at stake",
+  "label": "What\u2019s at stake",
   "beats": 4,
   "target": 75
  },
@@ -31,19 +31,19 @@
  },
  {
   "n": 6,
-  "label": "Lesson one — four methods",
+  "label": "Lesson one \u2014 four methods",
   "beats": 5,
   "target": 105
  },
  {
   "n": 7,
-  "label": "Lesson two — 220.83",
+  "label": "Lesson two \u2014 220.83",
   "beats": 4,
   "target": 85
  },
  {
   "n": 8,
-  "label": "Lesson three — 220.87",
+  "label": "Lesson three \u2014 220.87",
   "beats": 4,
   "target": 85
  },
@@ -61,15 +61,15 @@
  },
  {
   "n": 11,
-  "label": "Lesson four — the charger sizer",
+  "label": "Lesson four \u2014 the charger sizer",
   "beats": 6,
   "target": 150
  },
  {
   "n": 12,
-  "label": "Watch it run — the assessment",
+  "label": "Video \u00b7 the whole thing",
   "beats": 2,
-  "target": 60
+  "target": 105
  },
  {
   "n": 13,
@@ -85,7 +85,7 @@
  },
  {
   "n": 15,
-  "label": "…or don’t",
+  "label": "\u2026or don\u2019t",
   "beats": 5,
   "target": 80
  },
