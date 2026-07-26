@@ -13,7 +13,7 @@
 - [ ] Local backup (no wifi): `python3 -m http.server 8899` in `~/dev/evolve-ky`, open **localhost:8899**. (Double-clicking index.html can break the live calculators in some browsers — file:// is last resort; test it tonight if you want it as one.)
 - [ ] **Video: one clip only, on slide 12** — the real assessment, full-bleed, already installed and live. Slide 9 has no video. If 12 won't play, its three bullets appear automatically and ARE your script.
 - [ ] Laptop charged. Charger. **HDMI + USB-C dongle.**
-- [ ] Ask Mike: how long, and is there a screen?
+- [ ] Ask Mike: **is there a screen?** (Slot is settled: up to an hour available, targeting **20–30 min** of talk, Q&A after.)
 - [ ] Phone on Do Not Disturb. Quit Slack/Mail so nothing pops on the projector.
 - [ ] **Know your house cold** — sq ft, service size, gas or electric. It's your demo backup.
 - [ ] **Know your number** — how many homes have you run this on? You say "in the homes I've checked."
@@ -78,7 +78,9 @@
 | 16 | Tell somebody | *(read the line slow, twice)* | **2** | 1:00 |
 | 17 | Pass it on | "Be the reason your buddy keeps his four thousand dollars." | **3** | 1:30 |
 
-**Full run ≈ 24:40.**
+**Full run ≈ 24:40 — which is the slot.** Jason has up to an hour but wants 20–30 minutes of talk, then Q&A. The deck as built lands in that window with nothing cut.
+
+> **Watch the pace pill in the timer (`T`).** It compares elapsed against where you should be by now, so a slow live demo shows up while you can still fix it — not at the end. Amber past ~25 s behind, red past 1:30. If it goes red, take a cut from the ladder below; don't try to talk faster.
 
 ### The cut ladder — drop in this order
 

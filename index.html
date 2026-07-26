@@ -75,6 +75,12 @@
   #timer .ts{font-size:11.5px;color:var(--soft)}
   #timer .ts.near{color:var(--amber);font-weight:700}
   #timer .ts.over{color:var(--red);font-weight:700}
+  /* pace pill — am I going to land inside the slot? */
+  #timer .tp{font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:20px;
+    background:rgba(138,145,162,.16);color:var(--soft);white-space:nowrap}
+  #timer .tp.good{background:rgba(18,152,106,.18);color:var(--green)}
+  #timer .tp.near{background:rgba(199,125,10,.18);color:var(--amber)}
+  #timer .tp.over{background:rgba(210,59,46,.18);color:var(--red)}
   .nav{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:9}
   .nav button{font-family:var(--mono);font-size:15px;border:1px solid var(--line2);background:var(--card);color:var(--soft);width:42px;height:32px;border-radius:8px;cursor:pointer}
   .nav button:hover{border-color:var(--blue);color:var(--blue)}
@@ -362,7 +368,7 @@
 <div id="pre" class="show"></div>
 <div class="nav"><button id="prev">&lsaquo;</button><button id="next">&rsaquo;</button></div>
 <div id="notes"><div class="nlabel">Speaker note</div><div id="ntext"></div></div>
-<div id="timer"><span class="tt" id="t_total">0:00</span><span class="ts" id="t_slide"></span></div>
+<div id="timer"><span class="tt" id="t_total">0:00</span><span class="ts" id="t_slide"></span><span class="tp" id="t_pace"></span></div>
 <div id="report"></div>
 <script>
 const MARK=`<svg class="mark" viewBox="0 0 120 120" fill="none"><path d="M60 15 L101 46 V95 a7 7 0 0 1-7 7 H26 a7 7 0 0 1-7-7 V46 Z" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/><path class="bolt" d="M66 38 L40 72 H57 L52 94 L82 56 H63 Z"/></svg>`;
@@ -1235,6 +1241,16 @@ function tickTimer(){
   const s=document.getElementById('t_slide');
   s.textContent='this slide '+fmt(sl)+' / '+fmt(tgt);
   s.className='ts'+(sl>tgt?' over':(sl>tgt*0.75?' near':''));
+  /* PACE — the number that actually keeps him inside the slot. Compares elapsed against
+     where he should be by now (every earlier slide's budget, plus his progress through
+     this one), so a slow live demo shows up immediately instead of at the end. */
+  let due=0; for(let k=0;k<i;k++)due+=TARGETS[k];
+  due+=Math.min(sl,tgt);
+  const drift=el-due,p=document.getElementById('t_pace');
+  const mm=Math.floor(Math.abs(drift)/60),ss=Math.round(Math.abs(drift)%60);
+  const amt=mm?mm+':'+String(ss).padStart(2,'0'):ss+'s';
+  p.textContent=Math.abs(drift)<20?'on pace':(drift>0?amt+' behind':amt+' ahead');
+  p.className='tp'+(drift>90?' over':(drift>25?' near':(drift<-25?' good':'')));
 }
 function toggleTimer(){
   tOn=!tOn;
