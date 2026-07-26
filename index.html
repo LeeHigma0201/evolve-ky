@@ -153,6 +153,24 @@
   .vid{display:block;height:clamp(230px,47vh,430px);width:auto;max-width:calc(40*var(--s));
     border-radius:12px;border:1px solid var(--line2);background:#0B0F18;
     box-shadow:0 22px 44px -30px rgba(23,28,43,.8)}
+  /* Full-bleed variant — for a 16:9 clip that already CARRIES its own explainer rail
+     (the panel-check walkthrough). Beside the beats it would render ~760px wide and
+     the app UI inside it becomes unreadable from the back of a room; full width it
+     reads fine. The beats still exist, hidden, and .vidwrap.fb.failed reveals them —
+     the deck must never dead-end on a clip that won't play. */
+  .vidwrap.fb{grid-template-columns:1fr;position:relative}
+  .vidwrap.fb .vid{display:block;width:100%;height:auto;max-width:100%;max-height:74vh;margin:0 auto}
+  /* Beat 2 lays the recap card OVER the finished clip, so the video keeps full width
+     for the whole play instead of surrendering a column to a card that is empty until
+     the last tap. Centred with left/right, never transform: the beat engine animates
+     transform itself ([data-b] -> .lit) and would cancel a translateX. */
+  .vidwrap.fb .vidfall{position:absolute;left:4%;right:4%;bottom:3%;width:auto;
+    background:rgba(255,255,255,.97);border-color:var(--line2);
+    box-shadow:0 30px 60px -26px rgba(23,28,43,.75)}
+  /* If the clip dies, the beats stop being a recap and become the slide — visible
+     immediately, not gated behind a tap. */
+  .vidwrap.fb.failed .vidfall{position:static;background:var(--paper);box-shadow:none;
+    opacity:1;transform:none}
   .vidfall{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:clamp(14px,calc(2*var(--s)),22px)}
   .vf-h{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:9px}
   .vidbeats{margin:0;padding-left:19px;font-size:clamp(14px,calc(1.8*var(--s)),31px);line-height:1.45;color:var(--soft)}
@@ -376,12 +394,12 @@ const slides=[
     note:"Now they GET it, so show it. Ask for a real house in the room and fill it in. The bar shows how full they already are, the green is the EV on top, the line is their limit. Watch the money land in the verdict.<br><br>NAME THE METHOD while the cite&rsquo;s on screen: &ldquo;This gauge runs 220.82 &mdash; the stricter estimate. Same house: this one reads 127 where 220.83 reads 113. If you fit under the strict one, there&rsquo;s no argument.&rdquo;" },
   { type:"sizer", label:"Lesson four", head:"Size the charger to your <span class='u'>driving</span> &mdash; not to the box it came in.",
     note:"THIS IS YOUR LESSON. Nobody else in that room has heard it, and it's the one they'll repeat.<br><br>THE SETUP: &ldquo;Everybody sells you the biggest charger on the shelf. But the charger doesn't care what it CAN do &mdash; it matters what you actually need. And two things set that: how far you drive, and how long the car sits in your driveway.&rdquo;<br><br>DO IT LIVE. Start on the defaults (35 miles, 8 hours). Then change ONE thing at a time:<br>&bull; Bump miles to 60 &mdash; <b>the breaker doesn't move.</b> Say that out loud. Then the why, pointing at the chain: &ldquo;double the miles spread over a night&rsquo;s sleep is still only about eleven amps &mdash; less than the smallest setting a charger even offers. It <i>can&rsquo;t</i> move.&rdquo;<br>&bull; Now drop hours from 8 to 4 &mdash; <b>now</b> it moves. &ldquo;Same driver. Same car. Same miles. The only thing that changed is how long it's plugged in.&rdquo;<br>&bull; Switch the car to the truck &mdash; watch it climb.<br><br>THE LINE: &ldquo;<b>Hours are the lever. Not the badge on the box.</b>&rdquo;<br><br>HONESTY BEAT: &ldquo;The breaker line is code and it's exact. Everything above it is arithmetic, and your miles-per-kWh is a guess until you check your own car.&rdquo;<br><br>If asked why a 'plug-in 50 amp charger' is really 40: the code makes EV charging a continuous load, so you only get 80% of the circuit &mdash; and receptacles cap at 50 amps, which is why 48 A has to be hardwired." },
-  { type:"video", label:"One more thing", head:"You may not need the big charger either.",
-    src:"video-howitworks.mp4",
-    fallback:["<b>16 amps</b> overnight puts back about <b>105 miles</b>. The average person drives <b>37</b>.",
-      "Same house on a 100 A service: at 48 A it&rsquo;s <b>127 A &mdash; over</b>. At 16 A it&rsquo;s <b>95 A &mdash; it fits</b>.",
-      "You don&rsquo;t have a panel problem. You&rsquo;ve got a charger you didn&rsquo;t need."],
-    note:"SECOND BREATHER, right before the ask &mdash; and the answer for the one-in-five.<br><br>Everybody sells the biggest charger on the shelf. This is the slide that saves the people who came in expecting bad news.<br><br>WHEN IT ENDS: &ldquo;<b>You don't have a panel problem. You've got a charger you didn't need.</b>&rdquo; Then straight to the ask.<br><br>IF IT DOESN'T PLAY: the three bullets are the script. You can also just go back to slide 10 and turn the amps down live &mdash; that demo works with no video at all.<br><br>CUTTABLE &mdash; but this one earns its place if you have the time." },
+  { type:"video", label:"Watch it run", head:"The whole method, on one real house.",
+    src:"video-howitworks.mp4", fullbleed:true,
+    fallback:["Seven questions. <b>2,000 ft&sup2;</b>, <b>200 A</b> service, gas heat, electric range and dryer, 3-ton A/C.",
+      "<b>220.83(A)</b>: first 8 kVA at 100%, the rest at 40% &mdash; <b>21,640 VA = 90 A</b> on a 200 A service. <b>45.1%</b>.",
+      "Every legal method agrees: <b>220.82 95 A &middot; 220.83(A) 90 A &middot; Standard 116 A &middot; 2026 87 A</b>. Not one says upgrade."],
+    note:"SECOND BREATHER &mdash; and the proof that everything you just taught is real, not theory.<br><br>This is a REAL assessment on the SAME house from slide 5: 2,000 ft&sup2;, 200 A, gas heat, range + dryer, 3-ton A/C. It runs the questionnaire, then the code, then shows the answer.<br><br>SET IT UP IN ONE LINE: &ldquo;This is what running it actually looks like. Same four methods you just learned.&rdquo; Then step aside and let it play. Don't talk over it.<br><br>WHEN IT ENDS, the payoff is the last card &mdash; <b>every legal method says it fits</b>. Say: &ldquo;<b>Four different legal methods. Not one of them says upgrade.</b>&rdquo; Then straight to what I find.<br><br>WHY THE NUMBERS DIFFER FROM SLIDE 9 (if anyone catches it &mdash; and someone might): slide 9's house has a <b>48 A</b> charger, this one has a right-sized <b>16 A</b>. Same house, smaller charger, smaller load. That IS lesson four. Own it: &ldquo;good catch &mdash; that's the charger sizing we just did.&rdquo;<br><br>&#9888;&#65039; <b>THE 220.82 LABEL.</b> The app's own chrome says &ldquo;NEC 220.82 result&rdquo; top-left, while the verdict card underneath says &ldquo;NEC 2023 Section <b>220.83(A)</b>&rdquo;. Both are on screen at once. You just spent two slides teaching that these are different methods, so somebody sharp may catch it. THE HONEST ANSWER, and it's a good one: &ldquo;<b>The label's stale &mdash; the engine binds 220.83(A), which is what the report actually says. That's my bug to fix, and it's the right method underneath.</b>&rdquo; Don't hide from it; it proves you read your own output.<br><br>THE $12.99 FLASHES ON SCREEN once, at the end of the questionnaire. Don't dwell on it; the ask is three slides away.<br><br>IF IT DOESN'T PLAY: the three bullets appear automatically and ARE your script.<br><br>CUTTABLE &mdash; but this one earns its place if you have the time." },
   { type:"stat", label:"So what do I find?", head:"When I actually run it:", big:"4 of 5",
     body:"In the homes I&rsquo;ve checked, about <span class='hl'>four out of five</span> already had the room. The math was never the problem &mdash; nobody ran it.",
     note:"NOW the stat lands, because they know what 'running it' means. This is a FINDING, not a claim.<br><br>SAY IT AS YOUR OWN DATA: &ldquo;In the homes I've checked&rdquo; — not a study, not an industry number. If someone asks how many, give a real figure. Don't inflate it.<br><br>AND BE HONEST ABOUT THE FIFTH: &ldquo;One in five genuinely is tight. Older house, small service, all-electric. If that's you I'll tell you &mdash; and you just learned two ways out of it: charge slower, or pull your real demand off the meter.&rdquo;<br><br>Nobody leaves this room with only bad news." },
@@ -664,14 +682,14 @@ const BEATS={
  ],
  "12": [
   {
-   "line": "Everybody sells the biggest charger on the shelf.",
+   "line": "Same house. Now watch the calculation actually run.",
    "reveal": "video",
-   "say": "Every installer, every website, every display at the big-box store — it’s the biggest one on the shelf, forty-eight amps, and nobody asks what you drive. That’s how a panel problem gets invented. Watch what happens when you turn it down."
+   "say": "This is a real assessment on the same house I’ve been showing you. Two thousand square feet, two hundred amp service, gas heat, electric range and dryer, three ton air conditioner. Seven questions, and then the code runs. I’m going to get out of the way and let it play."
   },
   {
-   "line": "Charge at what you need — size it to your driving, not to the box it came in.",
+   "line": "Every legal method agrees — not one of them says upgrade.",
    "reveal": "beats",
-   "say": "That same house on a hundred amp service came in at a hundred and twenty-seven amps with the forty-eight amp charger, over the limit. Drop the charger to sixteen and it’s ninety-five amps, and it fits with no upgrade at all. Sixteen amps overnight still puts back about a hundred and five miles, and the average driver goes thirty-seven."
+   "say": "Twenty-one thousand six hundred and forty VA. That’s ninety amps on a two hundred amp service, forty-five percent full with the charger on it. And when it lines the methods up: two-twenty eighty-two says ninety-five, two-twenty eighty-three A says ninety, the standard method says a hundred and sixteen, and the twenty twenty-six preview says eighty-seven. Every single one of them fits."
   }
  ],
  "13": [
@@ -915,7 +933,10 @@ const METHODS=[
 function videoMarkup(s){
   // Beats are ALWAYS on screen — they reinforce the narration and give the room
   // something to read. If the clip dies they simply become the whole slide.
-  return `<div class="vidwrap" id="vidwrap">
+  // EXCEPT on a `fullbleed` slide: that clip already carries its own explainer rail,
+  // so the beats would be a duplicate. They stay in the DOM, hidden, and wireVideo's
+  // fail() reveals them — the never-dead-end guarantee is unchanged.
+  return `<div class="vidwrap${s.fullbleed?' fb':''}" id="vidwrap">
       <video id="vid" class="vid" src="${s.src}" tabindex="-1" playsinline controls preload="auto" data-r="video"></video>
       <div class="vidfall" data-r="beats">
         <div class="vf-h" id="vf_h" style="display:none">Video didn&rsquo;t load &mdash; say this instead</div>
@@ -927,7 +948,8 @@ function videoMarkup(s){
 function wireVideo(){
   const v=document.getElementById('vid'),h=document.getElementById('vf_h'),w=document.getElementById('vidwrap');
   if(!v) return;
-  const fail=()=>{v.style.display='none';if(h)h.style.display='block';if(w)w.style.gridTemplateColumns='1fr';};
+  // .failed is what un-hides the beats on a full-bleed slide (see .vidwrap.fb rules).
+  const fail=()=>{v.style.display='none';if(h)h.style.display='block';if(w){w.classList.add('failed');w.style.gridTemplateColumns='1fr';}};
   v.addEventListener('error',fail);
   // a src that 404s to an HTML page doesn't always fire 'error' — check the load state too
   setTimeout(()=>{if(v.networkState===v.NETWORK_NO_SOURCE||(v.readyState===0&&!v.currentSrc))fail();},1800);

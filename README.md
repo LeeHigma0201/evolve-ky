@@ -49,7 +49,7 @@ Elements carry `data-r="<reveal id>"`; each slide's `beats[]` says which beat ea
 | 9 | 🎬 Video | breather · *cuttable* |
 | 10 | **LIVE calc** | NEC 220.82 panel capacity gauge on a real house |
 | 11 | **Lesson 4 · LIVE** | **Charger sizer** — miles/day + hours plugged in → amps → breaker |
-| 12 | 🎬 Video | breather · *cuttable* |
+| 12 | 🎬 Video | **a real assessment, screen-recorded** · breather · *cuttable* |
 | 13 | What I find | 4 of 5 — as a **finding**, not an opening claim |
 | 14 | Do it yourself | the questions to answer · what a panel photo adds |
 | 15 | …or don't | ChargeRight · $12.99 · free calculator |
@@ -94,6 +94,7 @@ runcard.html          phone-readable / printable run card
 rehearse.html         🎧 audio rehearsal player — every beat, spoken
 audio/                17 per-slide tracks + 26:37 full run (generated from the deck's beats)
 video-methods.mp4     slot A clip (NotebookLM short, 78 s)
+video-howitworks.mp4  slot B clip — real assessment, screen-recorded (83 s, full-bleed)
 qr.svg                QR to evchargeright.com
 install-video.sh      probe + transcode a NotebookLM download into a slot
 rehearsal/            RUN-CARD.md · qa-bank.md · ab-tests.md · fumble-log.md · narration/

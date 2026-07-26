@@ -12,7 +12,17 @@ The deck already has both video slots built and wired. **You only have to drop t
 | Slot | Deck slide | File | What the clip covers | Status |
 |---|---|---|---|---|
 | **A** | **9 of 17** — after Lesson 3 (220.87), before the live calculator | `video-methods.mp4` | 410 A of breakers · three methods (141 / 127 / 113) · "every real method says it fits" | ✅ **installed & live** — 78 s, 7 MB |
-| **B** | **12 of 17** — after the live charger sizer, before "what I find" | `video-howitworks.mp4` | Charge slower: 16 A adds ~105 mi/night vs a 37 mi day · 127 A → 95 A on a 100 A service | ⏳ generating in NotebookLM |
+| **B** | **12 of 17** — after the live charger sizer, before "what I find" | `video-howitworks.mp4` | **A real assessment, screen-recorded.** Seven questions → 220.83(A) → 21,640 VA = 90 A on a 200 A service (45.1%) → every legal method agrees | ✅ **installed & live** — 83 s, 5 MB |
+
+> **Slot B is no longer a NotebookLM clip.** Built 2026-07-26 as a screen recording of a real
+> ChargeRight assessment, composited 16:9 with its own explainer rail. Because it carries its
+> own rail, slide 12 gained a `fullbleed:true` flag (`.vidwrap.fb` in `index.html`) — beside the
+> beats it would render ~760 px wide and the app UI would be unreadable from the back of the
+> room. Pipeline + regeneration notes: `~/dev/promo-video/panel-check-90s/README.md`.
+> Optional VO: `rehearsal/VO-panel-check-90s.md`, mixed with `rehearsal/mix-vo.sh`.
+>
+> **Do not re-install it with `install-video.sh`** — that scales to 1280 wide, and this clip
+> needs its native 1920 to stay legible full-bleed. Copy it in directly.
 
 > **Deck was reframed to a teaching structure on 2026-07-25 and is now 17 slides.** Both video slots kept their positions (9 and 12) but their neighbours changed — slot A now lands after the four method lessons, which makes it a better fit than before. Slot B now reinforces the live charger-sizing lesson immediately after it.
 
