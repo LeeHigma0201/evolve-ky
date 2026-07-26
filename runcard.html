@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Run Card · Evolve KY</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800;9..40,900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F6F1; --card:#fff; --ink:#171C2B; --soft:#4A5468; --faint:#8A91A2;
+    --line:#E7E4DA; --line2:#DBD8CD;
+    --blue:#1D5FE0; --green:#12986A; --amber:#C77D0A; --red:#D23B2E;
+    --sans:"DM Sans",system-ui,-apple-system,sans-serif;
+    --mono:"Space Mono",ui-monospace,Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+    font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:760px;margin:0 auto;padding:18px 16px 64px}
+  header{border-bottom:3px solid var(--ink);padding-bottom:12px;margin-bottom:6px}
+  .brand{display:flex;align-items:center;gap:9px;margin-bottom:9px}
+  .brand svg{width:24px;height:24px;color:var(--ink)}
+  .brand .bolt{fill:var(--blue)}
+  .brand b{font-weight:900;font-size:17px;letter-spacing:-.02em}
+  .brand b i{color:var(--blue);font-style:normal}
+  h1{font-size:26px;font-weight:900;letter-spacing:-.03em;margin:0 0 5px;line-height:1.1}
+  .meta{font-family:var(--mono);font-size:12px;color:var(--soft);line-height:1.6}
+  .meta a{color:var(--blue);font-weight:700}
+  /* sticky jump nav */
+  nav{position:sticky;top:0;z-index:9;background:var(--paper);padding:10px 0 9px;
+    border-bottom:1px solid var(--line);margin-bottom:18px;display:flex;gap:6px;overflow-x:auto;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none}
+  nav::-webkit-scrollbar{display:none}
+  nav a{flex:0 0 auto;font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;
+    text-decoration:none;color:var(--soft);background:var(--card);border:1px solid var(--line2);
+    border-radius:20px;padding:7px 13px;white-space:nowrap}
+  nav a:active{background:var(--blue);color:#fff;border-color:var(--blue)}
+  section{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:17px 16px;margin-bottom:14px;scroll-margin-top:58px}
+  h2{font-size:12px;font-family:var(--mono);letter-spacing:.15em;text-transform:uppercase;
+    color:var(--blue);margin:0 0 13px;display:flex;align-items:center;gap:9px}
+  h2::after{content:"";flex:1;height:1px;background:var(--line)}
+  h3{font-size:16px;font-weight:800;margin:19px 0 7px;letter-spacing:-.01em}
+  h3:first-of-type{margin-top:0}
+  p{margin:0 0 11px}
+  .say{background:var(--paper);border-left:5px solid var(--blue);border-radius:0 9px 9px 0;
+    padding:13px 15px;margin:11px 0;font-size:19px;font-weight:700;line-height:1.4;letter-spacing:-.01em}
+  .say em{font-style:normal;font-family:var(--mono);font-size:13px;font-weight:400;color:var(--soft);display:block;margin-top:5px}
+  .warn{background:rgba(210,59,46,.07);border-left:5px solid var(--red);border-radius:0 9px 9px 0;padding:12px 14px;margin:11px 0;font-size:15.5px}
+  .warn b{color:var(--red)}
+  .ok{background:rgba(18,152,106,.08);border-left:5px solid var(--green);border-radius:0 9px 9px 0;padding:12px 14px;margin:11px 0;font-size:15.5px}
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:15px}
+  th{font-family:var(--mono);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;
+    color:var(--faint);text-align:left;padding:0 8px 7px 0;border-bottom:1px solid var(--line2);font-weight:400}
+  td{padding:9px 8px 9px 0;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.35}
+  td:last-child,th:last-child{padding-right:0;text-align:right}
+  /* only the short time/result column gets nowrap — never descriptive text */
+  #spine td:last-child,#cuts td:last-child{white-space:nowrap;font-family:var(--mono);font-size:13px}
+  #numbers td:first-child{width:44%}
+  .n{font-family:var(--mono);font-weight:700;color:var(--blue);width:26px}
+  .keep td{background:rgba(18,152,106,.06)}
+  .cut td{color:var(--soft)}
+  ul{margin:0 0 11px;padding-left:21px}
+  li{margin-bottom:7px}
+  code{font-family:var(--mono);font-size:.9em;background:var(--paper);padding:2px 5px;border-radius:4px;border:1px solid var(--line)}
+  .big{font-family:var(--mono);font-weight:700;font-size:15px}
+  .tot{font-family:var(--mono);font-size:13px;color:var(--soft);text-align:right;margin-top:8px}
+  footer{text-align:center;font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:26px;line-height:1.7}
+  footer a{color:var(--blue)}
+  @media(min-width:700px){ body{font-size:18px} h1{font-size:33px} .say{font-size:21px} }
+  @media print{
+    body{background:#fff;font-size:11.5pt} nav{display:none} .wrap{max-width:none;padding:0}
+    section{break-inside:avoid;border:none;border-top:1.5pt solid #ddd;border-radius:0;padding:11pt 0;margin:0}
+    .say{font-size:13pt} a{color:#000;text-decoration:none}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="brand">
+    <svg viewBox="0 0 120 120" fill="none"><path d="M60 15 L101 46 V95 a7 7 0 0 1-7 7 H26 a7 7 0 0 1-7-7 V46 Z" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/><path class="bolt" d="M66 38 L40 72 H57 L52 94 L82 56 H63 Z"/></svg>
+    <b>Charge<i>Right</i></b>
+  </div>
+  <h1>Run Card — Evolve KY</h1>
+  <div class="meta">
+    Sun July 26 · 2:30–4:30 PM · All Peoples, 4936 Brownsboro Rd<br>
+    Host: Mike Bewley · Deck: <a href="https://evolve-deck.vercel.app">evolve-deck.vercel.app</a><br>
+    <b>This is a teaching talk. The recommendation comes last, after you've earned it.</b>
+  </div>
+</header>
+
+<nav>
+  <a href="#open">Cold open</a><a href="#spine">Spine</a><a href="#cuts">Cuts</a>
+  <a href="#lessons">4 lessons</a><a href="#demo">Live demos</a><a href="#numbers">Numbers</a>
+  <a href="#blank">If you blank</a><a href="#mine">Landmine</a><a href="#close">Close</a><a href="#after">After</a>
+</nav>
+
+<section id="open">
+  <h2>The cold open</h2>
+  <div class="say">"Show of hands — who's heard of the Tesla tax?"<em>let hands go up</em></div>
+  <div class="say">"Now — not the one on your registration. That one's a hundred and some-odd bucks a year and there's nothing I can do about it."<em>you'll get a laugh here</em></div>
+  <div class="say">"I mean the other one. Where you mention you're getting an EV, and the number goes up. Keep your hand up if you've been quoted to upgrade your panel."</div>
+  <div class="say">"Three grand? Four?"<em>beat</em></div>
+  <div class="say">"That's the Tesla tax. And by the time you leave here you'll know how to tell whether you actually owe it."</div>
+  <div class="warn"><b>Don't pause after the first question.</b> In Kentucky they'll think you mean the registration fee. Define which tax you mean in the same breath — the ~$130 vs $4,000 contrast does the work.</div>
+  <div class="ok">The close of the open is a <b>promise to teach</b>, not a claim. "You'll know how to tell" — that's the whole reframe in one sentence.</div>
+</section>
+
+<section id="spine">
+  <h2>The spine — 17 slides</h2>
+  <table>
+    <tr><th class="n">#</th><th>Land this line</th><th>Time</th></tr>
+    <tr><td class="n">1</td><td>Cold open (above)</td><td>0:45</td></tr>
+    <tr class="keep"><td class="n">2</td><td><b>"Union electrician, Local 369, right here. I run these calcs every day — and I'm going to teach you how."</b></td><td>1:00</td></tr>
+    <tr><td class="n">3</td><td>"$3–5k. And some people get that quote and just don't buy the car."</td><td>1:15</td></tr>
+    <tr><td class="n">4</td><td>"Your panel is <b>barely working.</b> Your house never runs everything at once."</td><td>1:30</td></tr>
+    <tr class="keep"><td class="n">5</td><td><b>"410 amps of breakers on a 200 amp service. Nothing ever trips."</b></td><td>1:30</td></tr>
+    <tr class="keep"><td class="n">6</td><td><b>Lesson 1</b> — "More than one legal way. Three estimate. One measures."</td><td>1:45</td></tr>
+    <tr class="keep"><td class="n">7</td><td><b>Lesson 2</b> — "220.83. Existing service, additional load. That's you."</td><td>1:25</td></tr>
+    <tr><td class="n">8</td><td><b>Lesson 3</b> — "Or don't estimate at all. Use what the house actually pulled."</td><td>1:25</td></tr>
+    <tr class="cut"><td class="n">9</td><td>🎬 video · breather · <i>cuttable</i></td><td>1:30</td></tr>
+    <tr><td class="n">10</td><td><b>LIVE</b> — "Give me a real house. Let's run it right now."</td><td>3:00</td></tr>
+    <tr class="keep"><td class="n">11</td><td><b>Lesson 4 · LIVE</b> — "Hours are the lever. Not the badge on the box."</td><td>2:30</td></tr>
+    <tr class="cut"><td class="n">12</td><td>🎬 video · breather · <i>cuttable</i></td><td>1:00</td></tr>
+    <tr><td class="n">13</td><td>"In the homes I've checked — about four out of five had the room."</td><td>0:50</td></tr>
+    <tr><td class="n">14</td><td>"None of this is secret. Tape measure, flashlight, code book."</td><td>1:15</td></tr>
+    <tr><td class="n">15</td><td>"You just learned it. You don't have to <b>do</b> it. <b>$12.99.</b>"</td><td>1:20</td></tr>
+    <tr class="keep"><td class="n">16</td><td>The share line — <b>read it slow, twice</b></td><td>1:00</td></tr>
+    <tr class="keep"><td class="n">17</td><td>"Be the reason your buddy keeps his four thousand dollars."</td><td>1:30</td></tr>
+  </table>
+  <div class="tot">Full run ≈ <b>24:30</b> &nbsp;·&nbsp; green rows = never cut</div>
+</section>
+
+<section id="cuts">
+  <h2>Cut ladder — drop in this order</h2>
+  <table>
+    <tr><th>Cut</th><th>Leaves you at</th></tr>
+    <tr><td>1. Slide 12 (video)</td><td>23:30</td></tr>
+    <tr><td>2. Slide 9 (video)</td><td>22:00</td></tr>
+    <tr><td>3. Slide 8 (220.87)</td><td>20:35</td></tr>
+    <tr><td>4. Slide 3 (the $3–5k)</td><td>19:20</td></tr>
+    <tr><td>5. One demo house on slide 10, not two</td><td>18:20</td></tr>
+    <tr><td>6. Slide 14 (do it yourself)</td><td>17:05</td></tr>
+  </table>
+  <div class="ok"><b>Never cut:</b> 2, 5, 6, 7, 11, 16, 17. Slides 9 and 12 say "cuttable" on screen so you can decide live.</div>
+</section>
+
+<section id="lessons">
+  <h2>The four lessons</h2>
+
+  <h3>1 · There's more than one method <span class="big">(slide 6)</span></h3>
+  <ul>
+    <li><b>Standard, Part III</b> — rebuilds the house circuit by circuit. The calc for a house being <i>built</i>.</li>
+    <li><b>220.82</b> — whole-house shortcut. Needs 100 A service or bigger.</li>
+    <li><b>220.83</b> — existing house, adding a load. <b>That's you.</b></li>
+    <li><b>220.87</b> — don't estimate. Measure.</li>
+  </ul>
+  <div class="say">"A lot of guys quoting you have never run any of these. They counted your breakers. That's not one of the four."<em>say it without sneering — you're explaining, not attacking</em></div>
+
+  <h3>2 · 220.83 <span class="big">(slide 7)</span></h3>
+  <p>Read the quote out loud, slowly. Then translate: <i>"Existing service. Additional load. That's a house getting an EV charger."</i></p>
+  <p>Mechanics: <b>first 8 kVA at 100%, everything after that at 40%.</b></p>
+  <p><b>(A) vs (B) if asked:</b> (B) is when you're <i>also installing</i> new AC or electric heat. It's about what you're putting <b>in</b>, not what the house already has. A charger alone is (A).</p>
+  <div class="ok"><b>Say the edition out loud:</b> "That's the 2017 wording — we're on 2023 in Kentucky, these sections read the same, but I'm quoting the copy I can legally hand you." That sentence buys you more credibility than anything else in the talk.</div>
+
+  <h3>3 · 220.87 — the one nobody teaches <span class="big">(slide 8)</span></h3>
+  <div class="say">"Take the highest your house has actually pulled. Multiply by one-two-five. Add the charger. If that's under your service rating, you're done — and you never estimated anything."</div>
+  <p>How they get it: a year of demand data from the utility, or 30 days on a recording meter with the house occupied and the heat or AC running. The code defines the peak as the highest <b>15-minute average</b> — the exact interval utilities already report.</p>
+
+  <h3>4 · Your lesson — do it live <span class="big">(slide 11)</span></h3>
+  <p>Start on the defaults (35 mi, 8 hrs → <b>20 A breaker</b>). Change <b>one thing at a time:</b></p>
+  <table>
+    <tr><th>Move</th><th>Result</th></tr>
+    <tr><td>Miles 35 → <b>60</b><br><i>"I just doubled the driving. The breaker didn't move."</i></td><td>still 20 A</td></tr>
+    <tr><td>Hours 8 → <b>4</b><br><i>"Same driver. Same car. Same miles. Only the parking hours changed."</i></td><td>30 A</td></tr>
+    <tr><td>Car → <b>the truck</b></td><td>50 A</td></tr>
+    <tr><td>100 mi / <b>2 hrs</b><br><i>"That's when you need the big one. That's not most of you."</i></td><td>60 A · hardwire</td></tr>
+  </table>
+  <div class="say">"Hours are the lever. Not the badge on the box."</div>
+  <div class="ok"><b>Honesty beat:</b> "The breaker line is code and it's exact. Everything above it is arithmetic — and your miles-per-kWh is a guess until you check your own car."</div>
+</section>
+
+<section id="demo">
+  <h2>Live demos — how they don't go sideways</h2>
+  <h3>Slide 10 — the panel</h3>
+  <p>Ask it this way: <i>"Who's got a house they know the numbers on? Roughly how big, and are you 100 or 200 amp?"</i></p>
+  <ul>
+    <li>Don't know their service size → <i>"Look at the main breaker — the big one at the top. It's got a number on it."</i> Default to 200.</li>
+    <li><b>Nobody volunteers → use your own house.</b> Never stand there waiting.</li>
+    <li>Comes back <b>red</b> → that's a gift: <i>"That's the one in five. And you already know two ways out — charge slower, or pull your real demand off the meter."</i></li>
+  </ul>
+  <table>
+    <tr><th>Pocket house</th><th>Result</th></tr>
+    <tr><td>2000 ft², 200 A, 3 ton, gas heat, range + dryer, 48 A</td><td>127 / 200 ✅</td></tr>
+    <tr><td>Same house, <b>100 A</b> service</td><td>127 / 100 🔴</td></tr>
+    <tr><td>Then rescue it — drop to <b>16 A</b></td><td>95 A ⚠️ fits</td></tr>
+  </table>
+  <h3>Slide 11 — the charger sizer</h3>
+  <p>Run the four moves above. It's pure arithmetic in the page — it can't fail.</p>
+  <div class="warn"><b>If anything won't load:</b> say the spine line and advance. <b>Never debug on stage.</b></div>
+</section>
+
+<section id="numbers">
+  <h2>Numbers — don't fumble these</h2>
+  <table>
+    <tr><th>Number</th><th>What</th></tr>
+    <tr><td><b>$3,000–$5,000</b></td><td>typical quote</td></tr>
+    <tr><td><b>410 A</b></td><td>breakers in a 200 A panel <i>(illustrative — that's the point)</i></td></tr>
+    <tr><td><b>141 / 127 / 113</b></td><td>Standard / 220.82 / 220.83(A), same house + 48 A charger</td></tr>
+    <tr><td><b>8 kVA @100%, then 40%</b></td><td>220.83(A)</td></tr>
+    <tr><td><b>peak × 1.25 + new load ≤ service</b></td><td>220.87</td></tr>
+    <tr><td><b>amps × 1.25 → next standard size</b></td><td>the breaker rule · 625.41 · 240.4(B)</td></tr>
+    <tr><td><b>4 out of 5</b></td><td>"in the homes <i>I've</i> checked" — your data, know the count</td></tr>
+    <tr><td><b>$12.99</b></td><td>full report · free calculator on the site · ~$300 service call</td></tr>
+  </table>
+  <div class="warn">
+    <b>Never</b> state a code section you're not sure of — "that's in the existing-dwelling section" is always safe.<br><br>
+    <b>Never</b> quote 2023 text as verbatim. Everything you have is the 2017 copy. Saying so makes you <i>more</i> credible.<br><br>
+    <b>The 80% is not a code pass/fail.</b> It's your comfort line, from the continuous-load 125% rule. The code test is calculated load ≤ service rating.<br><br>
+    <b>Website only.</b> iOS is $16.99 (Apple's cut). Don't send anyone to the App Store.
+  </div>
+</section>
+
+<section id="blank">
+  <h2>If you blank</h2>
+  <ol>
+    <li><b>"Let me say that a different way."</b> — sounds deliberate, resets you.</li>
+    <li><b>"The short version is—"</b> then the spine line.</li>
+    <li><b>"Here, let me just show you."</b> — jump to slide 10 or 11 and run it live.</li>
+  </ol>
+  <div class="ok">Blanking looks like thinking. <b>Don't apologize for a pause.</b> That's what the water is for.</div>
+</section>
+
+<section id="mine">
+  <h2>The landmine — someone already paid</h2>
+  <p>Get ahead of it on slide 13. <b>Absolve first:</b></p>
+  <div class="say">"And if you already upgraded — that's not on you. You did what anybody does, you trusted the guy with the license. You're in good shape now: room for a second car, a heat pump, whatever. I just want the next person to get asked the question."</div>
+  <div class="warn"><b>Don't give that person the charge-slower lesson.</b> You'd be telling them there were <i>two</i> ways they didn't need to spend. Save it for someone who comes back red.</div>
+</section>
+
+<section id="close">
+  <h2>The close — verbatim</h2>
+  <div class="say">"Here's all you have to say. Before you pay thousands to upgrade your panel for an EV charger, check evchargeright.com — a master electrician built it, and four out of five people don't even need the upgrade."<em>pause</em></div>
+  <div class="say">"Think of one person who's talked about getting an EV. You've got somebody. Text them this right now, while you're sitting here. When they don't spend four grand — that was you."</div>
+  <div class="ok"><b>Then stop talking.</b> Leave slide 17 up through the whole Q&A. Don't advance past it.</div>
+</section>
+
+<section id="after">
+  <h2>After — you're making advocates</h2>
+  <ul>
+    <li>Stand at the back. <b>"Grab me, I'll run yours right now"</b> — do 3 or 4 on your phone.</li>
+    <li><b>Hand out business cards</b> with the QR. Physical beats a screenshot.</li>
+    <li>Ask Mike: <i>"Would it help if I wrote this up for the newsletter?"</i></li>
+  </ul>
+  <p>For the people who speak at ribbon-cuttings:</p>
+  <div class="say">"Some of y'all get asked to speak at these things. If one line of this is useful — that four out of five don't need the upgrade — take it. Use it. You don't have to mention me."</div>
+</section>
+
+<footer>
+  Jason Walls · IBEW Local 369 · <a href="https://evchargeright.com">evchargeright.com</a><br>
+  Deck: <a href="https://evolve-deck.vercel.app">evolve-deck.vercel.app</a> · <code>→</code> move · <code>N</code> notes · <code>T</code> timer
+</footer>
+
+</div>
+</body>
+</html>
